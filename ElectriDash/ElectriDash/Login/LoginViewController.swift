@@ -24,8 +24,7 @@ class LoginViewController: UIViewController {
         
         let gradientLayer:CAGradientLayer = CAGradientLayer()
         gradientLayer.frame.size = self.gradientView.frame.size
-        gradientLayer.colors =
-            [UIColor.white.cgColor,UIColor.red.withAlphaComponent(1).cgColor]
+        gradientLayer.colors = [Constants.AppColors.loginBlue.cgColor,Constants.AppColors.loginGreen.cgColor]
         //Use diffrent colors
         self.gradientView.layer.addSublayer(gradientLayer)
         

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1T-QC-tmg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RyF-FX-8i0">
@@ -51,9 +51,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="n1T-QC-tmg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8nd-sB-ybc"/>
-                            <constraint firstItem="n1T-QC-tmg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="HMK-HW-HpS"/>
-                            <constraint firstItem="n1T-QC-tmg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jQh-aU-SzH"/>
+                            <constraint firstItem="n1T-QC-tmg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="8nd-sB-ybc"/>
+                            <constraint firstItem="n1T-QC-tmg" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="HMK-HW-HpS"/>
+                            <constraint firstItem="n1T-QC-tmg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jQh-aU-SzH"/>
                             <constraint firstItem="n1T-QC-tmg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ka6-cO-ivv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
