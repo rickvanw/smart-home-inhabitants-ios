@@ -13,6 +13,8 @@
 		1DACFA682074FDFB00D7222B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA672074FDFB00D7222B /* Assets.xcassets */; };
 		1DACFA6B2074FDFB00D7222B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA692074FDFB00D7222B /* LaunchScreen.storyboard */; };
 		1DACFA762074FDFB00D7222B /* ElectriDashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA752074FDFB00D7222B /* ElectriDashTests.swift */; };
+		6A6A8031130949950A51A3BD /* Pods_ElectriDashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */; };
+		CADEABB4584FCAD9021030B9 /* Pods_ElectriDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,12 @@
 		1DACFA712074FDFB00D7222B /* ElectriDashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectriDashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA752074FDFB00D7222B /* ElectriDashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectriDashTests.swift; sourceTree = "<group>"; };
 		1DACFA772074FDFB00D7222B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
+		E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.release.xcconfig"; sourceTree = "<group>"; };
+		EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.release.xcconfig"; sourceTree = "<group>"; };
+		FAD4A06742EC18FBCDEEEFF0 /* Pods-ElectriDashTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CADEABB4584FCAD9021030B9 /* Pods_ElectriDash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A6A8031130949950A51A3BD /* Pods_ElectriDashTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EA6615BF26E1D38B2B8E96C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */,
+				F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */,
+				FAD4A06742EC18FBCDEEEFF0 /* Pods-ElectriDashTests.debug.xcconfig */,
+				E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1DACFA542074FDF900D7222B = {
 			isa = PBXGroup;
 			children = (
 				1DACFA5F2074FDF900D7222B /* ElectriDash */,
 				1DACFA742074FDFB00D7222B /* ElectriDashTests */,
 				1DACFA5E2074FDF900D7222B /* Products */,
+				0EA6615BF26E1D38B2B8E96C /* Pods */,
+				2C8EDF8D0EF8EE343F5597F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +119,15 @@
 			path = ElectriDashTests;
 			sourceTree = "<group>";
 		};
+		2C8EDF8D0EF8EE343F5597F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */,
+				EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DACFA7A2074FDFB00D7222B /* Build configuration list for PBXNativeTarget "ElectriDash" */;
 			buildPhases = (
+				DA4BCA0F4EBB4BDE5E49D6B2 /* [CP] Check Pods Manifest.lock */,
 				1DACFA592074FDF900D7222B /* Sources */,
 				1DACFA5A2074FDF900D7222B /* Frameworks */,
 				1DACFA5B2074FDF900D7222B /* Resources */,
+				269A536DAE684A4703147DAC /* [CP] Embed Pods Frameworks */,
+				850F2DAC77549745F0FF0177 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DACFA7D2074FDFB00D7222B /* Build configuration list for PBXNativeTarget "ElectriDashTests" */;
 			buildPhases = (
+				1C64A98DA99B4C438280A09F /* [CP] Check Pods Manifest.lock */,
 				1DACFA6D2074FDFB00D7222B /* Sources */,
 				1DACFA6E2074FDFB00D7222B /* Frameworks */,
 				1DACFA6F2074FDFB00D7222B /* Resources */,
+				E749F32343A45FBB8AF69D1E /* [CP] Embed Pods Frameworks */,
+				DB462737745CB5FA3A5E9A43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +229,105 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C64A98DA99B4C438280A09F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ElectriDashTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		269A536DAE684A4703147DAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		850F2DAC77549745F0FF0177 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA4BCA0F4EBB4BDE5E49D6B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ElectriDash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB462737745CB5FA3A5E9A43 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E749F32343A45FBB8AF69D1E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1DACFA592074FDF900D7222B /* Sources */ = {
@@ -291,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -345,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -356,11 +493,13 @@
 		};
 		1DACFA7B2074FDFB00D7222B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,11 +513,13 @@
 		};
 		1DACFA7C2074FDFB00D7222B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,6 +533,7 @@
 		};
 		1DACFA7E2074FDFB00D7222B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAD4A06742EC18FBCDEEEFF0 /* Pods-ElectriDashTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -413,6 +555,7 @@
 		};
 		1DACFA7F2074FDFB00D7222B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
