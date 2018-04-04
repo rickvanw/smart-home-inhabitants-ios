@@ -79,3 +79,6 @@ fastlane/test_output
 
 
 # End of https://www.gitignore.io/api/xcode,swift
+ElectriDash/ElectriDash\.xcodeproj/project\.pbxproj
+
+\.DS_Store
