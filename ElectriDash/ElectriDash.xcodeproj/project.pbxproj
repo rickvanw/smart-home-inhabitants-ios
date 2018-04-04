@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA602074FDF900D7222B /* AppDelegate.swift */; };
-		1DACFA632074FDF900D7222B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA622074FDF900D7222B /* ViewController.swift */; };
+		1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA622074FDF900D7222B /* LoginViewController.swift */; };
 		1DACFA662074FDF900D7222B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA642074FDF900D7222B /* Main.storyboard */; };
 		1DACFA682074FDFB00D7222B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA672074FDFB00D7222B /* Assets.xcassets */; };
 		1DACFA6B2074FDFB00D7222B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA692074FDFB00D7222B /* LaunchScreen.storyboard */; };
 		1DACFA762074FDFB00D7222B /* ElectriDashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA752074FDFB00D7222B /* ElectriDashTests.swift */; };
+		1DACFA8420750C7500D7222B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8320750C7500D7222B /* Helper.swift */; };
+		1DACFA8620750D0800D7222B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8520750D0800D7222B /* Constants.swift */; };
+		1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8820750D7100D7222B /* UIView + addShadow.swift */; };
 		6A6A8031130949950A51A3BD /* Pods_ElectriDashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */; };
 		CADEABB4584FCAD9021030B9 /* Pods_ElectriDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */; };
 /* End PBXBuildFile section */
@@ -30,7 +33,7 @@
 /* Begin PBXFileReference section */
 		1DACFA5D2074FDF900D7222B /* ElectriDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectriDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA602074FDF900D7222B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DACFA622074FDF900D7222B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DACFA622074FDF900D7222B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1DACFA652074FDF900D7222B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DACFA672074FDFB00D7222B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DACFA6A2074FDFB00D7222B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +41,9 @@
 		1DACFA712074FDFB00D7222B /* ElectriDashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectriDashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA752074FDFB00D7222B /* ElectriDashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectriDashTests.swift; sourceTree = "<group>"; };
 		1DACFA772074FDFB00D7222B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DACFA8320750C7500D7222B /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		1DACFA8520750D0800D7222B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1DACFA8820750D7100D7222B /* UIView + addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + addShadow.swift"; sourceTree = "<group>"; };
 		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
 		E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +106,10 @@
 		1DACFA5F2074FDF900D7222B /* ElectriDash */ = {
 			isa = PBXGroup;
 			children = (
+				1DACFA8720750D5400D7222B /* Extensions */,
+				1DACFA8220750C5D00D7222B /* Utilities */,
+				1DACFA812075073900D7222B /* Login */,
 				1DACFA602074FDF900D7222B /* AppDelegate.swift */,
-				1DACFA622074FDF900D7222B /* ViewController.swift */,
 				1DACFA642074FDF900D7222B /* Main.storyboard */,
 				1DACFA672074FDFB00D7222B /* Assets.xcassets */,
 				1DACFA692074FDFB00D7222B /* LaunchScreen.storyboard */,
@@ -117,6 +125,31 @@
 				1DACFA772074FDFB00D7222B /* Info.plist */,
 			);
 			path = ElectriDashTests;
+			sourceTree = "<group>";
+		};
+		1DACFA812075073900D7222B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				1DACFA622074FDF900D7222B /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		1DACFA8220750C5D00D7222B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1DACFA8320750C7500D7222B /* Helper.swift */,
+				1DACFA8520750D0800D7222B /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		1DACFA8720750D5400D7222B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DACFA8820750D7100D7222B /* UIView + addShadow.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2C8EDF8D0EF8EE343F5597F0 /* Frameworks */ = {
@@ -334,8 +367,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DACFA632074FDF900D7222B /* ViewController.swift in Sources */,
+				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
+				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
+				1DACFA8420750C7500D7222B /* Helper.swift in Sources */,
+				1DACFA8620750D0800D7222B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RU2QQ2UYH5;
+				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -517,7 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = RU2QQ2UYH5;
+				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
