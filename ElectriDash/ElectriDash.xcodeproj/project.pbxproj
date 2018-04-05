@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA602074FDF900D7222B /* AppDelegate.swift */; };
 		1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA622074FDF900D7222B /* LoginViewController.swift */; };
 		1DACFA662074FDF900D7222B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA642074FDF900D7222B /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1DACFA5D2074FDF900D7222B /* ElectriDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectriDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA602074FDF900D7222B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DACFA622074FDF900D7222B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				1DACFA8820750D7100D7222B /* UIView + addShadow.swift */,
+				1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
 				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
 				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
