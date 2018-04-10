@@ -24,5 +24,14 @@ struct Constants {
     struct Names {
         static let appName = "EnergyDash"
     }
+    
+   struct JwtClaimNames
+    {
+        static let externalSessionId = "externalSessionId"
+        static let username = "username"
+        static let name = "name"
+        static let surname = "surname"
+        static let email = "email"
+    }
 }
 

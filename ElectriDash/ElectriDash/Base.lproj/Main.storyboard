@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad10_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="splitview2_3"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,15 +16,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1T-QC-tmg">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
-                                <color key="backgroundColor" red="0.41568627450000001" green="0.56470588239999997" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="694" height="768"/>
+                                <color key="backgroundColor" red="0.17254901960784313" green="0.20784313725490194" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iyx-sl-jvi">
-                                <rect key="frame" x="257" y="785" width="320" height="2"/>
+                                <rect key="frame" x="187" y="452" width="320" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="0.75274811557788945" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Pps-Mi-3z3"/>
@@ -42,7 +42,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EnergyDash" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckO-uV-dJM">
-                                <rect key="frame" x="16" y="598" width="802" height="48"/>
+                                <rect key="frame" x="16" y="265" width="662" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="B2z-IM-y4p"/>
                                 </constraints>
@@ -50,8 +50,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RyF-FX-8i0">
-                                <rect key="frame" x="267" y="702" width="300" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RyF-FX-8i0">
+                                <rect key="frame" x="197" y="369" width="300" height="30"/>
                                 <color key="tintColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5O9-WP-XiL"/>
@@ -77,7 +77,7 @@
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54k-B9-iwf">
-                                <rect key="frame" x="257" y="882" width="320" height="50"/>
+                                <rect key="frame" x="187" y="549" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.23921568627450979" green="0.79607843137254897" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="50Q-gv-o3U"/>
@@ -101,8 +101,8 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q1C-eY-pA0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9WV-AA-ktX">
-                                <rect key="frame" x="267" y="752" width="270" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9WV-AA-ktX">
+                                <rect key="frame" x="197" y="419" width="270" height="30"/>
                                 <color key="tintColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Fyp-rr-szO"/>
@@ -117,7 +117,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxh-7F-pkE">
-                                <rect key="frame" x="257" y="735" width="320" height="2"/>
+                                <rect key="frame" x="187" y="402" width="320" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="0.75119739321608037" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="oCS-zq-L9A"/>
@@ -135,14 +135,14 @@
                                 </variation>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="DAF-rx-1kT">
-                                <rect key="frame" x="352" y="448" width="130" height="130"/>
+                                <rect key="frame" x="282" y="115" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="9Fc-YK-Wdc"/>
                                     <constraint firstAttribute="height" constant="130" id="r2N-Jx-G7T"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" translatesAutoresizingMaskIntoConstraints="NO" id="bqn-jt-RZR">
-                                <rect key="frame" x="537" y="752" width="30" height="30"/>
+                                <rect key="frame" x="467" y="419" width="30" height="30"/>
                                 <color key="tintColor" white="1" alpha="0.74515153894472363" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -158,6 +158,7 @@
                         <constraints>
                             <constraint firstItem="Iyx-sl-jvi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="1aU-mo-32m"/>
                             <constraint firstItem="ckO-uV-dJM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4LY-2D-UR7"/>
+                            <constraint firstItem="RyF-FX-8i0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9fF-Ty-40U"/>
                             <constraint firstItem="ckO-uV-dJM" firstAttribute="top" secondItem="DAF-rx-1kT" secondAttribute="bottom" constant="20" id="BHQ-sG-P18"/>
                             <constraint firstItem="n1T-QC-tmg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CKr-VE-UFs"/>
                             <constraint firstItem="yxh-7F-pkE" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Cn3-BU-E5r"/>
@@ -197,36 +198,40 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9fF-Ty-40U"/>
                                 <exclude reference="Px9-Bs-vs7"/>
                                 <exclude reference="eFx-1v-AnA"/>
                                 <exclude reference="HgP-yU-qfY"/>
-                                <exclude reference="Yli-VK-SZw"/>
                                 <exclude reference="pXv-fC-8S7"/>
                                 <exclude reference="cXU-RO-4Sx"/>
+                                <exclude reference="Yli-VK-SZw"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=regular">
                             <mask key="constraints">
+                                <exclude reference="DH5-zH-iq5"/>
                                 <exclude reference="k6n-NN-Txz"/>
                                 <exclude reference="r8q-hQ-Lrc"/>
                                 <exclude reference="u7j-7r-02y"/>
+                                <include reference="9fF-Ty-40U"/>
                                 <include reference="Px9-Bs-vs7"/>
                                 <include reference="eFx-1v-AnA"/>
                                 <exclude reference="jJs-Qk-IdD"/>
                                 <exclude reference="Cn3-BU-E5r"/>
                                 <include reference="HgP-yU-qfY"/>
                                 <exclude reference="eJU-SY-WzE"/>
-                                <include reference="Yli-VK-SZw"/>
-                                <exclude reference="usQ-9g-RFo"/>
                                 <exclude reference="MyF-tw-Pfh"/>
                                 <include reference="pXv-fC-8S7"/>
                                 <exclude reference="1aU-mo-32m"/>
                                 <include reference="cXU-RO-4Sx"/>
                                 <exclude reference="yKw-VS-y2w"/>
+                                <include reference="Yli-VK-SZw"/>
+                                <exclude reference="usQ-9g-RFo"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="centerUsernameConstraint" destination="9fF-Ty-40U" id="uzV-DS-21k"/>
                         <outlet property="gradientView" destination="n1T-QC-tmg" id="Lz6-qf-B7D"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="DH5-zH-iq5" id="54s-fC-9lY"/>
                         <outlet property="loginButton" destination="54k-B9-iwf" id="qrG-nR-FR9"/>

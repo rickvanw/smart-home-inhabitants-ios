@@ -33,6 +33,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var titleBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet var centerUsernameConstraint: NSLayoutConstraint!
+    
+    
     // Constraints initial values
     private var keyboardHeightLayoutDistance: CGFloat!
     private var loginButtonToPasswordDistance:CGFloat!
@@ -55,6 +58,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        if self.traitCollection.horizontalSizeClass == .regular{
+            let value = UIInterfaceOrientation.landscapeLeft.rawValue
+            UIDevice.current.setValue(value, forKey: "orientation")
+        }
+        
         loginButton.addShadow()
         
         usernameTextField.delegate = self
@@ -70,7 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
-        if let username = Helper.getUsername(){
+        if let username = Helper.getStoredUsername(){
             usernameTextField.text = username
         }
         
@@ -126,6 +134,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
+    
+    override var shouldAutorotate: Bool{
+        if self.traitCollection.horizontalSizeClass == .regular && UIDevice.current.screenType != .iPhones_6Plus_6sPlus_7Plus_8Plus{
+            return true
+        }else{
+            return false
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -170,7 +186,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     print("JSON: \(json)") // serialized json response
                     print("TOKEN: \(token)")
                     
-                    Helper.setUsername(username: username)
+                    Helper.setStoredTokenString(token: token)
+                    Helper.setStoredUsername(username: username)
+                    
+                    Helper.getToken()
                     
                     // Biometric login, saving password
                     
@@ -268,25 +287,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         case .iPhones_6_6s_7_8:
             
             keyboardHeightLayoutConstraint.constant = 120
-            extraInputHeight = 60
+            extraInputHeight = 20
             extraButtonHeight = 20
             
         case .iPhones_6Plus_6sPlus_7Plus_8Plus:
             
             keyboardHeightLayoutConstraint.constant = 180
-            extraInputHeight = 60
+            extraInputHeight = 20
             extraButtonHeight = 20
             
         case .iPhoneX:
             
             keyboardHeightLayoutConstraint.constant = 180
-            extraInputHeight = 70
-            extraButtonHeight = 0
+            extraInputHeight = 20
+            extraButtonHeight = 20
             
         default:
             print("iPad")
             keyboardHeightLayoutConstraint.constant = 180
-            extraInputHeight = 150
+            extraInputHeight = 20
             extraButtonHeight = 20
         }
         
@@ -305,23 +324,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         view.endEditing(true)
         
-        requestToken(username: usernameTextField.text!, password: passwordTextField.text!)
-        
+        if usernameTextField.text != "" && passwordTextField.text != ""{
+            requestToken(username: usernameTextField.text!, password: passwordTextField.text!)
+
+        }else{
+            Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: "Controleer of alle velden zijn ingevuld", buttonTitle: "OK")
+        }
     }
     
     @IBAction func viewPasswordButtonPressed(_ sender: Any) {
         
         if(viewPassword == false) {
+
             
-            // Remember input, needs to be set again to move the cursor back
-            let inputText = passwordTextField.text
+            
+            // Remember input, needs to be set again to move the cursor back - TURNED OFF DUE TO PERFORMANCE ISSUES
+//            let inputText = passwordTextField.text
             
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(1.0)
             passwordTextField.isSecureTextEntry = false
             viewPassword = true
             
-            passwordTextField.text = ""
-            passwordTextField.text = inputText
+//            passwordTextField.text = ""
+//            passwordTextField.text = inputText
             
         } else {
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(0.50)
@@ -341,15 +366,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if endFrameY >= UIScreen.main.bounds.size.height {
                 
+                if self.traitCollection.horizontalSizeClass == .regular{
+                    centerUsernameConstraint.isActive = true
+                    keyboardHeightLayoutConstraint.isActive = false
+                }
+                
                 keyboardHeightLayoutConstraint.constant = keyboardHeightLayoutDistance
                 loginButtonToPasswordConstraint.constant = loginButtonToPasswordDistance
+
+                
                 
             } else {
+                
+                if self.traitCollection.horizontalSizeClass == .regular{
+                    centerUsernameConstraint.isActive = false
+                    keyboardHeightLayoutConstraint.isActive = true
+                }
                 
                 if !extraSmallScreenMode{
                     
                     keyboardHeightLayoutConstraint.constant = (endFrame?.size.height ?? 0.0) + extraButtonHeight
-                    loginButtonToPasswordConstraint.constant = loginButtonToPasswordDistance - ((endFrame?.size.height ?? 0.0) - keyboardHeightLayoutDistance) + extraInputHeight
+                    loginButtonToPasswordConstraint.constant = extraInputHeight
                     
                 }else{
                     keyboardHeightLayoutConstraint.constant = (endFrame?.size.height ?? 0.0) + extraButtonHeight

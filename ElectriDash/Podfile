@@ -8,6 +8,7 @@ target 'ElectriDash' do
   # Pods for ElectriDash
   pod 'Alamofire', '~> 4.7'
   pod 'KeychainAccess'
+  pod 'JWTDecode', '~> 2.1'
 
   target 'ElectriDashTests' do
     inherit! :search_paths
