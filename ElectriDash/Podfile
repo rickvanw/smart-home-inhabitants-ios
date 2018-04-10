@@ -6,6 +6,8 @@ target 'ElectriDash' do
   use_frameworks!
 
   # Pods for ElectriDash
+  pod 'Alamofire', '~> 4.7'
+  pod 'KeychainAccess'
 
   target 'ElectriDashTests' do
     inherit! :search_paths
