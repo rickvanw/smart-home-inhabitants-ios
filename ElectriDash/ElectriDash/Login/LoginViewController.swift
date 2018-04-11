@@ -27,7 +27,6 @@ class LoginViewController: UIViewController {
         gradientLayer.colors = [Constants.AppColors.loginBlue.cgColor,Constants.AppColors.loginGreen.cgColor]
         //Use diffrent colors
         self.gradientView.layer.addSublayer(gradientLayer)
-        
     }
 
     override func didReceiveMemoryWarning() {
