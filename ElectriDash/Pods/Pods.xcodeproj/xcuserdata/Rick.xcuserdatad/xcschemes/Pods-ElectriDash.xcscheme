@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7503C9EAF43EB7036F848CB6858EB509"
+               BlueprintIdentifier = "0A1850C77EBE9192FAD57B203747B32A"
                BuildableName = "Pods_ElectriDash.framework"
                BlueprintName = "Pods-ElectriDash"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7503C9EAF43EB7036F848CB6858EB509"
+            BlueprintIdentifier = "0A1850C77EBE9192FAD57B203747B32A"
             BuildableName = "Pods_ElectriDash.framework"
             BlueprintName = "Pods-ElectriDash"
             ReferencedContainer = "container:Pods.xcodeproj">

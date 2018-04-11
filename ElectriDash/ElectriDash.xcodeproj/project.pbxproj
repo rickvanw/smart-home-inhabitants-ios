@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
+		1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D75C359207CE0A000CF947D /* UIColor + hexString.swift */; };
 		1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA602074FDF900D7222B /* AppDelegate.swift */; };
 		1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA622074FDF900D7222B /* LoginViewController.swift */; };
 		1DACFA662074FDF900D7222B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA642074FDF900D7222B /* Main.storyboard */; };
@@ -32,7 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
+		1D75C359207CE0A000CF947D /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
 		1DACFA5D2074FDF900D7222B /* ElectriDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectriDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA602074FDF900D7222B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DACFA622074FDF900D7222B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +89,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1D1142D5207D3D5500AA99AB /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1D1142D6207D43CE00AA99AB /* Token.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		1DACFA542074FDF900D7222B = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +120,7 @@
 		1DACFA5F2074FDF900D7222B /* ElectriDash */ = {
 			isa = PBXGroup;
 			children = (
+				1D1142D5207D3D5500AA99AB /* Objects */,
 				1DACFA8720750D5400D7222B /* Extensions */,
 				1DACFA8220750C5D00D7222B /* Utilities */,
 				1DACFA812075073900D7222B /* Login */,
@@ -151,6 +164,7 @@
 			children = (
 				1DACFA8820750D7100D7222B /* UIView + addShadow.swift */,
 				1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */,
+				1D75C359207CE0A000CF947D /* UIColor + hexString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -175,8 +189,7 @@
 				1DACFA592074FDF900D7222B /* Sources */,
 				1DACFA5A2074FDF900D7222B /* Frameworks */,
 				1DACFA5B2074FDF900D7222B /* Resources */,
-				269A536DAE684A4703147DAC /* [CP] Embed Pods Frameworks */,
-				850F2DAC77549745F0FF0177 /* [CP] Copy Pods Resources */,
+				58BC2E979C770AC147FEBA99 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,8 +208,6 @@
 				1DACFA6D2074FDFB00D7222B /* Sources */,
 				1DACFA6E2074FDFB00D7222B /* Frameworks */,
 				1DACFA6F2074FDFB00D7222B /* Resources */,
-				E749F32343A45FBB8AF69D1E /* [CP] Embed Pods Frameworks */,
-				DB462737745CB5FA3A5E9A43 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,34 +296,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		269A536DAE684A4703147DAC /* [CP] Embed Pods Frameworks */ = {
+		58BC2E979C770AC147FEBA99 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		850F2DAC77549745F0FF0177 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DA4BCA0F4EBB4BDE5E49D6B2 /* [CP] Check Pods Manifest.lock */ = {
@@ -333,36 +336,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB462737745CB5FA3A5E9A43 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E749F32343A45FBB8AF69D1E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -370,12 +343,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
 				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
 				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
 				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
 				1DACFA8420750C7500D7222B /* Helper.swift in Sources */,
 				1DACFA8620750D0800D7222B /* Constants.swift in Sources */,
+				1D1142D7207D43CE00AA99AB /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -567,7 +542,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
