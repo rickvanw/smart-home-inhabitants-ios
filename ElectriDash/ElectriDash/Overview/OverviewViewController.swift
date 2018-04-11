@@ -10,6 +10,13 @@ import UIKit
 
 class OverviewViewController: UIViewController {
 
+    // Outlets
+    @IBOutlet weak var labelKwh: UILabel!
+    @IBOutlet weak var labelCelsius: UILabel!
+    @IBOutlet weak var labelM3: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
