@@ -43,6 +43,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Face ID is vereist als u dit wilt gebruiken om in te loggen</string>
 </dict>

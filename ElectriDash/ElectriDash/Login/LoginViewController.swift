@@ -56,8 +56,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        UIApplication.shared.statusBarStyle = .lightContent
-        
         if self.traitCollection.horizontalSizeClass == .regular{
             let value = UIInterfaceOrientation.landscapeLeft.rawValue
             UIDevice.current.setValue(value, forKey: "orientation")
@@ -131,9 +129,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
-    }
     
     override var shouldAutorotate: Bool{
         if self.traitCollection.horizontalSizeClass == .regular && UIDevice.current.screenType != .iPhones_6Plus_6sPlus_7Plus_8Plus{
