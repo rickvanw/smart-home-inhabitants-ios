@@ -176,7 +176,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             switch(response.result) {
             case .success:
-                
+
+        
                 if let json = response.result.value, let object = json as? [String:Any], let token = object["token"] as? String {
                     print("JSON: \(json)") // serialized json response
                     print("TOKEN: \(token)")
@@ -184,7 +185,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredTokenString(token: token)
                     Helper.setStoredUsername(username: username)
                     
-                    Helper.getToken()
+                    self.performSegue(withIdentifier: "go", sender: self)
+                    
+                    //Helper.getToken()
                     
                     // Biometric login, saving password
                     

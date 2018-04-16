@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (4.7.1)
+  - Charts (3.1.1):
+    - Charts/Core (= 3.1.1)
+  - Charts/Core (3.1.1)
   - JWTDecode (2.1.1)
   - KeychainAccess (3.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Charts
   - JWTDecode (~> 2.1)
   - KeychainAccess
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - Charts
     - JWTDecode
     - KeychainAccess
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
 
-PODFILE CHECKSUM: e47c44a69ab8ffe405684fc1b1a9cbc7eeb49b8e
+PODFILE CHECKSUM: c7a973bb54843a3a3cd1fa06bb360a2a9133bbfd
 
 COCOAPODS: 1.5.0
