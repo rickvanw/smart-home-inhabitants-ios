@@ -244,6 +244,7 @@
                         <outlet property="titleLabel" destination="ckO-uV-dJM" id="T12-OL-QPN"/>
                         <outlet property="usernameTextField" destination="RyF-FX-8i0" id="CUm-rt-c1c"/>
                         <outlet property="viewPasswordImageView" destination="bqn-jt-RZR" id="YBB-E0-vMy"/>
+                        <segue destination="piH-N5-Cet" kind="presentation" identifier="loginSegue" id="CVn-DX-q5K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

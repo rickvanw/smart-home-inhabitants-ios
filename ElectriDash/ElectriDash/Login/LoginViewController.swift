@@ -184,7 +184,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredTokenString(token: token)
                     Helper.setStoredUsername(username: username)
                     
-                    Helper.getToken()
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
                     
                     // Biometric login, saving password
                     
