@@ -62,6 +62,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         loginButton.addShadow()
+        loginButton.layer.cornerRadius = 25
+
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -157,8 +159,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredTokenString(token: token)
                     Helper.setStoredUsername(username: username)
                     
+                    // After successfull login, perform segue
                     self.performSegue(withIdentifier: "loginSegue", sender: self)
-                              
+                    
                 }else{
                     showError = true
                     errorMessage = "Probeer het opnieuw"
