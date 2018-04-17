@@ -63,7 +63,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.addShadow()
         loginButton.layer.cornerRadius = 25
-
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -73,7 +72,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // Storyboard values are not respected
         viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(0.50)
-        
         adjustViewForDevice()
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -81,7 +79,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if let username = Helper.getStoredUsername(){
             usernameTextField.text = username
         }
-        
         
     }
 
@@ -104,7 +101,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    
     override var shouldAutorotate: Bool{
         if self.traitCollection.horizontalSizeClass == .regular && UIDevice.current.screenType != .iPhones_6Plus_6sPlus_7Plus_8Plus{
             return true
@@ -124,7 +120,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }else{
             view.endEditing(true)
-
         }
         
         super.touchesBegan(touches, with: event)
@@ -322,8 +317,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 keyboardHeightLayoutConstraint.constant = keyboardHeightLayoutDistance
                 loginButtonToPasswordConstraint.constant = loginButtonToPasswordDistance
 
-                
-                
+
             } else {
                 
                 if self.traitCollection.horizontalSizeClass == .regular{
@@ -347,7 +341,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: TextFieldDelegate
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         // Try to find next responder
