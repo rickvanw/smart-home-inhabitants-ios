@@ -81,33 +81,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        // Biometric login obtaining password
-//
-//        let authenticationContext = LAContext()
-//
-//        if let username = Helper.getUsername(), Helper.biometricType() == Helper.BiometricType.face || Helper.biometricType() == Helper.BiometricType.touch, authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
-//
-//            let keychain = Keychain(service: "xom.smarthome.ElectriDash")
-//
-//            DispatchQueue.global().async {
-//                do {
-//                    let password = try keychain
-//                        .get(username)
-//
-////                    print("password: \(password)")
-//
-//                    DispatchQueue.main.async { () -> Void in
-//                        self.passwordTextField.text = password
-//                        self.passwordFromKeychain = password
-//                    }
-//
-//                } catch let error {
-//                    // Error handling if needed...
-//                }
-//            }
-//        }
-        
-        
     }
 
     override func viewDidLayoutSubviews() {
@@ -185,30 +158,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredUsername(username: username)
                     
                     self.performSegue(withIdentifier: "loginSegue", sender: self)
-                    
-                    // Biometric login, saving password
-                    
-//                    let authenticationContext = LAContext()
-//
-//                    if  Helper.biometricType() == Helper.BiometricType.face || Helper.biometricType() == Helper.BiometricType.touch, authenticationContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
-//
-//                        if let existingUsername = Helper.getUsername(), existingUsername != username{
-//
-//                        }
-//
-//                        let keychain = Keychain(service: "xom.smarthome.ElectriDash")
-//                        DispatchQueue.global().async {
-//                            do {
-//                                // Should be the secret invalidated when passcode is removed? If not then use `.WhenUnlocked`
-//                                try keychain
-//                                    .accessibility(.whenPasscodeSetThisDeviceOnly, authenticationPolicy: .userPresence)
-//                                    .set(password, key: username)
-//                            } catch let error {
-//                                // Error handling if needed...
-//                            }
-//                        }
-//                    }
-                    
+                              
                 }else{
                     showError = true
                     errorMessage = "Probeer het opnieuw"
