@@ -15,6 +15,7 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle {
 
         // Do any additional setup after loading the view.
         
+        // Set the navbar currency/unit toggle
         Helper.setCurrencyUnitToggle(viewController: self)
         
     }
@@ -24,9 +25,27 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.initialize()
+    }
+    
+    // Triggered when currency/unit toggle pressed
     func currencyUnitTogglePressed() {
-        print("currencyUnitTogglePressed")
         
+        // TODO: Remove this demo
+//        print("currencyUnitTogglePressed")
+        self.initialize()
+    }
+    
+    
+    func initialize(){
+        // TODO: Remove this demo
+        
+        let kWh = 4.0
+        let cubicMeter = 3.0
+        
+        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
+        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
     }
 
     

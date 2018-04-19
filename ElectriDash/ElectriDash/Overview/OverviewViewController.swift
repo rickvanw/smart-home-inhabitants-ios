@@ -20,6 +20,7 @@ class OverviewViewController: UIViewController, CurrencyUnitToggle {
 
         // Do any additional setup after loading the view.
         
+        // Set the navbar currency/unit toggle
         Helper.setCurrencyUnitToggle(viewController: self)
     }
 
@@ -28,8 +29,9 @@ class OverviewViewController: UIViewController, CurrencyUnitToggle {
         // Dispose of any resources that can be recreated.
     }
     
+    // Triggered when currency/unit toggle pressed
     func currencyUnitTogglePressed() {
-        print("currencyUnitTogglePressed")
+        
     }
     
 

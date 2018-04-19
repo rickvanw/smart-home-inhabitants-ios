@@ -98,7 +98,7 @@ class Helper {
         
         var imageName = "unit"
         
-        if isEuro {
+        if isCurrency {
             imageName = "euro"
         }
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
@@ -111,10 +111,10 @@ class Helper {
     
     @objc static func currencyUnitTogglePressed(viewController: UIViewController){
         
-        if isEuro {
-            isEuro = false
+        if isCurrency {
+            isCurrency = false
         }else{
-            isEuro = true
+            isCurrency = true
         }
         
         if let topController = UIApplication.topViewController(), let controller = topController as? CurrencyUnitToggle {
@@ -125,8 +125,8 @@ class Helper {
         }
     }
 
-    
-    static var isEuro: Bool {
+    // Boolean is set when user has set to see currency instead of unit, the setting is saved in userdefaults
+    static var isCurrency: Bool {
         get {
             if let currencyUnit = UserDefaults.standard.bool(forKey: Constants.Keys.currencyUnit) as Bool?{
                 return currencyUnit
@@ -134,54 +134,47 @@ class Helper {
                 return false
             }
         }
-        set(isEuro) {
-            UserDefaults.standard.set(isEuro, forKey: Constants.Keys.currencyUnit)
+        set(isCurrency) {
+            UserDefaults.standard.set(isCurrency, forKey: Constants.Keys.currencyUnit)
             UserDefaults.standard.synchronize()
         }
     }
     
-    // Return in kwh or euro
-    static func getCurrencyOrKwh(kwh: Double) -> String{
-        if isEuro {
-            let price =  kwh * Constants.prices.kWh
+    // Return in kwh or currency string
+    static func getCurrencyOrKWh(kWh: Double) -> String{
+        if isCurrency {
+            let price =  kWh * Constants.Prices.kWh
             return "\(price)"
         }else{
-            return "\(kwh)"
+            return "\(kWh)"
         }
     }
     
-    // Return in cubicMeter or euro
+    // Return in cubicMeter or currency string
     static func getCurrencyOrCubicMeter(cubicMeter: Double) -> String{
-        if isEuro {
-            let price = cubicMeter * Constants.prices.cubicMeter
+        if isCurrency {
+            let price = cubicMeter * Constants.Prices.cubicMeter
             return "\(price)"
         }else{
             return "\(cubicMeter)"
         }
     }
-
-    // Part of faceId / TouchId implementation - Disabled due to incompletion
-//    static func biometricType() -> BiometricType {
-//        let authContext = LAContext()
-//        if #available(iOS 11, *) {
-//            let _ = authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
-//            switch(authContext.biometryType) {
-//            case .none:
-//                return .none
-//            case .touchID:
-//                return .touch
-//            case .faceID:
-//                return .face
-//            }
-//        } else {
-//            return authContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? .touch : .none
-//        }
-//    }
-//
-//    enum BiometricType {
-//        case none
-//        case touch
-//        case face
-//    }
     
+    // Return kwh or currency label name
+    static func getCurrencyOrKWhName() -> String{
+        if isCurrency {
+            return Constants.Units.euro
+        }else{
+            return Constants.Units.kWh
+        }
+    }
+    
+    // Return cubicMeter or currency label name
+    static func getCurrencyOrCubicMeterName() -> String{
+        if isCurrency {
+            return Constants.Units.euro
+        }else{
+            return Constants.Units.cubicMeter
+        }
+    }
 }

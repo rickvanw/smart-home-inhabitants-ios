@@ -35,10 +35,17 @@ struct Constants {
         static let email = "email"
     }
     
-    struct prices
+    struct Prices
     {
         static let cubicMeter = 0.20
         static let kWh = 0.63
+    }
+    
+    struct Units
+    {
+        static let euro = "€"
+        static let kWh = "kWh"
+        static let cubicMeter = "m³"
     }
 }
 
