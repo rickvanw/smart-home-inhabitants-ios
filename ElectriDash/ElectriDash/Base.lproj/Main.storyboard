@@ -430,7 +430,7 @@
         <!--Energie-->
         <scene sceneID="1eI-ta-Bsb">
             <objects>
-                <viewController id="Hh7-qk-Wl1" sceneMemberID="viewController">
+                <viewController id="Hh7-qk-Wl1" customClass="EnergyViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DGN-IL-vc6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

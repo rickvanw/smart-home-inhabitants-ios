@@ -19,9 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Set statusBarStyle to light
         UIApplication.shared.statusBarStyle = .lightContent
-
+        
         
         return true
+    }
+    
+    @objc func currencyUnitTogglePressed(){
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

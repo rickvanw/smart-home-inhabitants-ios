@@ -5,6 +5,7 @@
 //  Created by Rick van Weersel on 04/04/2018.
 //  Copyright © 2018 Rick van Weersel. All rights reserved.
 //
+//  Energy prices obtained on 19/04/2018 
 
 import UIKit
 
@@ -18,7 +19,7 @@ struct Constants {
     struct Keys {
         static let token = "token"
         static let username = "username"
-
+        static let currencyUnit = "currencyUnit"
     }
     
     struct Names {
@@ -32,6 +33,12 @@ struct Constants {
         static let name = "name"
         static let surname = "surname"
         static let email = "email"
+    }
+    
+    struct prices
+    {
+        static let cubicMeter = 0.20
+        static let kWh = 0.63
     }
 }
 

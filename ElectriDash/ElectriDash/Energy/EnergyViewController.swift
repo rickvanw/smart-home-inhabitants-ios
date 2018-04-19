@@ -1,26 +1,22 @@
 //
-//  OverviewViewController.swift
+//  EnergyViewController.swift
 //  ElectriDash
 //
-//  Created by Ruben Assink on 11/04/2018.
+//  Created by Rick van Weersel on 18/04/2018.
 //  Copyright © 2018 Rick van Weersel. All rights reserved.
 //
 
 import UIKit
 
-class OverviewViewController: UIViewController, CurrencyUnitToggle {
+class EnergyViewController: UIViewController, CurrencyUnitToggle {
 
-    // Outlets
-    @IBOutlet weak var labelKwh: UILabel!
-    @IBOutlet weak var labelCelsius: UILabel!
-    @IBOutlet weak var labelM3: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         Helper.setCurrencyUnitToggle(viewController: self)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +26,11 @@ class OverviewViewController: UIViewController, CurrencyUnitToggle {
     
     func currencyUnitTogglePressed() {
         print("currencyUnitTogglePressed")
+        
     }
-    
 
+    
+    
     /*
     // MARK: - Navigation
 

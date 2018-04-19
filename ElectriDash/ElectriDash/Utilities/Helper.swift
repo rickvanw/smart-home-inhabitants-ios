@@ -94,8 +94,72 @@ class Helper {
         UserDefaults.standard.synchronize()
     }
     
+    static func setCurrencyUnitToggle(viewController: UIViewController){
+        
+        var imageName = "unit"
+        
+        if isEuro {
+            imageName = "euro"
+        }
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        
+        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed(viewController:)))
+        barButtonItem.tintColor = UIColor.white
+        
+        viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
+    }
     
+    @objc static func currencyUnitTogglePressed(viewController: UIViewController){
+        
+        if isEuro {
+            isEuro = false
+        }else{
+            isEuro = true
+        }
+        
+        if let topController = UIApplication.topViewController(), let controller = topController as? CurrencyUnitToggle {
+            
+            self.setCurrencyUnitToggle(viewController: controller as! UIViewController)
+            
+            controller.currencyUnitTogglePressed()
+        }
+    }
+
     
+    static var isEuro: Bool {
+        get {
+            if let currencyUnit = UserDefaults.standard.bool(forKey: Constants.Keys.currencyUnit) as Bool?{
+                return currencyUnit
+            } else {
+                return false
+            }
+        }
+        set(isEuro) {
+            UserDefaults.standard.set(isEuro, forKey: Constants.Keys.currencyUnit)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    // Return in kwh or euro
+    static func getCurrencyOrKwh(kwh: Double) -> String{
+        if isEuro {
+            let price =  kwh * Constants.prices.kWh
+            return "\(price)"
+        }else{
+            return "\(kwh)"
+        }
+    }
+    
+    // Return in cubicMeter or euro
+    static func getCurrencyOrCubicMeter(cubicMeter: Double) -> String{
+        if isEuro {
+            let price = cubicMeter * Constants.prices.cubicMeter
+            return "\(price)"
+        }else{
+            return "\(cubicMeter)"
+        }
+    }
+
     // Part of faceId / TouchId implementation - Disabled due to incompletion
 //    static func biometricType() -> BiometricType {
 //        let authContext = LAContext()
