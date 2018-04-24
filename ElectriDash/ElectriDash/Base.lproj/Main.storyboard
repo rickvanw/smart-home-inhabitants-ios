@@ -434,14 +434,150 @@
                     <view key="view" contentMode="scaleToFill" id="DGN-IL-vc6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy3-2x-Ukz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z44-cK-KnL">
+                                        <rect key="frame" x="10" y="10" width="355" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="AII-wp-rb5"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="yJO-O4-Pa5"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Overzicht"/>
+                                            <segment title="Apparaten"/>
+                                            <segment title="Historie"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.23921568627450979" green="0.79607843137254897" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="segmentPressed:" destination="Hh7-qk-Wl1" eventType="valueChanged" id="eWj-44-gnx"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-Gt-RqS">
+                                        <rect key="frame" x="0.0" y="48" width="375" height="700"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="700" id="hls-SZ-clR"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="mIf-9s-EPn" kind="embed" identifier="PageEmbedSegue" id="5F0-6T-n8o"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="width" secondItem="Gy3-2x-Ukz" secondAttribute="width" id="C5F-Su-H3d"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wb2-Gt-RqS" secondAttribute="bottom" id="Lj7-KH-dvk"/>
+                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="leading" secondItem="Gy3-2x-Ukz" secondAttribute="leading" id="aIO-fa-PsS"/>
+                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="top" secondItem="z44-cK-KnL" secondAttribute="bottom" constant="10" id="aYb-7k-Ob5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wb2-Gt-RqS" secondAttribute="trailing" id="cjW-f9-rhM"/>
+                                    <constraint firstItem="z44-cK-KnL" firstAttribute="top" secondItem="Gy3-2x-Ukz" secondAttribute="top" constant="10" id="ekT-Ch-nce"/>
+                                    <constraint firstItem="z44-cK-KnL" firstAttribute="leading" secondItem="Gy3-2x-Ukz" secondAttribute="leading" constant="10" id="oap-07-Wyy"/>
+                                    <constraint firstAttribute="trailing" secondItem="z44-cK-KnL" secondAttribute="trailing" constant="10" id="qDg-Vc-fCN"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gy3-2x-Ukz" secondAttribute="trailing" id="Aki-fV-Edk"/>
+                            <constraint firstAttribute="bottom" secondItem="Gy3-2x-Ukz" secondAttribute="bottom" id="S1e-3u-nAx"/>
+                            <constraint firstItem="Gy3-2x-Ukz" firstAttribute="top" secondItem="DGN-IL-vc6" secondAttribute="top" id="i2Q-hA-EMS"/>
+                            <constraint firstItem="Gy3-2x-Ukz" firstAttribute="leading" secondItem="DGN-IL-vc6" secondAttribute="leading" id="ike-cq-Hus"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GHC-IN-j16"/>
                     </view>
                     <navigationItem key="navigationItem" title="Energie" id="evQ-Fn-Qsl"/>
+                    <connections>
+                        <outlet property="pageView" destination="Wb2-Gt-RqS" id="OYH-wQ-dpp"/>
+                        <outlet property="pageViewHeightConstraint" destination="hls-SZ-clR" id="ll7-b1-Hja"/>
+                        <outlet property="segmentedControl" destination="z44-cK-KnL" id="Z2R-7b-0wT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnU-k5-wHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2567.1999999999998" y="1538.423645320197"/>
+            <point key="canvasLocation" x="2503" y="1538"/>
+        </scene>
+        <!--Energy Overview View Controller-->
+        <scene sceneID="YMA-dz-tIR">
+            <objects>
+                <viewController storyboardIdentifier="EnergyOverviewViewController" id="vpo-yE-Ubt" customClass="EnergyOverviewViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E4B-Xg-YJ3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbn-a7-MvC">
+                                <rect key="frame" x="107" y="382" width="161" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lbn-a7-MvC" firstAttribute="centerX" secondItem="E4B-Xg-YJ3" secondAttribute="centerX" id="43R-V5-OhS"/>
+                            <constraint firstItem="lbn-a7-MvC" firstAttribute="centerY" secondItem="E4B-Xg-YJ3" secondAttribute="centerY" id="Wqf-dS-hvF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ahb-rf-rEp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="osn-wA-BGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1719" y="2296"/>
+        </scene>
+        <!--Energy Devices View Controller-->
+        <scene sceneID="G44-iX-RRm">
+            <objects>
+                <viewController storyboardIdentifier="EnergyDevicesViewController" id="pMm-uT-Zo6" customClass="EnergyDevicesViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" tag="1" contentMode="scaleToFill" id="prj-Bk-er4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-7j-2ND">
+                                <rect key="frame" x="119" y="976" width="137" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="IYc-7j-2ND" firstAttribute="centerY" secondItem="prj-Bk-er4" secondAttribute="centerY" id="8YQ-kz-vDZ"/>
+                            <constraint firstItem="IYc-7j-2ND" firstAttribute="centerX" secondItem="prj-Bk-er4" secondAttribute="centerX" id="wVs-ca-G1P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V8z-Ev-WXq"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="2000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q6b-2j-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2502" y="2735"/>
+        </scene>
+        <!--Energy History View Controller-->
+        <scene sceneID="nP9-DV-Xrl">
+            <objects>
+                <viewController storyboardIdentifier="EnergyHistoryViewController" id="dTZ-Md-ckf" customClass="EnergyHistoryViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" tag="2" contentMode="scaleToFill" id="04n-tQ-HGl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL6-F4-QVU">
+                                <rect key="frame" x="126" y="382.66666666666669" width="122" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sL6-F4-QVU" firstAttribute="centerX" secondItem="04n-tQ-HGl" secondAttribute="centerX" id="AiZ-fL-ahi"/>
+                            <constraint firstItem="sL6-F4-QVU" firstAttribute="centerY" secondItem="04n-tQ-HGl" secondAttribute="centerY" id="O5P-3X-tMC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cjh-DL-ZQq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NrD-Ka-7BQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3284" y="2295.8128078817736"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zzh-fU-aTD">
@@ -452,7 +588,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Bet-bd-mGx">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1509983838" green="0.77205258610000005" blue="0.6420167685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23921568627450979" green="0.79607843137254897" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -465,6 +604,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nu-bR-plQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1624.8" y="1538.423645320197"/>
+        </scene>
+        <!--Energy Page Controller-->
+        <scene sceneID="ths-Gd-pR8">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mIf-9s-EPn" customClass="EnergyPageController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xru-Ch-20u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3372" y="1538"/>
         </scene>
     </scenes>
     <resources>

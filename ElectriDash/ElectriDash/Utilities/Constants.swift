@@ -37,8 +37,8 @@ struct Constants {
     
     struct Prices
     {
-        static let cubicMeter = 0.20
-        static let kWh = 0.63
+        static let kWh = 0.20
+        static let cubicMeter = 0.63
     }
     
     struct Units

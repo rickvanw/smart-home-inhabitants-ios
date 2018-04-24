@@ -8,8 +8,12 @@
 
 import UIKit
 
-class EnergyViewController: UIViewController, CurrencyUnitToggle {
+class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter {
 
+    @IBOutlet var segmentedControl: UISegmentedControl!
+    @IBOutlet var pageView: UIView!
+    @IBOutlet var pageViewHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,10 +37,8 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle {
     func currencyUnitTogglePressed() {
         
         // TODO: Remove this demo
-//        print("currencyUnitTogglePressed")
         self.initialize()
     }
-    
     
     func initialize(){
         // TODO: Remove this demo
@@ -48,16 +50,20 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle {
         print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
     }
 
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
+        
+        if let childVC = self.childViewControllers.first as? SegmentPageChange{
+            childVC.pageChangedToIndex(index: sender.selectedSegmentIndex)
+        }
     }
-    */
+    
+    func heightConstraint(constant: CGFloat) {
+        pageViewHeightConstraint.constant = constant
+        
+        pageView.needsUpdateConstraints()
+    }
 
 }
+
+
+
