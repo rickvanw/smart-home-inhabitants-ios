@@ -2,23 +2,32 @@ PODS:
   - Alamofire (4.7.1)
   - JWTDecode (2.1.1)
   - KeychainAccess (3.1.0)
+  - RxCocoa (4.1.2):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - JWTDecode (~> 2.1)
   - KeychainAccess
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - JWTDecode
     - KeychainAccess
+    - RxCocoa
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
+  RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
+  RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: e47c44a69ab8ffe405684fc1b1a9cbc7eeb49b8e
+PODFILE CHECKSUM: 740da8bc1ba9163f1183ed5228be8d53a7f025ed
 
 COCOAPODS: 1.5.0

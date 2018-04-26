@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+
 
 class OverviewViewController: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var labelKwh: UILabel!
     @IBOutlet weak var labelCelsius: UILabel!
     @IBOutlet weak var labelM3: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
+//        observable.subscribe { event in
+//            print("TEST")
+//            print(event)
+//        }
+                // go on about my business
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +32,8 @@ class OverviewViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // Setter
     
 
     /*
