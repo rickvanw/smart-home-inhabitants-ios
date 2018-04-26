@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyDevicesViewController: UIViewController {
+class EnergyDevicesViewController: UIViewController, EnergyPageControllerToPage {
 
     var height:CGFloat?
     

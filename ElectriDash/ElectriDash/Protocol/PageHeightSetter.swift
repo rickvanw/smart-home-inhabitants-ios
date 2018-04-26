@@ -9,7 +9,6 @@
 import UIKit
 
 protocol PageHeightSetter{
-    
-    func heightConstraint(constant: CGFloat)
 
+    func heightConstraint(constant: CGFloat)
 }

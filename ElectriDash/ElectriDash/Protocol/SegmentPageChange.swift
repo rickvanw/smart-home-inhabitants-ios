@@ -11,5 +11,5 @@ import UIKit
 protocol SegmentPageChange {
     
     func pageChangedToIndex(index: Int)
-    
+        
 }

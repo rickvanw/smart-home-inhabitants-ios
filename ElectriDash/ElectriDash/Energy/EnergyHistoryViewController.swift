@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyHistoryViewController: UIViewController {
+class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage {
     
     var height:CGFloat?
     

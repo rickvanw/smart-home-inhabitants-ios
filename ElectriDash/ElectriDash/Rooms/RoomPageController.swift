@@ -1,22 +1,22 @@
 //
-//  EnergyPageController.swift
+//  RoomPageController.swift
 //  ElectriDash
 //
-//  Created by Rick van Weersel on 23/04/2018.
+//  Created by Rick van Weersel on 25/04/2018.
 //  Copyright © 2018 Rick van Weersel. All rights reserved.
 //
 
 import UIKit
 
-class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, SegmentPageChange {
-
+class RoomPageController: UIPageViewController,  UIPageViewControllerDelegate, SegmentPageChange{
+    
     var currentPageIndex = 0
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
-            self.getViewController(withIdentifier: "EnergyOverviewViewController"),
-            self.getViewController(withIdentifier: "EnergyDevicesViewController"),
-            self.getViewController(withIdentifier: "EnergyHistoryViewController")
+            self.getViewController(withIdentifier: "RoomOverviewViewController"),
+            self.getViewController(withIdentifier: "RoomDevicesViewController"),
+            self.getViewController(withIdentifier: "RoomHistoryViewController")
         ]
     }()
     
@@ -33,13 +33,22 @@ class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.delegate = self
         
+        self.delegate = self
+
         if let firstViewController = pages.first {
             setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let room = (self.parent as! RoomViewController).room
+        
+        guard let currentPage = self.viewControllers?.first else { return }
+        (currentPage as! RoomPageControllerToPage).setRoom(room: room!)
+    }
+    
     
     func setPageHeight() {
         
@@ -47,7 +56,7 @@ class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, 
             
             guard let currentPage = self.viewControllers?.first else { return }
             let height: CGFloat
-            var vc = currentPage as! EnergyPageControllerToPage
+            var vc = currentPage as! RoomPageControllerToPage
             height = vc.height!
             
             print("Height: \(height)")
@@ -56,7 +65,7 @@ class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, 
             
         }
     }
-
+    
     // MARK: SegmentPageChange
     
     func pageChangedToIndex(index: Int) {
@@ -67,17 +76,17 @@ class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, 
         case 0:
             print("first")
             viewController = pages[0]
-
+            
             break;
         case 1:
             print("second")
             viewController = pages[1]
-
+            
             break;
         case 2:
             print("third")
             viewController = pages[2]
-
+            
             break;
         default:
             break;
@@ -91,10 +100,14 @@ class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, 
         
         self.currentPageIndex = index
 
+        let room = (self.parent as! RoomViewController).room
+        
+        guard let currentPage = self.viewControllers?.first else { return }
+        (currentPage as! RoomPageControllerToPage).setRoom(room: room!)
+        
         setViewControllers([viewController], direction: direction, animated: false, completion: nil)
         
         setPageHeight()
         
     }
 }
-
