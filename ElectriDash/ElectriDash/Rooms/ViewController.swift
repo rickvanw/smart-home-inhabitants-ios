@@ -75,7 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         Alamofire.request("https://energydash.azurewebsites.net/api/rooms", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
-                print("Validation Successful")
+                print("Rooms info retrieved")
                 do {
                     self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
                     self.collectionView.reloadData()
@@ -90,25 +90,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.rooms.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        print("Filling cells")
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
         // Set cell content
-        
         cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
         cell.roomKwh.text = String(rooms[indexPath.row].energyUsage) + " kWh"
         cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
-        cell.roomLastMotion.text = String(rooms[indexPath.row].lastMotion)
-        
+        cell.roomLastMotion.text = rooms[indexPath.row].lastMotion
+
+
         // Apply cell properties
         cell.contentView.layer.cornerRadius = 8
         cell.contentView.layer.borderWidth = 1.0

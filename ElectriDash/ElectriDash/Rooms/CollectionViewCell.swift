@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    // Mark: outlets
     @IBOutlet weak var locationImage: UIImageView!
     @IBOutlet weak var roomName: UILabel!
     @IBOutlet weak var roomKwh: UILabel!
