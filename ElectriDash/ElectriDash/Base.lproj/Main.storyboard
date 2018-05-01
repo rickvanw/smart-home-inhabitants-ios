@@ -479,11 +479,28 @@
                     <navigationItem key="navigationItem" title="Rooms" id="h11-QR-AeV"/>
                     <connections>
                         <outlet property="collectionView" destination="HZ5-Gb-PbO" id="6IO-83-VBR"/>
+                        <segue destination="oIZ-au-xeD" kind="show" identifier="MasterToDetail" id="Nlf-om-Rpq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Za-iP-Ud0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1624.8" y="2278.8177339901481"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="eD3-kq-COp">
+            <objects>
+                <viewController id="oIZ-au-xeD" customClass="DetailViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yJG-hq-m8T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ine-HU-9WQ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R0W-8H-8Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2556" y="2279"/>
         </scene>
         <!--Rooms-->
         <scene sceneID="bIT-1T-yaS">

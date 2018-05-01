@@ -12,6 +12,7 @@ import Alamofire
 
 // Extension to download an Image asynchronously
 extension UIImageView {
+    
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -60,7 +61,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         } else {
             collectionView.addSubview(refresher)
         }
-        
         getData()
     }
     
@@ -89,6 +89,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.refresher.endRefreshing()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "MasterToDetail" {
+            let destVC = segue.destination as! DetailViewController
+            destVC.room = sender as? Room
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.rooms.count
@@ -105,7 +113,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
         cell.roomLastMotion.text = rooms[indexPath.row].lastMotion
 
-
         // Apply cell properties
         cell.contentView.layer.cornerRadius = 8
         cell.contentView.layer.borderWidth = 1.0
@@ -119,6 +126,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let room = rooms[indexPath.row]
+        performSegue(withIdentifier: "MasterToDetail", sender: room)
+    }
+    
+    
 }
 
 
