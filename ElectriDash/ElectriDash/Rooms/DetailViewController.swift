@@ -10,18 +10,17 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     var room: Room?
 
+    @IBOutlet weak var frfrfr: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUI()
+        self.title = room?.name
         // Do any additional setup after loading the view.
     }
     
-    func setUI() {
-        print(room?.name)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
