@@ -60,7 +60,7 @@ class RoomViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter
     
     @IBAction func segmentPressed(_ sender: UISegmentedControl) {
         
-        if var childVC = self.childViewControllers.first as? SegmentPageChange, room != nil{            
+        if let childVC = self.childViewControllers.first as? SegmentPageChange, room != nil{            
             childVC.pageChangedToIndex(index: sender.selectedSegmentIndex)
         }
     }

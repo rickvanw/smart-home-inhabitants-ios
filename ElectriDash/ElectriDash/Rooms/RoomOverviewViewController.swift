@@ -26,7 +26,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         
         height = self.view.frame.height
 
-        print("\(height)")
+//        print("\(height)")
         
         self.initialize()
 
@@ -50,44 +50,18 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             roomTotalEnergyLabel.text = "\(room!.energyUsage) kWh"
             roomTemperatureLabel.text = "\(room!.temperature) °C"
             
-            let date = room!.lastMotion
+            let beginDate = room!.lastMotion
             
-            let currentDate = Date()
-            let calendar = Calendar.current
+            let endDate = Date()
+//            let calendar = Calendar.current
 //            let day = calendar.component(.day, from: currentDate)
 //            let hour = calendar.component(.hour, from: currentDate)
 //            let minutes = calendar.component(.minute, from: currentDate)
             
 //            var showDate = "\(minutes) minuten geleden"
             
-            let day = calendar.dateComponents([.day], from: date, to: currentDate).day!
-            let hour = calendar.dateComponents([.hour], from: date, to: currentDate).hour!
-            let minute = calendar.dateComponents([.minute], from: date, to: currentDate).minute!
-            
-            var showDate = ""
-            
-            if day > 0 {
-                showDate = "\(day) dagen geleden"
-                
-                if day == 1 {
-                    showDate = "\(day) dag geleden"
-                }
-            }else if hour > 0 {
-                showDate = "\(hour) uur geleden"
-                
-                if hour == 1 {
-                    
-                    showDate = "\(hour) uur geleden"
-                }
-            }else{
-                showDate = "\(minute) minuten geleden"
-                
-                if minute == 1 {
-                    showDate = "\(minute) minuut geleden"
-                }
-            }
-            
-            // TODO: set time from
+            let showDate = Helper.getFormattedTimeStringBetweenDates(beginDate: beginDate, endDate: endDate)
+
             roomLastMovementLabel.text = "\(showDate)"
             
         }

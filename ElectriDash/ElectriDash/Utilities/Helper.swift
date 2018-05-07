@@ -177,4 +177,39 @@ class Helper {
             return Constants.Units.cubicMeter
         }
     }
+    
+    // Return appropriate minute/hour/day string depending on time difference
+    static func getFormattedTimeStringBetweenDates(beginDate:Date, endDate:Date) -> String{
+        
+        let calendar = Calendar.current
+
+        let day = calendar.dateComponents([.day], from: beginDate, to: endDate).day!
+        let hour = calendar.dateComponents([.hour], from: beginDate, to: endDate).hour!
+        let minute = calendar.dateComponents([.minute], from: beginDate, to: endDate).minute!
+        
+        var showDate = ""
+        
+        if day > 0 {
+            showDate = "\(day) dagen geleden"
+            
+            if day == 1 {
+                showDate = "\(day) dag geleden"
+            }
+        }else if hour > 0 {
+            showDate = "\(hour) uur geleden"
+            
+            if hour == 1 {
+                
+                showDate = "\(hour) uur geleden"
+            }
+        }else{
+            showDate = "\(minute) minuten geleden"
+            
+            if minute == 1 {
+                showDate = "\(minute) minuut geleden"
+            }
+        }
+        
+        return showDate
+    }
 }
