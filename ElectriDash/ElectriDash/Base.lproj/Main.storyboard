@@ -1000,7 +1000,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2ii-0A-4CO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LN3-fj-I6v">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1028,6 +1028,6 @@
         <image name="woonkamer" width="768" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dsb-41-pCo"/>
+        <segue reference="e8u-3t-DgF"/>
     </inferredMetricsTieBreakers>
 </document>
