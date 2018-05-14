@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoomPageController: UIPageViewController,  UIPageViewControllerDelegate, SegmentPageChange{
+class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, SegmentPageChange{
     
     var currentPageIndex = 0
     

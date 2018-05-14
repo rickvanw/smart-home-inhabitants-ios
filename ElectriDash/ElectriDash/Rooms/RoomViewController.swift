@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoomViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter {
+class RoomViewController: UIViewController, PageHeightSetter {
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var pageView: UIView!
@@ -24,9 +24,6 @@ class RoomViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter
         let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
         room = Room(id: 1, name: "Woonkamer", energyUsage: 13, temperature: 22, lastMotion: pastDate, imageLink: "https://www.woonsquare.nl/wp/wp-content/uploads/2017/06/Scandinavische-woonkamer-inspiratie-1024x640.jpg")
         
-        // Set the navbar currency/unit toggle
-        Helper.setCurrencyUnitToggle(viewController: self)
-        
         // Set the roomname from the selected room
         self.title = room?.name
         
@@ -41,16 +38,42 @@ class RoomViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter
         self.initialize()
     }
     
-    // Triggered when currency/unit toggle pressed
-    func currencyUnitTogglePressed() {
+    func setCurrencyUnitToggle(viewController: UIViewController){
         
-        // TODO: Remove this demo
+        var imageName = "unit"
+        
+        if Helper.isCurrency {
+            imageName = "euro"
+        }
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        
+        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed))
+        barButtonItem.tintColor = UIColor.white
+        
+        viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
+    }
+    
+    @objc func currencyUnitTogglePressed(){
+        
+        if Helper.isCurrency {
+            Helper.isCurrency = false
+        }else{
+            Helper.isCurrency = true
+        }
+        
+        self.setCurrencyUnitToggle(viewController: self)
+        
         self.initialize()
+        
     }
     
     func initialize(){
-        // TODO: Remove this demo
         
+        // Set the navbar currency/unit toggle
+        self.setCurrencyUnitToggle(viewController: self)
+        
+        // TODO: Remove this demo
+
         let kWh = 4.0
         let cubicMeter = 3.0
         

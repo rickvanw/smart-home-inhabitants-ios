@@ -18,10 +18,7 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSett
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        // Set the navbar currency/unit toggle
-        Helper.setCurrencyUnitToggle(viewController: self)
-        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +38,12 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSett
     }
     
     func initialize(){
-        // TODO: Remove this demo
         
+        // Set the navbar currency/unit toggle
+        Helper.setCurrencyUnitToggle(viewController: self)
+        
+        // TODO: Remove this demo
+
         let kWh = 4.0
         let cubicMeter = 3.0
         

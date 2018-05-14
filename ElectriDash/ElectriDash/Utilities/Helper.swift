@@ -103,13 +103,13 @@ class Helper {
         }
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         
-        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed(viewController:)))
+        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed))
         barButtonItem.tintColor = UIColor.white
         
         viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
     }
     
-    @objc static func currencyUnitTogglePressed(viewController: UIViewController){
+    @objc static func currencyUnitTogglePressed(){
         
         if isCurrency {
             isCurrency = false
@@ -118,9 +118,9 @@ class Helper {
         }
         
         if let topController = UIApplication.topViewController(), let controller = topController as? CurrencyUnitToggle {
-            
+
             self.setCurrencyUnitToggle(viewController: controller as! UIViewController)
-            
+
             controller.currencyUnitTogglePressed()
         }
     }
