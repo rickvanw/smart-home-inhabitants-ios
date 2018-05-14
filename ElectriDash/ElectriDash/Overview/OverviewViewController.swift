@@ -27,6 +27,11 @@ class OverviewViewController: UIViewController {
                 // go on about my business
         // Do any additional setup after loading the view.
     }
+    
+    // Get date
+    func getData() {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
