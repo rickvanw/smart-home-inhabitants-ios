@@ -81,6 +81,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return self.rooms.count
     }
     
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell

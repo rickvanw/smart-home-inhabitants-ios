@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var room: Room?
 
-    @IBOutlet weak var frfrfr: UIImageView!
+    @IBOutlet weak var roomDetailImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
