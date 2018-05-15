@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="piH-N5-Cet">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -762,16 +762,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGc-oI-j0u" customClass="CustomView" customModule="ElectriDash" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="211"/>
+                                <rect key="frame" x="10" y="44" width="355" height="155.33333333333334"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woonkamer" translatesAutoresizingMaskIntoConstraints="NO" id="F8C-3I-SFc">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="155.33333333333334"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F8R-dM-dfI">
-                                        <rect key="frame" x="0.0" y="123.33333333333334" width="375" height="87.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="67.666666666666657" width="355" height="87.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woonkamer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAo-pe-UhG">
-                                                <rect key="frame" x="16" y="10.666666666666657" width="343" height="35"/>
+                                                <rect key="frame" x="16" y="10.666666666666657" width="323" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="VRi-yK-30c"/>
                                                 </constraints>
@@ -780,7 +780,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="J8U-Ul-EI6">
-                                                <rect key="frame" x="16" y="55.666666666666657" width="343" height="22"/>
+                                                <rect key="frame" x="16" y="55.666666666666671" width="323" height="22"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.0 kWh" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTV-zZ-zhU">
                                                         <rect key="frame" x="0.0" y="0.0" width="65" height="22"/>
@@ -793,7 +793,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.9 °C" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feI-c0-8ZQ">
-                                                        <rect key="frame" x="88.666666666666671" y="0.0" width="50.000000000000014" height="22"/>
+                                                        <rect key="frame" x="78.666666666666671" y="0.0" width="50.000000000000014" height="22"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="22" id="bC6-X6-GpP"/>
                                                             <constraint firstAttribute="width" constant="50" id="q5X-Xo-7Er"/>
@@ -803,7 +803,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="sXd-xb-1r7">
-                                                        <rect key="frame" x="162" y="0.0" width="181" height="22"/>
+                                                        <rect key="frame" x="142" y="0.0" width="181" height="22"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfP-SM-Ed3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
@@ -856,12 +856,12 @@
                                     <constraint firstAttribute="trailing" secondItem="F8R-dM-dfI" secondAttribute="trailing" id="bpl-2s-F5m"/>
                                     <constraint firstAttribute="bottom" secondItem="F8C-3I-SFc" secondAttribute="bottom" id="jmg-Yy-rva"/>
                                     <constraint firstItem="F8C-3I-SFc" firstAttribute="leading" secondItem="GGc-oI-j0u" secondAttribute="leading" id="nf9-on-SOO"/>
-                                    <constraint firstAttribute="width" secondItem="GGc-oI-j0u" secondAttribute="height" multiplier="16:9" id="pFD-nw-GnC"/>
+                                    <constraint firstAttribute="width" secondItem="GGc-oI-j0u" secondAttribute="height" multiplier="16:7" id="pFD-nw-GnC"/>
                                     <constraint firstItem="F8R-dM-dfI" firstAttribute="leading" secondItem="GGc-oI-j0u" secondAttribute="leading" id="pW8-jk-KP9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -879,8 +879,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GGc-oI-j0u" firstAttribute="centerX" secondItem="XSR-PC-b8l" secondAttribute="centerX" id="5kf-hc-cO4"/>
-                            <constraint firstItem="GGc-oI-j0u" firstAttribute="trailing" secondItem="t3b-CQ-qOs" secondAttribute="trailing" id="5u5-aD-q0G"/>
-                            <constraint firstItem="GGc-oI-j0u" firstAttribute="leading" secondItem="t3b-CQ-qOs" secondAttribute="leading" id="Bxg-2U-9Jr"/>
+                            <constraint firstItem="GGc-oI-j0u" firstAttribute="trailing" secondItem="t3b-CQ-qOs" secondAttribute="trailing" constant="-10" id="5u5-aD-q0G"/>
+                            <constraint firstItem="GGc-oI-j0u" firstAttribute="leading" secondItem="t3b-CQ-qOs" secondAttribute="leading" constant="10" id="Bxg-2U-9Jr"/>
                             <constraint firstItem="GGc-oI-j0u" firstAttribute="centerX" secondItem="XSR-PC-b8l" secondAttribute="centerX" id="EQ9-e2-hGC"/>
                             <constraint firstItem="GGc-oI-j0u" firstAttribute="top" secondItem="t3b-CQ-qOs" secondAttribute="top" id="zHm-p3-9XB"/>
                         </constraints>
@@ -1028,6 +1028,6 @@
         <image name="woonkamer" width="768" height="441"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e8u-3t-DgF"/>
+        <segue reference="dsb-41-pCo"/>
     </inferredMetricsTieBreakers>
 </document>
