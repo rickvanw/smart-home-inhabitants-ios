@@ -10,17 +10,6 @@
 import UIKit
 import Alamofire
 
-// Extension to download an Image asynchronously
-
-struct Room: Decodable {
-    let energyUsage: Double
-    let id: Int
-    let imageLink: String
-    let lastMotion: String
-    let name: String
-    let temperature: Double
-}
-
 class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: outlets
@@ -29,10 +18,10 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     var rooms = [Room]()
     let refresher = UIRefreshControl()
     
-    
     override func viewDidLoad() {
         
         self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         refresher.tintColor = .white
         refresher.addTarget(self, action: #selector(getData), for: .valueChanged)
         
@@ -71,9 +60,17 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "MasterToDetail" {
-            let destVC = segue.destination as! DetailViewController
-            destVC.room = sender as? Room
+        if segue.identifier == "RoomsToRoomDetail" {
+//            let destVC = segue.destination as! RoomViewController
+//            destVC.room = sender as? Room
+            
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let targetController = destinationNavigationController.topViewController as! RoomViewController
+            
+            let room = sender as? Room
+            targetController.room = room
+            targetController.title = room?.name
+            targetController.initialize()
         }
     }
     
@@ -82,18 +79,18 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         return self.rooms.count
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! RoomsCollectionViewCell
         
         // Set cell content
-//        cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
+        cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
         cell.roomKwh.text = String(rooms[indexPath.row].energyUsage) + " kWh"
         cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
-        cell.roomLastMotion.text = rooms[indexPath.row].lastMotion
-
+        cell.roomLastMotion.text = Helper.getFormattedTimeStringBetweenDates(beginDate: rooms[indexPath.row].getLastMotionDate(), endDate: Date())
+        
         // Apply cell properties
         cell.contentView.layer.cornerRadius = 8
         cell.contentView.layer.borderWidth = 1.0
@@ -114,8 +111,9 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+                
         let room = rooms[indexPath.row]
-        performSegue(withIdentifier: "MasterToDetail", sender: room)
+        performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
     }
     
     

@@ -10,6 +10,11 @@
 		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D75C359207CE0A000CF947D /* UIColor + hexString.swift */; };
+		1D913E6320AB6ADA00F5C119 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */; };
+		1D913E6520AB6B1300F5C119 /* RoomOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6420AB6B1300F5C119 /* RoomOverviewViewController.swift */; };
+		1D913E6820AB6B5400F5C119 /* UIImageView + downloadedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */; };
+		1D913E6920AB6C3B00F5C119 /* RoomsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */; };
+		1D913E6B20AB71B300F5C119 /* RoomSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */; };
 		1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA602074FDF900D7222B /* AppDelegate.swift */; };
 		1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA622074FDF900D7222B /* LoginViewController.swift */; };
 		1DACFA662074FDF900D7222B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DACFA642074FDF900D7222B /* Main.storyboard */; };
@@ -23,7 +28,6 @@
 		1DB264F02085F1BE00933465 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264EE2085F1BE00933465 /* GradientView.swift */; };
 		1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C520A079DB006E50AE /* RoomViewController.swift */; };
 		1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */; };
-		1DED93CC20A079DC006E50AE /* RoomOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */; };
 		1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */; };
 		1DED93CE20A079DC006E50AE /* RoomPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C920A079DC006E50AE /* RoomPageController.swift */; };
 		1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */; };
@@ -57,6 +61,10 @@
 		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1D75C359207CE0A000CF947D /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
+		1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		1D913E6420AB6B1300F5C119 /* RoomOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOverviewViewController.swift; sourceTree = "<group>"; };
+		1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
+		1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSplitViewController.swift; sourceTree = "<group>"; };
 		1DACFA5D2074FDF900D7222B /* ElectriDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectriDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DACFA602074FDF900D7222B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DACFA622074FDF900D7222B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +82,6 @@
 		1DB264EE2085F1BE00933465 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1DED93C520A079DB006E50AE /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDevicesViewController.swift; sourceTree = "<group>"; };
-		1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomOverviewViewController.swift; sourceTree = "<group>"; };
 		1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
 		1DED93C920A079DC006E50AE /* RoomPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageController.swift; sourceTree = "<group>"; };
 		1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHistoryViewController.swift; sourceTree = "<group>"; };
@@ -93,8 +100,6 @@
 		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
 		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
-		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
-		D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
 		E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,9 +153,10 @@
 				1DED93C920A079DC006E50AE /* RoomPageController.swift */,
 				1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */,
 				1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */,
-				1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */,
+				1D913E6420AB6B1300F5C119 /* RoomOverviewViewController.swift */,
 				D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */,
-				D08C682A2092232900D47B07 /* RoomsViewController.swift */,
+				1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */,
+				1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -228,7 +234,7 @@
 				1DACFA8820750D7100D7222B /* UIView + addShadow.swift */,
 				1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */,
 				1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */,
-				D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */,
+				1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */,
 				1D75C359207CE0A000CF947D /* UIColor + hexString.swift */,
 			);
 			path = Extensions;
@@ -453,13 +459,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D913E6B20AB71B300F5C119 /* RoomSplitViewController.swift in Sources */,
 				1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */,
 				1DED93D820A079F7006E50AE /* EnergyViewController.swift in Sources */,
 				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
 				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
 				1DB264F02085F1BE00933465 /* GradientView.swift in Sources */,
+				1D913E6320AB6ADA00F5C119 /* RoomsViewController.swift in Sources */,
 				1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */,
+				1D913E6920AB6C3B00F5C119 /* RoomsCollectionViewCell.swift in Sources */,
 				1DED93EA20A07A7A006E50AE /* EnergyPageControllerToPage.swift in Sources */,
+				1D913E6520AB6B1300F5C119 /* RoomOverviewViewController.swift in Sources */,
 				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
 				1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */,
 				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
@@ -478,7 +488,7 @@
 				1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */,
 				1DED93DE20A07A33006E50AE /* CustomView.swift in Sources */,
 				1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */,
-				1DED93CC20A079DC006E50AE /* RoomOverviewViewController.swift in Sources */,
+				1D913E6820AB6B5400F5C119 /* UIImageView + downloadedFrom.swift in Sources */,
 				1DACFA8620750D0800D7222B /* Constants.swift in Sources */,
 				1D1142D7207D43CE00AA99AB /* Token.swift in Sources */,
 			);
@@ -645,7 +655,10 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -662,7 +675,10 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -679,7 +695,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -697,7 +717,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -20,12 +20,12 @@ class RoomViewController: UIViewController, PageHeightSetter {
         super.viewDidLoad()
         
         // TODO: remove dummy room
-        let today = Date()
-        let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
-        room = Room(id: 1, name: "Woonkamer", energyUsage: 13, temperature: 22, lastMotion: pastDate, imageLink: "https://www.woonsquare.nl/wp/wp-content/uploads/2017/06/Scandinavische-woonkamer-inspiratie-1024x640.jpg")
+//        let today = Date()
+//        let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
+//        room = Room(id: 1, name: "Woonkamer", energyUsage: 13, temperature: 22, lastMotion: "Hallo", imageLink: "https://www.woonsquare.nl/wp/wp-content/uploads/2017/06/Scandinavische-woonkamer-inspiratie-1024x640.jpg")
         
         // Set the roomname from the selected room
-        self.title = room?.name
+//        self.title = room?.name
         
     }
     

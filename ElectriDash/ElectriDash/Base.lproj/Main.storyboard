@@ -102,7 +102,7 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q1C-eY-pA0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9WV-AA-ktX">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="S.m.a.r.t." placeholder="Wachtwoord" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9WV-AA-ktX">
                                 <rect key="frame" x="25" y="418" width="295" height="30"/>
                                 <color key="tintColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -480,60 +480,14 @@
             </objects>
             <point key="canvasLocation" x="1719" y="2296"/>
         </scene>
-        <!--Ruimtes-->
-        <scene sceneID="2Ob-Ua-SJ0">
-            <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="SKK-7Q-rR9" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="s5y-sG-Wiu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sections>
-                            <tableViewSection id="ezT-Pa-LZn">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="EjX-AG-XPI">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EjX-AG-XPI" id="HVT-5n-uS1">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wp-eY-UHQ">
-                                                    <rect key="frame" x="16" y="12" width="52" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="2ii-0A-4CO" kind="showDetail" id="dsb-41-pCo"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="SKK-7Q-rR9" id="Qt1-hx-V8f"/>
-                            <outlet property="delegate" destination="SKK-7Q-rR9" id="t9U-Dd-g20"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Ruimtes" id="PX6-gk-Yth"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rtk-nM-wSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8090.3999999999996" y="344.33497536945816"/>
-        </scene>
         <!--Item-->
         <scene sceneID="fUN-nS-BJF">
             <objects>
-                <splitViewController id="mo2-pl-tVj" sceneMemberID="viewController">
+                <splitViewController id="mo2-pl-tVj" customClass="RoomSplitViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="GhI-2F-frF"/>
                     <navigationItem key="navigationItem" id="TAw-Y8-tFm"/>
                     <connections>
                         <segue destination="hhl-cn-qJd" kind="relationship" relationship="masterViewController" id="vyU-TO-5E3"/>
-                        <segue destination="2ii-0A-4CO" kind="relationship" relationship="detailViewController" id="e8u-3t-DgF"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra6-H1-zyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,7 +895,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="SKK-7Q-rR9" kind="relationship" relationship="rootViewController" id="gyb-jZ-Cod"/>
+                        <segue destination="P9Y-PE-hSj" kind="relationship" relationship="rootViewController" id="sdo-CF-JWT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIz-FB-doO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -983,7 +937,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-Gb-PbO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T7D-Ny-Mdk">
                                     <size key="itemSize" width="349" height="200"/>
@@ -1099,70 +1053,12 @@
                     <navigationItem key="navigationItem" title="Rooms" id="h11-QR-AeV"/>
                     <connections>
                         <outlet property="collectionView" destination="HZ5-Gb-PbO" id="6IO-83-VBR"/>
-                        <segue destination="oIZ-au-xeD" kind="show" identifier="MasterToDetail" id="Nlf-om-Rpq"/>
+                        <segue destination="2ii-0A-4CO" kind="showDetail" identifier="RoomsToRoomDetail" id="M0y-gM-QlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Za-iP-Ud0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9948" y="1222"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="eD3-kq-COp">
-            <objects>
-                <viewController id="oIZ-au-xeD" customClass="DetailViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yJG-hq-m8T">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xxI-Fc-lm2">
-                                <rect key="frame" x="16" y="148" width="343" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Overzicht"/>
-                                    <segment title="Apparaten"/>
-                                    <segment title="Historie"/>
-                                </segments>
-                                <color key="tintColor" red="0.1509983838" green="0.77205258610000005" blue="0.6420167685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ine-HU-9WQ"/>
-                    </view>
-                    <connections>
-                        <outlet property="segmentedControl" destination="xxI-Fc-lm2" id="R4L-3d-lWy"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R0W-8H-8Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="10831" y="1222"/>
-        </scene>
-        <!--Rooms-->
-        <scene sceneID="bIT-1T-yaS">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="78E-6y-jKe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Rooms" image="icons8-room-filled-100" id="AJ7-wm-i3C"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lHw-3e-6E4">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.1509983838" green="0.77205258610000005" blue="0.6420167685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="0.98847959780000005" green="0.97578881360000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="P9Y-PE-hSj" kind="relationship" relationship="rootViewController" id="oYW-OG-QXa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3YP-hE-ftz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9948" y="460"/>
+            <point key="canvasLocation" x="8295" y="344"/>
         </scene>
         <!--Overview-->
         <scene sceneID="zIZ-6I-Df8">
@@ -1196,11 +1092,7 @@
         <image name="eye" width="980" height="568"/>
         <image name="icons8-combo-chart-filled-100" width="25" height="24"/>
         <image name="icons8-home-48 (2)" width="27" height="25"/>
-        <image name="icons8-room-filled-100" width="24" height="24"/>
         <image name="logo" width="583" height="583"/>
         <image name="woonkamer" width="768" height="441"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dsb-41-pCo"/>
-    </inferredMetricsTieBreakers>
 </document>

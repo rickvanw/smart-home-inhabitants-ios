@@ -12,7 +12,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     
     var height: CGFloat?
     var room: Room?
-
+    
     @IBOutlet var roomImageView: UIImageView!
     @IBOutlet var roomNameLabel: UILabel!
     @IBOutlet var roomTotalEnergyLabel: UILabel!
@@ -25,11 +25,11 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         super.viewDidLoad()
         
         height = self.view.frame.height
-
-//        print("\(height)")
+        
+        //        print("\(height)")
         
         self.initialize()
-
+        
         
         // Do any additional setup after loading the view.
     }
@@ -45,23 +45,24 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         if room != nil{
             
             // TODO: set uiimage name
-            roomImageView.image = UIImage(named: "woonkamer")
+            roomImageView.downloadedFrom(link: room!.imageLink)
+
             roomNameLabel.text = room!.name
             roomTotalEnergyLabel.text = "\(room!.energyUsage) kWh"
             roomTemperatureLabel.text = "\(room!.temperature) °C"
             
-            let beginDate = room!.lastMotion
+            let beginDate = room!.getLastMotionDate()
             
             let endDate = Date()
-//            let calendar = Calendar.current
-//            let day = calendar.component(.day, from: currentDate)
-//            let hour = calendar.component(.hour, from: currentDate)
-//            let minutes = calendar.component(.minute, from: currentDate)
+            //            let calendar = Calendar.current
+            //            let day = calendar.component(.day, from: currentDate)
+            //            let hour = calendar.component(.hour, from: currentDate)
+            //            let minutes = calendar.component(.minute, from: currentDate)
             
-//            var showDate = "\(minutes) minuten geleden"
+            //            var showDate = "\(minutes) minuten geleden"
             
             let showDate = Helper.getFormattedTimeStringBetweenDates(beginDate: beginDate, endDate: endDate)
-
+            
             roomLastMovementLabel.text = "\(showDate)"
             
         }
