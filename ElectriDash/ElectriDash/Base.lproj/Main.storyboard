@@ -595,7 +595,7 @@
             </objects>
             <point key="canvasLocation" x="3284" y="2295.8128078817736"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Energy-->
         <scene sceneID="zzh-fU-aTD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-fY-fDg" sceneMemberID="viewController">
@@ -983,7 +983,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-Gb-PbO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T7D-Ny-Mdk">
                                     <size key="itemSize" width="349" height="200"/>
@@ -1104,7 +1104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Za-iP-Ud0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1624.8" y="2278.8177339901481"/>
+            <point key="canvasLocation" x="9948" y="1222"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="eD3-kq-COp">
@@ -1135,7 +1135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0W-8H-8Ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2556" y="2278.8177339901481"/>
+            <point key="canvasLocation" x="10831" y="1222"/>
         </scene>
         <!--Rooms-->
         <scene sceneID="bIT-1T-yaS">
@@ -1162,7 +1162,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YP-hE-ftz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="2279"/>
+            <point key="canvasLocation" x="9948" y="460"/>
         </scene>
         <!--Overview-->
         <scene sceneID="zIZ-6I-Df8">
