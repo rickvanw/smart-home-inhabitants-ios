@@ -19,7 +19,6 @@
 		1DACFA8420750C7500D7222B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8320750C7500D7222B /* Helper.swift */; };
 		1DACFA8620750D0800D7222B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8520750D0800D7222B /* Constants.swift */; };
 		1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8820750D7100D7222B /* UIView + addShadow.swift */; };
-		D0E2879520A98B5000061B9A /* UIImageView + downloadedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */; };
 		1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264ED2085F1BE00933465 /* OverviewViewController.swift */; };
 		1DB264F02085F1BE00933465 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264EE2085F1BE00933465 /* GradientView.swift */; };
 		1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C520A079DB006E50AE /* RoomViewController.swift */; };
@@ -27,8 +26,6 @@
 		1DED93CC20A079DC006E50AE /* RoomOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */; };
 		1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */; };
 		1DED93CE20A079DC006E50AE /* RoomPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C920A079DC006E50AE /* RoomPageController.swift */; };
-		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
-		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */; };
 		1DED93D620A079F7006E50AE /* EnergyDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */; };
 		1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */; };
@@ -80,9 +77,6 @@
 		1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomOverviewViewController.swift; sourceTree = "<group>"; };
 		1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
 		1DED93C920A079DC006E50AE /* RoomPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageController.swift; sourceTree = "<group>"; };
-		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
-		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
-		D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
 		1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHistoryViewController.swift; sourceTree = "<group>"; };
 		1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDevicesViewController.swift; sourceTree = "<group>"; };
 		1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyOverviewViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +92,9 @@
 		1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageControllerToPage.swift; sourceTree = "<group>"; };
 		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
+		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
 		E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.release.xcconfig"; sourceTree = "<group>"; };
@@ -415,12 +412,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -644,10 +645,7 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -664,10 +662,7 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -684,11 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -706,11 +697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
