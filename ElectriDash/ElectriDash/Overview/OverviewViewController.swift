@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class OverviewViewController: UIViewController, CurrencyUnitToggle {
 
@@ -16,12 +18,21 @@ class OverviewViewController: UIViewController, CurrencyUnitToggle {
     @IBOutlet weak var labelM3: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
+        super.viewDidLoad()        
+//        observable.subscribe { event in
+//            print("TEST")
+//            print(event)
+//        }
+                // go on about my business
         // Do any additional setup after loading the view.
         
         // Set the navbar currency/unit toggle
         Helper.setCurrencyUnitToggle(viewController: self)
+    }
+    
+    // Get date
+    func getData() {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +44,8 @@ class OverviewViewController: UIViewController, CurrencyUnitToggle {
     func currencyUnitTogglePressed() {
         
     }
+    
+    // Setter
     
 
     /*

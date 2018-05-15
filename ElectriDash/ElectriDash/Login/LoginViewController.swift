@@ -55,6 +55,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         
         if self.traitCollection.horizontalSizeClass == .regular{
             let value = UIInterfaceOrientation.landscapeLeft.rawValue
@@ -278,19 +279,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func viewPasswordButtonPressed(_ sender: Any) {
         
         if(viewPassword == false) {
-
-            
-            
-            // Remember input, needs to be set again to move the cursor back - TURNED OFF DUE TO PERFORMANCE ISSUES
-//            let inputText = passwordTextField.text
             
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(1.0)
             passwordTextField.isSecureTextEntry = false
             viewPassword = true
-            
-//            passwordTextField.text = ""
-//            passwordTextField.text = inputText
-            
+
         } else {
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(0.50)
             passwordTextField.isSecureTextEntry = true

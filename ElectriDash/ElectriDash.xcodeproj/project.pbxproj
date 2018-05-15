@@ -19,6 +19,7 @@
 		1DACFA8420750C7500D7222B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8320750C7500D7222B /* Helper.swift */; };
 		1DACFA8620750D0800D7222B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8520750D0800D7222B /* Constants.swift */; };
 		1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8820750D7100D7222B /* UIView + addShadow.swift */; };
+		D0E2879520A98B5000061B9A /* UIImageView + downloadedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */; };
 		1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264ED2085F1BE00933465 /* OverviewViewController.swift */; };
 		1DB264F02085F1BE00933465 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264EE2085F1BE00933465 /* GradientView.swift */; };
 		1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C520A079DB006E50AE /* RoomViewController.swift */; };
@@ -26,6 +27,8 @@
 		1DED93CC20A079DC006E50AE /* RoomOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */; };
 		1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */; };
 		1DED93CE20A079DC006E50AE /* RoomPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C920A079DC006E50AE /* RoomPageController.swift */; };
+		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */; };
 		1DED93D620A079F7006E50AE /* EnergyDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */; };
 		1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */; };
@@ -77,6 +80,9 @@
 		1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomOverviewViewController.swift; sourceTree = "<group>"; };
 		1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
 		1DED93C920A079DC006E50AE /* RoomPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageController.swift; sourceTree = "<group>"; };
+		D08C682A2092232900D47B07 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
+		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
 		1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHistoryViewController.swift; sourceTree = "<group>"; };
 		1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDevicesViewController.swift; sourceTree = "<group>"; };
 		1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyOverviewViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 				1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */,
 				1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */,
 				1DED93C720A079DB006E50AE /* RoomOverviewViewController.swift */,
+				D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */,
+				D08C682A2092232900D47B07 /* RoomsViewController.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 				1DACFA8820750D7100D7222B /* UIView + addShadow.swift */,
 				1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */,
 				1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */,
+				D0E2879420A98B5000061B9A /* UIImageView + downloadedFrom.swift */,
 				1D75C359207CE0A000CF947D /* UIColor + hexString.swift */,
 			);
 			path = Extensions;
