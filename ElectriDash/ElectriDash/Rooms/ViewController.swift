@@ -87,7 +87,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
         // Set cell content
-        cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
+//        cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
         cell.roomKwh.text = String(rooms[indexPath.row].energyUsage) + " kWh"
         cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
@@ -107,10 +107,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.view.frame.width
+        return CGSize(width: (width - 20), height: (200)) // width & height are the same to make a square cell
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let room = rooms[indexPath.row]
         performSegue(withIdentifier: "MasterToDetail", sender: room)
     }
+    
+    
     
     
 }

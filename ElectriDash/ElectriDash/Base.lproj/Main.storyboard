@@ -446,7 +446,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bathroomImage" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-b5-YVE">
+                                                <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bathroomImage" translatesAutoresizingMaskIntoConstraints="NO" id="iTb-b5-YVE">
                                                     <rect key="frame" x="0.0" y="0.0" width="349" height="200"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X8u-l3-zDB">
