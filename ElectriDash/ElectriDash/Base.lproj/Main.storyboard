@@ -433,7 +433,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-Gb-PbO">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T7D-Ny-Mdk">
                                     <size key="itemSize" width="349" height="200"/>
@@ -540,13 +540,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="bottom" secondItem="GUH-h5-M7l" secondAttribute="bottom" id="5cb-wc-Qf6"/>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="top" secondItem="GUH-h5-M7l" secondAttribute="top" id="DbZ-S1-hDx"/>
+                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="top" secondItem="BSG-YP-abd" secondAttribute="top" id="DbZ-S1-hDx"/>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="leading" secondItem="GUH-h5-M7l" secondAttribute="leading" id="M9W-Zf-4W1"/>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="trailing" secondItem="GUH-h5-M7l" secondAttribute="trailing" id="Oaa-bk-YLw"/>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="top" secondItem="GUH-h5-M7l" secondAttribute="top" id="fGw-hz-9Ud"/>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="bottom" secondItem="GUH-h5-M7l" secondAttribute="bottom" id="gQg-oU-Gjh"/>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="leading" secondItem="GUH-h5-M7l" secondAttribute="leading" id="kqh-MZ-7yc"/>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="trailing" secondItem="GUH-h5-M7l" secondAttribute="trailing" id="zqD-og-qSJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GUH-h5-M7l"/>
                     </view>
