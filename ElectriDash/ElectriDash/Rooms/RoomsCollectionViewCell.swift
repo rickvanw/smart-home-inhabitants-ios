@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class RoomsCollectionViewCell: UICollectionViewCell {
     
     // Mark: outlets
     @IBOutlet weak var locationImage: UIImageView!

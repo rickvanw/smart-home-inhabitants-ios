@@ -424,7 +424,7 @@
         <!--Rooms-->
         <scene sceneID="oVm-JB-djI">
             <objects>
-                <viewController id="P9Y-PE-hSj" customClass="ViewController" customModule="ElectriDash" sceneMemberID="viewController">
+                <viewController id="P9Y-PE-hSj" customClass="RoomsViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BSG-YP-abd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +439,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xZl-JB-9Gp" customClass="CollectionViewCell" customModule="ElectriDash" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="xZl-JB-9Gp" customClass="RoomsCollectionViewCell" customModule="ElectriDash" customModuleProvider="target">
                                         <rect key="frame" x="13" y="10" width="349" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
