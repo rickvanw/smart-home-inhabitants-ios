@@ -9,6 +9,10 @@
 import UIKit
 
 class EnergyPageController: UIPageViewController, UIPageViewControllerDelegate, SegmentPageChange {
+    func reloadCurrent() {
+        
+    }
+    
 
     var currentPageIndex = 0
     

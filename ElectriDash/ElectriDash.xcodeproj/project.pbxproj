@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */; };
 		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D75C359207CE0A000CF947D /* UIColor + hexString.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyUsage.swift; sourceTree = "<group>"; };
 		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1D75C359207CE0A000CF947D /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				1DED93DF20A07A69006E50AE /* Room.swift */,
+				1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */,
 				1D1142D6207D43CE00AA99AB /* Token.swift */,
 			);
 			path = Objects;
@@ -479,6 +482,7 @@
 				1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */,
 				1DED93E020A07A6A006E50AE /* Room.swift in Sources */,
 				1DED93EB20A07A7A006E50AE /* RoomPageControllerToPage.swift in Sources */,
+				1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */,
 				1DED93E820A07A7A006E50AE /* SegmentPageChange.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
 				1DED93E920A07A7A006E50AE /* PageHeightSetter.swift in Sources */,

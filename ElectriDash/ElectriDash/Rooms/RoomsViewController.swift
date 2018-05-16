@@ -31,6 +31,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             collectionView.addSubview(refresher)
         }
         getData()
+        
     }
     
     
@@ -41,7 +42,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             "Accept": "application/json"
         ]
         
-        Alamofire.request("https://energydash.azurewebsites.net/api/rooms", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Rooms info retrieved")
@@ -87,7 +88,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         // Set cell content
         cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
-        cell.roomKwh.text = String(rooms[indexPath.row].energyUsage) + " kWh"
+        cell.roomKwh.text = "\(Helper.getCurrencyOrKWh(room: rooms[indexPath.row])) \(Helper.getCurrencyOrKWhName())"
         cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
         cell.roomLastMotion.text = Helper.getFormattedTimeStringBetweenDates(beginDate: rooms[indexPath.row].getLastMotionDate(), endDate: Date())
         

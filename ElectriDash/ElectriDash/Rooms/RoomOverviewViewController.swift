@@ -13,6 +13,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     var height: CGFloat?
     var room: Room?
     
+    @IBOutlet var roomInfoContainer: CustomView!
     @IBOutlet var roomImageView: UIImageView!
     @IBOutlet var roomNameLabel: UILabel!
     @IBOutlet var roomTotalEnergyLabel: UILabel!
@@ -28,15 +29,23 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         
         //        print("\(height)")
         
-        self.initialize()
-        
+//        self.initialize()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.roomInfoContainer.alpha = 0
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func reloadPage() {
+        initialize()
     }
     
     func initialize(){
@@ -48,7 +57,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             roomImageView.downloadedFrom(link: room!.imageLink)
 
             roomNameLabel.text = room!.name
-            roomTotalEnergyLabel.text = "\(room!.energyUsage) kWh"
+            roomTotalEnergyLabel.text = "\(Helper.getCurrencyOrKWh(room: room!)) \(Helper.getCurrencyOrKWhName())"
             roomTemperatureLabel.text = "\(room!.temperature) °C"
             
             let beginDate = room!.getLastMotionDate()
@@ -64,6 +73,10 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             let showDate = Helper.getFormattedTimeStringBetweenDates(beginDate: beginDate, endDate: endDate)
             
             roomLastMovementLabel.text = "\(showDate)"
+            
+            UIView.animate(withDuration: 0.2,
+                           animations: { self.roomInfoContainer.alpha = 1 },
+                           completion: nil)
             
         }
     }

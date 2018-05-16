@@ -12,5 +12,6 @@ protocol RoomPageControllerToPage {
     
     func setRoom(room: Room)
     var height: CGFloat? {get set}
+    func reloadPage()
 
 }

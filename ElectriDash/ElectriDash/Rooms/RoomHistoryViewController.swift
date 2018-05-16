@@ -9,6 +9,10 @@
 import UIKit
 
 class RoomHistoryViewController: UIViewController, RoomPageControllerToPage {
+    func reloadPage() {
+        
+    }
+    
     func setRoom(room: Room) {
         
     }

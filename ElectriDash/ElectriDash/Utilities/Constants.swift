@@ -47,5 +47,10 @@ struct Constants {
         static let kWh = "kWh"
         static let cubicMeter = "m³"
     }
+    
+    struct Urls
+    {
+        static let api = "https://api.energydash.nl/api"
+    }
 }
 

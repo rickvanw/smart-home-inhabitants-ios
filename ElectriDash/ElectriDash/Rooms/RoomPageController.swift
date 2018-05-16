@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, SegmentPageChange{
     
@@ -43,12 +44,39 @@ class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, Se
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let room = (self.parent as! RoomViewController).room
+        var room = (self.parent as! RoomViewController).room
         
-        guard let currentPage = self.viewControllers?.first else { return }
-        (currentPage as! RoomPageControllerToPage).setRoom(room: room!)
+        if room == nil {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+                "Accept": "application/json"
+            ]
+            
+            Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Rooms info retrieved")
+                    do {
+                        room = try JSONDecoder().decode([Room].self, from: response.data!).first
+                        guard let currentPage = self.viewControllers?.first else { return }
+                        (currentPage as! RoomPageControllerToPage).setRoom(room: room!)
+                    }catch {
+                        print("Parse error")
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }else{
+            guard let currentPage = self.viewControllers?.first else { return }
+            (currentPage as! RoomPageControllerToPage).setRoom(room: room!)
+        }
     }
     
+    func reloadCurrent(){
+        let page = pages[currentPageIndex] as! RoomPageControllerToPage
+        page.reloadPage()
+    }
     
     func setPageHeight() {
         

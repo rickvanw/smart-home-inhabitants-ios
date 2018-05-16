@@ -9,6 +9,10 @@
 import UIKit
 
 class RoomDevicesViewController: UIViewController, RoomPageControllerToPage {
+    func reloadPage() {
+        
+    }
+    
     func setRoom(room: Room) {
         
     }

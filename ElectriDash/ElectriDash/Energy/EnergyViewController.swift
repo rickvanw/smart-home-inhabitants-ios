@@ -47,7 +47,7 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSett
         let kWh = 4.0
         let cubicMeter = 3.0
         
-        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
+//        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
         print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
     }
 

@@ -12,7 +12,7 @@ class Room: NSObject, Decodable {
 
     var id: Int
     var name: String
-    var energyUsage: Double
+    var energyUsage: EnergyUsage
     var temperature: Double
     var lastMotion: String
 //    var lastMotionDate: Date
@@ -20,7 +20,7 @@ class Room: NSObject, Decodable {
     
     // MARK: Initializer
     
-    init?(id: Int, name: String, energyUsage: Double, temperature: Double, lastMotion: String, imageLink: String) {
+    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double, lastMotion: String, imageLink: String) {
         
         self.id = id
         self.name = name
@@ -34,21 +34,18 @@ class Room: NSObject, Decodable {
     
     func getLastMotionDate() -> Date{
         
-//        print("lastMotion: \(lastMotion)")
+        print("lastMotion: \(lastMotion)")
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSXXX"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         guard let date = dateFormatter.date(from: lastMotion) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
  
 //        print("currentDate: \(dateFormatter.string(from: Date()))")
 //        print("lastMotionDate: \(dateFormatter.string(from: date))")
-        
-//        let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
+//
 
         return date
     }
-//
-    
 }

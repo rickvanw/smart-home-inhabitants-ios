@@ -21,6 +21,9 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async() {
                 self.image = image
+                UIView.animate(withDuration: 0.2,
+                               animations: { self.alpha = 1 },
+                               completion: nil)
             }
             }.resume()
     }

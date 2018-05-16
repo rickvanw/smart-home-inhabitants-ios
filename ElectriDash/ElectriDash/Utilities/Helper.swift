@@ -141,12 +141,11 @@ class Helper {
     }
     
     // Return in kwh or currency string
-    static func getCurrencyOrKWh(kWh: Double) -> String{
+    static func getCurrencyOrKWh(room: Room) -> String{
         if isCurrency {
-            let price =  kWh * Constants.Prices.kWh
-            return "\(price)"
+            return "\(room.energyUsage.euro)"
         }else{
-            return "\(kWh)"
+            return "\(room.energyUsage.usage)"
         }
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RoomViewController: UIViewController, PageHeightSetter {
     
@@ -65,24 +66,26 @@ class RoomViewController: UIViewController, PageHeightSetter {
         
         self.initialize()
         
+        if let childVC = self.childViewControllers.first as? SegmentPageChange{
+            childVC.reloadCurrent()
+        }
     }
     
     func initialize(){
         
         // Set the navbar currency/unit toggle
         self.setCurrencyUnitToggle(viewController: self)
-        
         // TODO: Remove this demo
 
-        let kWh = 4.0
-        let cubicMeter = 3.0
-        
-        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
-        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
+//        let kWh = 4.0
+//        let cubicMeter = 3.0
+//        
+////        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
+//        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
     }
     
     @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        
+
         if let childVC = self.childViewControllers.first as? SegmentPageChange, room != nil{            
             childVC.pageChangedToIndex(index: sender.selectedSegmentIndex)
         }
