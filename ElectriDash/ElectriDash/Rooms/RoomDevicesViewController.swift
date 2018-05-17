@@ -17,14 +17,12 @@ class RoomDevicesViewController: UIViewController, RoomPageControllerToPage {
         
     }
     
-    
     var height:CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         height = 2000
-        
         // Do any additional setup after loading the view.
     }
     

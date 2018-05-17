@@ -30,31 +30,40 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         } else {
             collectionView.addSubview(refresher)
         }
-        getData()
+        
+        if Helper.isConnectedToInternet() == true {
+            getData()
+        }
+        else {
+           Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
+        }
         
     }
     
-    
     @objc func getData() {
+        if Helper.isConnectedToInternet() {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+                "Accept": "application/json"
+            ]
         
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
-            "Accept": "application/json"
-        ]
-        
-        Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
-            switch response.result {
-            case .success:
-                print("Rooms info retrieved")
-                do {
-                    self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
-                    self.collectionView.reloadData()
-                }catch {
-                    print("Parse error")
+            Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Rooms info retrieved")
+                    do {
+                        self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
+                        self.collectionView.reloadData()
+                    }catch {
+                        print("Parse error")
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
+        }
+        else {
+            Helper.showAlertOneButton(viewController: self, title: "No internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
         }
         self.refresher.endRefreshing()
     }
