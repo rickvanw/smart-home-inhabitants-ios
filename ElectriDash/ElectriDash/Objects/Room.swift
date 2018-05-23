@@ -5,32 +5,36 @@
 //  Created by Rick van Weersel on 25/04/2018.
 //  Copyright © 2018 Rick van Weersel. All rights reserved.
 //
-
 import UIKit
 
 class Room: NSObject, Decodable {
-
+    
     var id: Int
     var name: String
     var energyUsage: EnergyUsage
     var temperature: Double
     var lastMotion: String
-//    var lastMotionDate: Date
+    //    var lastMotionDate: Date
+    var luminance: Double
     var imageLink: String
+    var devices: Int?
     
     // MARK: Initializer
     
-    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double, lastMotion: String, imageLink: String) {
+    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double, lastMotion: String, luminance: Double, imageLink: String, devices: Int?) {
         
         self.id = id
         self.name = name
         self.energyUsage = energyUsage
         self.temperature = temperature
         self.lastMotion = lastMotion
+        self.luminance = luminance
         self.imageLink = imageLink
         
+        if devices != nil {
+            self.devices = devices
+        }
     }
-    
     
     func getLastMotionDate() -> Date{
         
@@ -41,11 +45,8 @@ class Room: NSObject, Decodable {
         guard let date = dateFormatter.date(from: lastMotion) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
- 
-//        print("currentDate: \(dateFormatter.string(from: Date()))")
-//        print("lastMotionDate: \(dateFormatter.string(from: date))")
-//
-
+        
         return date
+        
     }
 }

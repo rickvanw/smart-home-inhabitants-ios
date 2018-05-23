@@ -37,7 +37,6 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         else {
            Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
         }
-        
     }
     
     @objc func getData() {
@@ -47,7 +46,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 "Accept": "application/json"
             ]
         
-            Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)house/1/rooms", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     print("Rooms info retrieved")
