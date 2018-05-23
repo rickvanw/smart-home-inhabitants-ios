@@ -11,7 +11,7 @@ target 'ElectriDash' do
   pod 'JWTDecode', '~> 2.1'
   pod 'RxSwift'
   pod 'RxCocoa'
-
+  pod 'ScrollableGraphView'
 
   target 'ElectriDashTests' do
     inherit! :search_paths

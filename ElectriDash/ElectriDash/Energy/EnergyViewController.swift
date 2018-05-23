@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSetter {
+class EnergyViewController: UIViewController, CurrencyUnitToggle {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var pageView: UIView!
@@ -53,9 +53,7 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle, PageHeightSett
 
     @IBAction func segmentPressed(_ sender: UISegmentedControl) {
         
-        if let childVC = self.childViewControllers.first as? SegmentPageChange{
-            childVC.pageChangedToIndex(index: sender.selectedSegmentIndex)
-        }
+
     }
     
     func heightConstraint(constant: CGFloat) {

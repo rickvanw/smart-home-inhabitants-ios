@@ -135,7 +135,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             "password": password
         ]
         
-        Alamofire.request("\(Constants.Urls.api)/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/api/user/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result

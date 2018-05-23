@@ -9,21 +9,17 @@
 import UIKit
 
 class RoomDevicesViewController: UIViewController, RoomPageControllerToPage {
+    
+    var room: Room?
+    var roomId: Int?
+    
     func reloadPage() {
         
     }
     
-    func setRoom(room: Room) {
-        
-    }
-    
-    
-    var height:CGFloat?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        height = 2000
         
         // Do any additional setup after loading the view.
     }

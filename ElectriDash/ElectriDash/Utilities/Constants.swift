@@ -50,7 +50,7 @@ struct Constants {
     
     struct Urls
     {
-        static let api = "https://api.energydash.nl/api"
+        static let api = "https://api.energydash.nl"
     }
 }
 

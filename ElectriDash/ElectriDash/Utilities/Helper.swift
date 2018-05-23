@@ -96,10 +96,10 @@ class Helper {
     
     static func setCurrencyUnitToggle(viewController: UIViewController){
         
-        var imageName = "unit"
+        var imageName = "euro"
         
         if isCurrency {
-            imageName = "euro"
+            imageName = "unit"
         }
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         
@@ -142,10 +142,21 @@ class Helper {
     
     // Return in kwh or currency string
     static func getCurrencyOrKWh(room: Room) -> String{
+        
+        let energyUsage = room.energyUsage
+        
         if isCurrency {
-            return "\(room.energyUsage.euro)"
+            if energyUsage.euro != nil{
+                return "\(energyUsage.euro!)"
+            }else {
+                return "--"
+            }
         }else{
-            return "\(room.energyUsage.usage)"
+            if energyUsage.usage != nil{
+                return "\(energyUsage.usage!)"
+            }else {
+                return "--"
+            }
         }
     }
     

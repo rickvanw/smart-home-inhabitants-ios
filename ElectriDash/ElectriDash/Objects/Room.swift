@@ -13,39 +13,62 @@ class Room: NSObject, Decodable {
     var id: Int
     var name: String
     var energyUsage: EnergyUsage
-    var temperature: Double
-    var lastMotion: String
-//    var lastMotionDate: Date
+    var temperature: Double?
+    var lastMotion: String?
+    var luminance: Double?
     var imageLink: String
+    var devices: Int?
     
     // MARK: Initializer
     
-    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double, lastMotion: String, imageLink: String) {
+    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double?, lastMotion: String?, luminance: Double?, imageLink: String, devices: Int?) {
         
         self.id = id
         self.name = name
         self.energyUsage = energyUsage
-        self.temperature = temperature
-        self.lastMotion = lastMotion
+        
+        if temperature != nil {
+            self.temperature = temperature
+        }
+        
+        if lastMotion != nil {
+            self.lastMotion = lastMotion
+        }
+        
+        if luminance != nil {
+            self.luminance = luminance
+        }
+        
         self.imageLink = imageLink
         
+        if devices != nil {
+            self.devices = devices
+        }
+        //        public int Id { get; set; }
+        //        public string Name { get; set; }
+        //        public EnergyUsageEuroDto EnergyUsage { get; set; }
+        //        public decimal? Temperature { get; set; }
+        //        public DateTime? LastMotion { get; set; }
+        //        public decimal? Luminance { get; set; }
+        //        public string ImageLink { get; set; }
+        //        public int? Devices { get; set; }
     }
     
     
-    func getLastMotionDate() -> Date{
+    func getLastMotionDate() -> Date?{
         
-        print("lastMotion: \(lastMotion)")
+        var date: Date?
         
+        if lastMotion != nil {
+            
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        guard let date = dateFormatter.date(from: lastMotion) else {
+            guard let newDate = dateFormatter.date(from: lastMotion!) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
- 
-//        print("currentDate: \(dateFormatter.string(from: Date()))")
-//        print("lastMotionDate: \(dateFormatter.string(from: date))")
-//
-
+            date = newDate
+        }
         return date
+
     }
 }

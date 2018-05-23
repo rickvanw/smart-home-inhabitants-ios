@@ -8,14 +8,10 @@
 
 import UIKit
 
-class EnergyDevicesViewController: UIViewController, EnergyPageControllerToPage {
-
-    var height:CGFloat?
+class EnergyDevicesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        height = 2000
         
         // Do any additional setup after loading the view.
     }

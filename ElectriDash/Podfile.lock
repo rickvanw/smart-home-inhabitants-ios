@@ -5,6 +5,7 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - ScrollableGraphView (4.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - KeychainAccess
   - RxCocoa
   - RxSwift
+  - ScrollableGraphView
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -20,6 +22,7 @@ SPEC REPOS:
     - KeychainAccess
     - RxCocoa
     - RxSwift
+    - ScrollableGraphView
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
@@ -27,7 +30,8 @@ SPEC CHECKSUMS:
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
 
-PODFILE CHECKSUM: 740da8bc1ba9163f1183ed5228be8d53a7f025ed
+PODFILE CHECKSUM: 239e4e3e349510f0e6c6d5686317038116e170d5
 
 COCOAPODS: 1.5.0
