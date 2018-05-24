@@ -36,6 +36,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     func getData() {
+    
         if Helper.isConnectedToInternet() {
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer " + Helper.getStoredTokenString()!,
@@ -66,15 +67,23 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         return devices.count
     }
     
-    //Returns each cell of the list
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DevicesTableViewCell
         
+        // Get the device
         let device: Device
         device = devices[indexPath.row]
         
+        // Set the values
         cell.deviceName.text = device.name
+        
+        if device.energyUsage.usage != nil {
+            cell.deviceUsage.text = String(device.energyUsage.usage!) + " W"
+        }
+        
+        // Set the image according to the given iconName
+        
         
         return cell
     }
