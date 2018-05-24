@@ -12,6 +12,8 @@ import Alamofire
 class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, SegmentPageChange{
     
     var currentPageIndex = 0
+    var height: CGFloat?
+
     
     fileprivate lazy var pages: [UIViewController] = {
         return [
@@ -78,21 +80,6 @@ class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, Se
         page.reloadPage()
     }
     
-    func setPageHeight() {
-        
-        if let parentVC = self.parent as? PageHeightSetter {
-            
-            guard let currentPage = self.viewControllers?.first else { return }
-            let height: CGFloat
-            var vc = currentPage as! RoomPageControllerToPage
-            height = vc.height!
-            
-            print("Height: \(height)")
-            
-            parentVC.heightConstraint(constant: height)
-            
-        }
-    }
     
     // MARK: SegmentPageChange
     
@@ -135,7 +122,6 @@ class RoomPageController: UIPageViewController, UIPageViewControllerDelegate, Se
         
         setViewControllers([viewController], direction: direction, animated: false, completion: nil)
         
-        setPageHeight()
         
     }
 }

@@ -10,7 +10,8 @@ import UIKit
 import Alamofire
 
 class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, RoomPageControllerToPage {
-   
+    
+    var height: CGFloat?
     @IBOutlet weak var deviceTableView: UITableView!
     
     var devices = [Device]()
@@ -23,24 +24,16 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         
     }
     
-    
-    var height:CGFloat?
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         deviceTableView.tableFooterView = UIView()
         getData()
-        
-        height = 2000
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     func getData() {
         if Helper.isConnectedToInternet() {
@@ -69,21 +62,18 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         }
     }
     
-    //the method returning size of the list
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return devices.count
     }
     
-    //the method returning each cell of the list
+    //Returns each cell of the list
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DevicesTableViewCell
         
-        //getting the Device for the specified position
         let device: Device
         device = devices[indexPath.row]
         
-        //displaying values
         cell.deviceName.text = device.name
         
         return cell
