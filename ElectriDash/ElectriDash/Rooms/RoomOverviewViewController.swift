@@ -22,6 +22,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     @IBOutlet var roomLastMovementLabel: UILabel!
     @IBOutlet var roomLuminanceLabel: UILabel!
     @IBOutlet var roomAmountOfDevices: UILabel!
+    @IBOutlet var roomOnlineOfflineDevices: UILabel!
     
     @IBOutlet var luminanceImageVIew: UIImageView!
     @IBOutlet var movementImageView: UIImageView!
@@ -66,7 +67,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
 
             setRoomToView()
 
-        }else{
+        }else if roomId != nil{
             getData()
             
         }
@@ -84,8 +85,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             case .success:
                 print("Rooms info retrieved")
                 do {
-                    let rooms = try JSONDecoder().decode([Room].self, from: response.data!)
-                    self.room = rooms.first
+                    self.room = try JSONDecoder().decode(Room.self, from: response.data!)
                     self.setRoomToView()
                 }catch {
                     print("Parse error")
@@ -113,6 +113,18 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             }
         }else{
             roomAmountOfDevices.text = "-- Apparaten"
+        }
+        
+        if room!.offlineDevices != nil, room!.devices != nil{
+            
+            let online = room!.devices! - room!.offlineDevices!
+            let offline = room!.offlineDevices!
+
+            roomOnlineOfflineDevices.text = "\(online) online / \(offline) offline"
+            
+            
+        }else{
+            roomOnlineOfflineDevices.text = "-- online / -- offline"
         }
         
         if room!.luminance != nil {

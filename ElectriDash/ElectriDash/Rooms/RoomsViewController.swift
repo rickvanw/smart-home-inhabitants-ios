@@ -69,7 +69,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                     self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
                     self.collectionView.reloadData()
                     if UIDevice.current.screenType == .unknown {
-                        let room = self.rooms[0]
+                        let room = self.rooms.first
                         self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
                     }
                 }catch {

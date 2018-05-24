@@ -40,11 +40,22 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         linePlot.lineStyle = .smooth
         linePlot.lineColor = Constants.AppColors.loginGreen
         linePlot.shouldFill = true
-        linePlot.fillType = .solid
-        linePlot.fillColor = Constants.AppColors.loginGreen.withAlphaComponent(0.5)
-        linePlot.lineCap = kCALineCapRound
+        linePlot.fillType = .gradient
+        linePlot.fillGradientStartColor = Constants.AppColors.loginGreen.withAlphaComponent(1)
+        linePlot.fillGradientEndColor = Constants.AppColors.loginGreen.withAlphaComponent(0.2)
+        linePlot.fillGradientType = ScrollableGraphViewGradientType.radial
+        linePlot.lineCap = kCALineCapSquare
+        
+        let dotPlot = DotPlot(identifier: "dot") // Add dots as well.
+        dotPlot.dataPointSize = 3
+        dotPlot.dataPointFillColor = Constants.AppColors.loginGreen
+        dotPlot.dataPointType = .circle
+        
+        dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
         
         graphView.addPlot(plot: linePlot)
+        graphView.addPlot(plot: dotPlot)
+
         graphView.addReferenceLines(referenceLines: referenceLines)
         
         graphView.shouldAdaptRange = true
@@ -65,6 +76,8 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         // Return the data for each plot.
         switch(plot.identifier) {
         case "line":
+            return linePlotData[pointIndex]
+        case "dot":
             return linePlotData[pointIndex]
         default:
             return 0

@@ -18,10 +18,11 @@ class Room: NSObject, Decodable {
     var luminance: Double?
     var imageLink: String
     var devices: Int?
+    var offlineDevices: Int?
     
     // MARK: Initializer
     
-    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double?, lastMotion: String?, luminance: Double?, imageLink: String, devices: Int?) {
+    init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double?, lastMotion: String?, luminance: Double?, imageLink: String, devices: Int?, offlineDevices: Int?) {
         
         self.id = id
         self.name = name
@@ -43,6 +44,10 @@ class Room: NSObject, Decodable {
         
         if devices != nil {
             self.devices = devices
+        }
+        
+        if offlineDevices != nil {
+            self.offlineDevices = offlineDevices
         }
         //        public int Id { get; set; }
         //        public string Name { get; set; }
