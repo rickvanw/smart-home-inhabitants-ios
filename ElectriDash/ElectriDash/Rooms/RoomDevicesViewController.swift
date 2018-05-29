@@ -28,6 +28,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         super.viewDidLoad()
         deviceTableView.tableFooterView = UIView()
         getData()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,6 +50,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                     print("Device info retrieved")
                     do {
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
+                        self.devices.sort(by: { $0.iconName > $1.iconName })
                         self.deviceTableView.reloadData()
                     }catch {
                         print("Parse error")
@@ -83,9 +85,26 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         }
         
         // Set the image according to the given iconName
+        switch device.iconName {
+        case "Multi sensor":
+            cell.deviceImage.image = UIImage(named: "movement")
+            break
+        case "Light":
+            cell.deviceImage.image = UIImage(named: "lightbulb")
+            break
+        case "Socket":
+            cell.deviceImage.image = UIImage(named: "powerplug")
+        case "Door sensor":
+            break
+        case "Smart meter":
+            cell.deviceImage.image = UIImage(named: "house")
+            break
+        default: break
+        }
         
+        // Set the color to black
+        cell.deviceImage.tintColor = UIColor.black
         
         return cell
     }
-    
 }
