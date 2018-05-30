@@ -222,4 +222,32 @@ class Helper {
         
         return showDate
     }
+    
+    // Remove the blur from the given view (if enabled by addBlur)
+    static func removeBlur() {
+        // Remove the blur from the view
+        let window = UIApplication.shared.keyWindow!
+        
+        let blurView = window.viewWithTag(1001)
+        
+        UIView.animate(withDuration: 0.5,
+                       animations: { blurView?.alpha = 0 },
+                       completion: { finished in blurView?.removeFromSuperview() })
+    }
+    
+    // Add the blur to the given view (remove using removeBlur)
+    static func addBlur() {
+        let window = UIApplication.shared.keyWindow!
+        
+        // Add a blur effect before the popup to add/change opens
+        let blurEffectView = UIVisualEffectView()
+        blurEffectView.frame = window.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 1001
+        window.addSubview(blurEffectView)
+        
+        UIView.animate(withDuration: 0.5) {
+            blurEffectView.effect = UIBlurEffect(style: .dark)
+        }
+    }
 }

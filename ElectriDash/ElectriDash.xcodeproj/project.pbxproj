@@ -28,6 +28,9 @@
 		1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8820750D7100D7222B /* UIView + addShadow.swift */; };
 		1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264ED2085F1BE00933465 /* OverviewViewController.swift */; };
 		1DB264F02085F1BE00933465 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264EE2085F1BE00933465 /* GradientView.swift */; };
+		1DEBAAA920BBF46F00BAD634 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBAAA820BBF46F00BAD634 /* CustomButton.swift */; };
+		1DEBAAAB20BBFA6100BAD634 /* PeriodSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */; };
+		1DEBAAAD20BBFC1900BAD634 /* PeriodSettingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBAAAC20BBFC1900BAD634 /* PeriodSettingDelegate.swift */; };
 		1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C520A079DB006E50AE /* RoomViewController.swift */; };
 		1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */; };
 		1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */; };
@@ -40,6 +43,8 @@
 		1DED93E020A07A6A006E50AE /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DF20A07A69006E50AE /* Room.swift */; };
 		1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */; };
 		1DED93EB20A07A7A006E50AE /* RoomPageControllerToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */; };
+		1DF16B3720BEAA900050BBB8 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16B3620BEAA900050BBB8 /* Graph.swift */; };
+		1DF16B3920BEAAAD0050BBB8 /* GraphEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */; };
 		6A6A8031130949950A51A3BD /* Pods_ElectriDashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */; };
 		CADEABB4584FCAD9021030B9 /* Pods_ElectriDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +84,9 @@
 		1DACFA8820750D7100D7222B /* UIView + addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + addShadow.swift"; sourceTree = "<group>"; };
 		1DB264ED2085F1BE00933465 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		1DB264EE2085F1BE00933465 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		1DEBAAA820BBF46F00BAD634 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSettingViewController.swift; sourceTree = "<group>"; };
+		1DEBAAAC20BBFC1900BAD634 /* PeriodSettingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSettingDelegate.swift; sourceTree = "<group>"; };
 		1DED93C520A079DB006E50AE /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDevicesViewController.swift; sourceTree = "<group>"; };
 		1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,8 @@
 		1DED93DF20A07A69006E50AE /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyUnitToggle.swift; sourceTree = "<group>"; };
 		1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageControllerToPage.swift; sourceTree = "<group>"; };
+		1DF16B3620BEAA900050BBB8 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEntry.swift; sourceTree = "<group>"; };
 		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
 		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +144,7 @@
 		1D1142D5207D3D5500AA99AB /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				1DF16B3520BEAA740050BBB8 /* Graph */,
 				1DED93DF20A07A69006E50AE /* Room.swift */,
 				1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */,
 				1D1142D6207D43CE00AA99AB /* Token.swift */,
@@ -151,6 +162,7 @@
 				D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */,
 				1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */,
 				1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */,
+				1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -259,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				1DED93DD20A07A32006E50AE /* CustomView.swift */,
+				1DEBAAA820BBF46F00BAD634 /* CustomButton.swift */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
@@ -268,8 +281,18 @@
 			children = (
 				1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */,
 				1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */,
+				1DEBAAAC20BBFC1900BAD634 /* PeriodSettingDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		1DF16B3520BEAA740050BBB8 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				1DF16B3620BEAA900050BBB8 /* Graph.swift */,
+				1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */,
+			);
+			path = Graph;
 			sourceTree = "<group>";
 		};
 		2C8EDF8D0EF8EE343F5597F0 /* Frameworks */ = {
@@ -463,16 +486,21 @@
 				1D913E6920AB6C3B00F5C119 /* RoomsCollectionViewCell.swift in Sources */,
 				1D4F27B520AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift in Sources */,
 				1D913E6520AB6B1300F5C119 /* RoomOverviewViewController.swift in Sources */,
+				1DEBAAAB20BBFA6100BAD634 /* PeriodSettingViewController.swift in Sources */,
 				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
 				1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */,
 				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
+				1DEBAAA920BBF46F00BAD634 /* CustomButton.swift in Sources */,
 				1DED93D620A079F7006E50AE /* EnergyDevicesViewController.swift in Sources */,
 				1DED93DB20A07A1A006E50AE /* UIApplication + topViewController.swift in Sources */,
+				1DF16B3720BEAA900050BBB8 /* Graph.swift in Sources */,
+				1DEBAAAD20BBFC1900BAD634 /* PeriodSettingDelegate.swift in Sources */,
 				1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */,
 				1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */,
 				1DED93E020A07A6A006E50AE /* Room.swift in Sources */,
 				1DED93EB20A07A7A006E50AE /* RoomPageControllerToPage.swift in Sources */,
 				1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */,
+				1DF16B3920BEAAAD0050BBB8 /* GraphEntry.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
 				1DACFA8420750C7500D7222B /* Helper.swift in Sources */,
 				1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */,
@@ -645,7 +673,10 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -662,7 +693,10 @@
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -679,7 +713,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -697,7 +735,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63D3S34CPT;
 				INFOPLIST_FILE = ElectriDashTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDashTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -35,11 +35,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         super.viewDidLoad()
         
         self.view.alpha = 0
-        
-        //        print("\(height)")
-        
-//        self.initialize()
-        
+
         // Do any additional setup after loading the view.
     }
     
@@ -121,7 +117,6 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             let offline = room!.offlineDevices!
 
             roomOnlineOfflineDevices.text = "\(online) online / \(offline) offline"
-            
             
         }else{
             roomOnlineOfflineDevices.text = "-- online / -- offline"

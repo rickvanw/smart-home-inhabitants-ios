@@ -63,7 +63,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         loginButton.addShadow()
-        loginButton.layer.cornerRadius = 25
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
