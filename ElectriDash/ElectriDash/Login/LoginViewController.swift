@@ -52,6 +52,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private var passwordFromKeychain: String?
     
+    var houses: [House]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -139,10 +141,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             
-            self.dismissActivityIndicator()
-            
             var showError = false
-            var errorMessage = ""
+            var errorMessage = "Er is een onbekende fout opgetreden"
             
             switch(response.result) {
             case .success:
@@ -154,19 +154,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredTokenString(token: token)
                     Helper.setStoredUsername(username: username)
                     
-                    // After successfull login, perform segue
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    self.getHouses()
                     
                 }else{
+//                    self.dismissActivityIndicator()
+
                     showError = true
                     errorMessage = "Probeer het opnieuw"
                 }
                 
             case .failure(let error):
                 
+//                self.dismissActivityIndicator()
+                
                 showError = true
                 
                 print("FAILURE: \(error.localizedDescription)")
+
                 
                 if let httpStatusCode = response.response?.statusCode {
                     switch(httpStatusCode) {
@@ -176,12 +180,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         errorMessage = "Er is een onbekende fout opgetreden"
                     }
                 } else {
-                    errorMessage = "Er is een onbekende fout opgetreden"
+                    errorMessage = "Geen netwerkverbinding beschikbaar"
                 }
             }
             
-            if showError{
-                Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
+            if showError {
+                self.dismissActivityIndicator(completion: {_ in
+                    Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
+                })
             }
             
         }
@@ -199,8 +205,100 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func dismissActivityIndicator(){
-        dismiss(animated: false, completion: nil)
+    func dismissActivityIndicator(completion:@escaping (Bool) -> ()){
+        
+        dismiss(animated: false, completion: {
+            completion(true)
+        })
+    }
+    
+    func getHouses(){
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("\(Constants.Urls.api)/api/houses", headers: headers).responseJSON { response in
+            
+            var showError = false
+            var errorMessage = "Er is een onbekende fout opgetreden"
+            
+            switch response.result {
+            case .success:
+                print("Rooms history retrieved")
+                do {
+                    self.houses = try JSONDecoder().decode([House].self, from: response.data!)
+//                    Helper.setStoredHouseId(id: house.id)
+                    
+                    if self.houses != nil {
+                        
+                        if self.houses!.count == 0{
+                            showError = true
+                            errorMessage = "Geen huizen gevonden"
+                            
+                        }else if self.houses!.count == 1{
+                            Helper.setStoredHouseId(id: self.houses!.first!.id)
+
+                            self.dismissActivityIndicator(completion: {_ in
+                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            })
+
+//                            self.showHouseOptions()
+
+                        }else{
+                            self.showHouseOptions()
+                        }
+                    }else{
+                        showError = true
+                        errorMessage = "Geen huizen gevonden"
+                    }
+                    
+                }catch {
+                    print("Parse error")
+                    showError = true
+                }
+                
+            case .failure(let error):
+                print(error)
+                showError = true
+            }
+            
+            if showError {
+                self.dismissActivityIndicator(completion: {_ in
+                    Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
+                })
+            }
+            
+        }
+    }
+    
+    func showHouseOptions() {
+        let alert = UIAlertController(title: "Selecteer een huis", message: nil, preferredStyle: .actionSheet)
+        
+        
+        for house in houses!{
+            var adress = ""
+            if house.address != nil{
+                adress = " - \(house.address!)"
+            }
+            
+            alert.addAction(UIAlertAction(title: "\(house.name)\(adress)", style: .default , handler:{ (UIAlertAction)in
+                Helper.setStoredHouseId(id: house.id)
+//                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                
+                self.dismissActivityIndicator(completion: {_ in
+                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                })
+
+            }))
+            
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func adjustViewForDevice(){

@@ -61,7 +61,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             "Accept": "application/json"
         ]
         
-        Alamofire.request("\(Constants.Urls.api)/house/1/rooms", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/rooms", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Rooms info retrieved")

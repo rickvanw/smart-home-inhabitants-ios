@@ -39,6 +39,20 @@ class Helper {
         }
     }
     
+    static func setStoredHouseId(id: Int){
+        UserDefaults.standard.setValue(id, forKey: Constants.Keys.houseId)
+        UserDefaults.standard.synchronize()
+        
+        print("Stored house id: \(id)")
+    }
+    
+    static func getStoredHouseId() -> Int {
+        let id = UserDefaults.standard.value(forKey: Constants.Keys.houseId) as! Int
+        print("Obtained house id: \(id)")
+        return id
+        
+    }
+    
     static func setStoredTokenString(token: String){
         UserDefaults.standard.setValue(token, forKey: Constants.Keys.token)
         UserDefaults.standard.synchronize()

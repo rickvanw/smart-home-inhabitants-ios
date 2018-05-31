@@ -20,6 +20,7 @@ struct Constants {
         static let token = "token"
         static let username = "username"
         static let currencyUnit = "currencyUnit"
+        static let houseId = "houseId"
     }
     
     struct Names {

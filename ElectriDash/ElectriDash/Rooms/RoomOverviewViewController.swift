@@ -76,7 +76,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             "Accept": "application/json"
         ]
         
-        Alamofire.request("\(Constants.Urls.api)/house/1/room/\(roomId!)", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Rooms info retrieved")

@@ -12,6 +12,7 @@
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1D4F27B520AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F27B420AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift */; };
 		1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D75C359207CE0A000CF947D /* UIColor + hexString.swift */; };
+		1D7B3ED120BEC18B001DD701 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B3ED020BEC18B001DD701 /* House.swift */; };
 		1D913E6320AB6ADA00F5C119 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */; };
 		1D913E6520AB6B1300F5C119 /* RoomOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6420AB6B1300F5C119 /* RoomOverviewViewController.swift */; };
 		1D913E6820AB6B5400F5C119 /* UIImageView + downloadedFrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */; };
@@ -65,6 +66,7 @@
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1D4F27B420AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + resizeScrollViewContentSize.swift"; sourceTree = "<group>"; };
 		1D75C359207CE0A000CF947D /* UIColor + hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + hexString.swift"; sourceTree = "<group>"; };
+		1D7B3ED020BEC18B001DD701 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		1D913E6420AB6B1300F5C119 /* RoomOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOverviewViewController.swift; sourceTree = "<group>"; };
 		1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + downloadedFrom.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				1DED93DF20A07A69006E50AE /* Room.swift */,
 				1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */,
 				1D1142D6207D43CE00AA99AB /* Token.swift */,
+				1D7B3ED020BEC18B001DD701 /* House.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				1DF16B3920BEAAAD0050BBB8 /* GraphEntry.swift in Sources */,
 				1DACFA612074FDF900D7222B /* AppDelegate.swift in Sources */,
 				1DACFA8420750C7500D7222B /* Helper.swift in Sources */,
+				1D7B3ED120BEC18B001DD701 /* House.swift in Sources */,
 				1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */,
 				1DED93DE20A07A33006E50AE /* CustomView.swift in Sources */,
 				1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */,
