@@ -50,6 +50,8 @@
 		1DF16B3920BEAAAD0050BBB8 /* GraphEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */; };
 		6A6A8031130949950A51A3BD /* Pods_ElectriDashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */; };
 		CADEABB4584FCAD9021030B9 /* Pods_ElectriDash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */; };
+		D0298DBD20B44043007630BD /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0298DBC20B44043007630BD /* Device.swift */; };
+		D0AA988820B5615000FDF12F /* DevicesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AA988720B5615000FDF12F /* DevicesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +111,9 @@
 		1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEntry.swift; sourceTree = "<group>"; };
 		792F0FE146CE4D5D8344779B /* Pods_ElectriDash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2A5B531919CB3425700C4EB /* Pods-ElectriDash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.debug.xcconfig"; sourceTree = "<group>"; };
+		D0298DBC20B44043007630BD /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		D08C6828209222EA00D47B07 /* RoomsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D0AA988720B5615000FDF12F /* DevicesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesTableViewCell.swift; sourceTree = "<group>"; };
 		E8C089A67B8FC51EA1FACF6E /* Pods-ElectriDashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDashTests/Pods-ElectriDashTests.release.xcconfig"; sourceTree = "<group>"; };
 		EF95507D8CCBC20C50C9C8F4 /* Pods_ElectriDashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectriDashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E745F1CFBE76F1DBAB181F /* Pods-ElectriDash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectriDash.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectriDash/Pods-ElectriDash.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				1D1142D6207D43CE00AA99AB /* Token.swift */,
 				1D7B3ED020BEC18B001DD701 /* House.swift */,
 				1D5AE70D20C52BCC00B2CD66 /* Login.swift */,
+				D0298DBC20B44043007630BD /* Device.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				1D913E6220AB6ADA00F5C119 /* RoomsViewController.swift */,
 				1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */,
 				1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */,
+				D0AA988720B5615000FDF12F /* DevicesTableViewCell.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -485,8 +491,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D913E6B20AB71B300F5C119 /* RoomSplitViewController.swift in Sources */,
+				D0AA988820B5615000FDF12F /* DevicesTableViewCell.swift in Sources */,
 				1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */,
 				1DED93D820A079F7006E50AE /* EnergyViewController.swift in Sources */,
+				D0298DBD20B44043007630BD /* Device.swift in Sources */,
 				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
 				1D82D13E20BFFEE2008513EB /* EnergyPageControllerToPage.swift in Sources */,
 				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
@@ -682,7 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63D3S34CPT;
+				DEVELOPMENT_TEAM = RU2QQ2UYH5;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -702,7 +710,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63D3S34CPT;
+				DEVELOPMENT_TEAM = RU2QQ2UYH5;
 				INFOPLIST_FILE = ElectriDash/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

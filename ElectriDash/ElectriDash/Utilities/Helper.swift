@@ -9,6 +9,7 @@
 import UIKit
 import LocalAuthentication
 import JWTDecode
+import Alamofire
 
 class Helper {
     
@@ -263,5 +264,10 @@ class Helper {
         UIView.animate(withDuration: 0.5) {
             blurEffectView.effect = UIBlurEffect(style: .dark)
         }
+    }
+    
+    // Checks if there is an internet connection
+    static func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()!.isReachable
     }
 }

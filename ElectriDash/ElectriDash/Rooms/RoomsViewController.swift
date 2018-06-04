@@ -30,10 +30,15 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         } else {
             collectionView.addSubview(refresher)
         }
-        getData()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
+        if Helper.isConnectedToInternet() == true {
+            getData()
+        }
+        else {
+           Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +60,11 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @objc func getData() {
+        if Helper.isConnectedToInternet() {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+                "Accept": "application/json"
+            ]
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + Helper.getStoredTokenString()!,
@@ -75,9 +85,10 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 }catch {
                     print("Parse error")
                 }
-            case .failure(let error):
-                print(error)
             }
+        }
+        else {
+            Helper.showAlertOneButton(viewController: self, title: "No internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
         }
         self.refresher.endRefreshing()
     }
