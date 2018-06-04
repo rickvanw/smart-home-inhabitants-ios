@@ -970,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVP-Fc-GF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6224.8000000000002" y="2295.8128078817736"/>
+            <point key="canvasLocation" x="7609" y="2297"/>
         </scene>
         <!--Room History View Controller-->
         <scene sceneID="Va3-wn-FBT">
@@ -1059,7 +1059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyq-tr-8eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6981.6000000000004" y="2296.5517241379312"/>
+            <point key="canvasLocation" x="8511" y="2297"/>
         </scene>
         <!--Period Setting View Controller-->
         <scene sceneID="kDe-Ht-ZqQ">

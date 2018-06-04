@@ -11,16 +11,14 @@ import Alamofire
 
 class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, RoomPageControllerToPage {
     
+    var roomId: Int?
+    
     var height: CGFloat?
     @IBOutlet weak var deviceTableView: UITableView!
     
     var devices = [Device]()
     
     func reloadPage() {
-        
-    }
-    
-    func setRoom(room: Room) {
         
     }
     
@@ -44,7 +42,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(Constants.Urls.api)house/1/room/1/devices", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)house/\(Helper.getStoredHouseId())/room/\(roomId!)/devices", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     print("Device info retrieved")

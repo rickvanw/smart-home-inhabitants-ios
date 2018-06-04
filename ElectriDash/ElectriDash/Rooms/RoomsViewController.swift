@@ -60,16 +60,10 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     @objc func getData() {
-        if Helper.isConnectedToInternet() {
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer " + Helper.getStoredTokenString()!,
                 "Accept": "application/json"
             ]
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
-            "Accept": "application/json"
-        ]
         
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/rooms", headers: headers).responseJSON { response in
             switch response.result {
@@ -85,12 +79,12 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 }catch {
                     print("Parse error")
                 }
+            case .failure(let error):
+                print(error)
             }
         }
-        else {
-            Helper.showAlertOneButton(viewController: self, title: "No internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
-        }
         self.refresher.endRefreshing()
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
