@@ -32,8 +32,27 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         getData()
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceRotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
+    
+    @objc func deviceRotated(){
+        self.collectionView.reloadData()
+
+    }
     
     @objc func getData() {
         
@@ -42,13 +61,17 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             "Accept": "application/json"
         ]
         
-        Alamofire.request("\(Constants.Urls.api)/1/rooms", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/rooms", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Rooms info retrieved")
                 do {
                     self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
                     self.collectionView.reloadData()
+                    if UIDevice.current.screenType == .unknown {
+                        let room = self.rooms.first
+                        self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
+                    }
                 }catch {
                     print("Parse error")
                 }
@@ -69,7 +92,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             let targetController = destinationNavigationController.topViewController as! RoomViewController
             
             let room = sender as? Room
-            targetController.room = room
+            targetController.roomId = room?.id
             targetController.title = room?.name
             targetController.initialize()
         }
@@ -89,8 +112,17 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
         cell.roomKwh.text = "\(Helper.getCurrencyOrKWh(room: rooms[indexPath.row])) \(Helper.getCurrencyOrKWhName())"
-        cell.roomTemp.text = String(rooms[indexPath.row].temperature) + " ℃"
-        cell.roomLastMotion.text = Helper.getFormattedTimeStringBetweenDates(beginDate: rooms[indexPath.row].getLastMotionDate(), endDate: Date())
+        if rooms[indexPath.row].temperature != nil {
+            cell.roomTemp.text = "\(rooms[indexPath.row].temperature!) ℃"
+        }else{
+            cell.roomTemp.text = "-- ℃"
+        }
+        
+        if rooms[indexPath.row].getLastMotionDate() != nil {
+        cell.roomLastMotion.text = Helper.getFormattedTimeStringBetweenDates(beginDate: rooms[indexPath.row].getLastMotionDate()!, endDate: Date())
+        }else{
+            cell.roomLastMotion.text = "--"
+        }
         
         // Apply cell properties
         cell.contentView.layer.cornerRadius = 8

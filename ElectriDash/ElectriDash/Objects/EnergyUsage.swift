@@ -10,13 +10,17 @@ import UIKit
 
 class EnergyUsage: NSObject, Decodable {
 
-    var usage: Double
-    var euro: Double
+    var usage: Double?
+    var euro: Double?
     
-    
-    init?(usage: Double, euro: Double) {
+    init?(usage: Double?, euro: Double?) {
         
-        self.usage = usage
-        self.euro = euro
+        if usage != nil{
+            self.usage = usage
+        }
+        
+        if euro != nil{
+            self.euro = euro
+        }
     }
 }

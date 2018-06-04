@@ -39,6 +39,20 @@ class Helper {
         }
     }
     
+    static func setStoredHouseId(id: Int){
+        UserDefaults.standard.setValue(id, forKey: Constants.Keys.houseId)
+        UserDefaults.standard.synchronize()
+        
+        print("Stored house id: \(id)")
+    }
+    
+    static func getStoredHouseId() -> Int {
+        let id = UserDefaults.standard.value(forKey: Constants.Keys.houseId) as! Int
+        print("Obtained house id: \(id)")
+        return id
+        
+    }
+    
     static func setStoredTokenString(token: String){
         UserDefaults.standard.setValue(token, forKey: Constants.Keys.token)
         UserDefaults.standard.synchronize()
@@ -96,10 +110,10 @@ class Helper {
     
     static func setCurrencyUnitToggle(viewController: UIViewController){
         
-        var imageName = "unit"
+        var imageName = "euro"
         
         if isCurrency {
-            imageName = "euro"
+            imageName = "unit"
         }
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         
@@ -142,10 +156,21 @@ class Helper {
     
     // Return in kwh or currency string
     static func getCurrencyOrKWh(room: Room) -> String{
+        
+        let energyUsage = room.energyUsage
+        
         if isCurrency {
-            return "\(room.energyUsage.euro)"
+            if energyUsage.euro != nil{
+                return "\(energyUsage.euro!)"
+            }else {
+                return "--"
+            }
         }else{
-            return "\(room.energyUsage.usage)"
+            if energyUsage.usage != nil{
+                return "\(energyUsage.usage!)"
+            }else {
+                return "--"
+            }
         }
     }
     
@@ -210,5 +235,33 @@ class Helper {
         }
         
         return showDate
+    }
+    
+    // Remove the blur from the given view (if enabled by addBlur)
+    static func removeBlur() {
+        // Remove the blur from the view
+        let window = UIApplication.shared.keyWindow!
+        
+        let blurView = window.viewWithTag(1001)
+        
+        UIView.animate(withDuration: 0.5,
+                       animations: { blurView?.alpha = 0 },
+                       completion: { finished in blurView?.removeFromSuperview() })
+    }
+    
+    // Add the blur to the given view (remove using removeBlur)
+    static func addBlur() {
+        let window = UIApplication.shared.keyWindow!
+        
+        // Add a blur effect before the popup to add/change opens
+        let blurEffectView = UIVisualEffectView()
+        blurEffectView.frame = window.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.tag = 1001
+        window.addSubview(blurEffectView)
+        
+        UIView.animate(withDuration: 0.5) {
+            blurEffectView.effect = UIBlurEffect(style: .dark)
+        }
     }
 }

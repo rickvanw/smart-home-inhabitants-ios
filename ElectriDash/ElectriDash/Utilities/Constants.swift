@@ -20,6 +20,7 @@ struct Constants {
         static let token = "token"
         static let username = "username"
         static let currencyUnit = "currencyUnit"
+        static let houseId = "houseId"
     }
     
     struct Names {
@@ -50,7 +51,16 @@ struct Constants {
     
     struct Urls
     {
-        static let api = "https://api.energydash.nl/api"
+        static let api = "https://api.energydash.nl"
+    }
+    
+    struct deviceCategories
+    {
+        static let light = "Light"
+        static let doorSensor = "Door Sensor"
+        static let socket = "Socket"
+        static let smartMeter = "Smart meter"
+        static let multiSensor = "Multi sensor"
     }
 }
 

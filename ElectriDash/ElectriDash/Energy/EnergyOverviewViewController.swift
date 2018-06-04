@@ -9,13 +9,13 @@
 import UIKit
 
 class EnergyOverviewViewController: UIViewController, EnergyPageControllerToPage {
-
-    var height:CGFloat?
+    func reloadPage() {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        height = 1000
         
         // Do any additional setup after loading the view.
     }

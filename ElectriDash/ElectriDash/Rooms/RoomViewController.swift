@@ -9,24 +9,132 @@
 import UIKit
 import Alamofire
 
-class RoomViewController: UIViewController, PageHeightSetter {
+class RoomViewController: UIViewController {
     
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var pageView: UIView!
-    @IBOutlet var pageViewHeightConstraint: NSLayoutConstraint!
     
-    var room: Room?
+    var roomId: Int?
+    
+    var selectedIndex = 0
+    
+    private lazy var roomOverviewViewController: RoomOverviewViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "RoomOverviewViewController") as! RoomOverviewViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var roomDevicesViewController: RoomDevicesViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "RoomDevicesViewController") as! RoomDevicesViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var roomHistoryViewController: RoomHistoryViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "RoomHistoryViewController") as! RoomHistoryViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.setupView()
         
-        // TODO: remove dummy room
-//        let today = Date()
-//        let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
-//        room = Room(id: 1, name: "Woonkamer", energyUsage: 13, temperature: 22, lastMotion: "Hallo", imageLink: "https://www.woonsquare.nl/wp/wp-content/uploads/2017/06/Scandinavische-woonkamer-inspiratie-1024x640.jpg")
+    }
+
+    private func setupView() {
+        setupSegmentedControl()
         
-        // Set the roomname from the selected room
-//        self.title = room?.name
+        updateView()
+    }
+    
+    private func add(asChildViewController viewController: UIViewController) {
+        
+            var child = viewController as! RoomPageControllerToPage
+            child.roomId = roomId
+            
+            // Add Child View Controller
+            addChildViewController(viewController)
+            
+            // Add Child View as Subview
+            pageView.addSubview(viewController.view)
+            
+            // Configure Child View
+            viewController.view.frame = pageView.bounds
+            viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            // Notify Child View Controller
+            viewController.didMove(toParentViewController: self)
+            
+            self.view.layoutIfNeeded()
+    
+    }
+    
+    private func setupSegmentedControl() {
+        // Configure Segmented Control
+
+        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
+        
+        // Select First Segment
+        segmentedControl.selectedSegmentIndex = 0
+    }
+    
+    @objc func selectionDidChange(_ sender: UISegmentedControl) {
+        updateView()
+    }
+    
+    private func remove(asChildViewController viewController: UIViewController) {
+        // Notify Child View Controller
+        viewController.willMove(toParentViewController: nil)
+        
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+        
+        // Notify Child View Controller
+        viewController.removeFromParentViewController()
+    }
+    
+    private func updateView() {
+        if selectedIndex == 0 {
+            remove(asChildViewController: roomOverviewViewController)
+        }else if selectedIndex == 1 {
+            remove(asChildViewController: roomDevicesViewController)
+        }else{
+            remove(asChildViewController: roomHistoryViewController)
+        }
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            selectedIndex = 0
+            add(asChildViewController: roomOverviewViewController)
+        } else if segmentedControl.selectedSegmentIndex == 1{
+            selectedIndex = 1
+            add(asChildViewController: roomDevicesViewController)
+        }else{
+            selectedIndex = 2
+            add(asChildViewController: roomHistoryViewController)
+        }
         
     }
     
@@ -36,15 +144,17 @@ class RoomViewController: UIViewController, PageHeightSetter {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.initialize()
+
     }
     
     func setCurrencyUnitToggle(viewController: UIViewController){
         
-        var imageName = "unit"
+        var imageName = "euro"
         
         if Helper.isCurrency {
-            imageName = "euro"
+            imageName = "unit"
         }
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         
@@ -66,35 +176,16 @@ class RoomViewController: UIViewController, PageHeightSetter {
         
         self.initialize()
         
-        if let childVC = self.childViewControllers.first as? SegmentPageChange{
-            childVC.reloadCurrent()
-        }
+        let child = self.childViewControllers.first as! RoomPageControllerToPage
+        child.reloadPage()
     }
     
     func initialize(){
         
         // Set the navbar currency/unit toggle
         self.setCurrencyUnitToggle(viewController: self)
-        // TODO: Remove this demo
+        self.view.layoutIfNeeded()
 
-//        let kWh = 4.0
-//        let cubicMeter = 3.0
-//        
-////        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
-//        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
-    }
-    
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-
-        if let childVC = self.childViewControllers.first as? SegmentPageChange, room != nil{            
-            childVC.pageChangedToIndex(index: sender.selectedSegmentIndex)
-        }
-    }
-    
-    func heightConstraint(constant: CGFloat) {
-        pageViewHeightConstraint.constant = constant
-        
-        pageView.needsUpdateConstraints()
     }
     
 }

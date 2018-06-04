@@ -9,13 +9,13 @@
 import UIKit
 
 class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage {
+    func reloadPage() {
+        
+    }
     
-    var height:CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        height = 1000
         
         // Do any additional setup after loading the view.
     }

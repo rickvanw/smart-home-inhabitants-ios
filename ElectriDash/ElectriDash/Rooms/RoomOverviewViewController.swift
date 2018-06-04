@@ -7,35 +7,40 @@
 //
 
 import UIKit
+import Alamofire
 
 class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     
-    var height: CGFloat?
+    var roomId: Int?
+
     var room: Room?
     
-    @IBOutlet var roomInfoContainer: CustomView!
     @IBOutlet var roomImageView: UIImageView!
     @IBOutlet var roomNameLabel: UILabel!
     @IBOutlet var roomTotalEnergyLabel: UILabel!
     @IBOutlet var roomTemperatureLabel: UILabel!
     @IBOutlet var roomLastMovementLabel: UILabel!
+    @IBOutlet var roomLuminanceLabel: UILabel!
+    @IBOutlet var roomAmountOfDevices: UILabel!
+    @IBOutlet var roomOnlineOfflineDevices: UILabel!
     
+    @IBOutlet var luminanceImageVIew: UIImageView!
     @IBOutlet var movementImageView: UIImageView!
+    @IBOutlet var temperatureImageView: UIImageView!
+    @IBOutlet var totalEnergyImageView: UIImageView!
+    
+    var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        height = self.view.frame.height
-        
-        //        print("\(height)")
-        
-//        self.initialize()
-        
+        self.view.alpha = 0
+
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.roomInfoContainer.alpha = 0
+        self.initialize()
 
     }
     
@@ -49,41 +54,105 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     }
     
     func initialize(){
+        luminanceImageVIew.image = UIImage(named: "lightbulb")?.withRenderingMode(.alwaysTemplate)
         movementImageView.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
+        temperatureImageView.image = UIImage(named: "thermometer")?.withRenderingMode(.alwaysTemplate)
+        totalEnergyImageView.image = UIImage(named: "powerplug")?.withRenderingMode(.alwaysTemplate)
         
         if room != nil{
-            
-            // TODO: set uiimage name
-            roomImageView.downloadedFrom(link: room!.imageLink)
 
-            roomNameLabel.text = room!.name
-            roomTotalEnergyLabel.text = "\(Helper.getCurrencyOrKWh(room: room!)) \(Helper.getCurrencyOrKWhName())"
-            roomTemperatureLabel.text = "\(room!.temperature) °C"
-            
-            let beginDate = room!.getLastMotionDate()
-            
-            let endDate = Date()
-            //            let calendar = Calendar.current
-            //            let day = calendar.component(.day, from: currentDate)
-            //            let hour = calendar.component(.hour, from: currentDate)
-            //            let minutes = calendar.component(.minute, from: currentDate)
-            
-            //            var showDate = "\(minutes) minuten geleden"
-            
-            let showDate = Helper.getFormattedTimeStringBetweenDates(beginDate: beginDate, endDate: endDate)
-            
-            roomLastMovementLabel.text = "\(showDate)"
-            
-            UIView.animate(withDuration: 0.2,
-                           animations: { self.roomInfoContainer.alpha = 1 },
-                           completion: nil)
+            setRoomToView()
+
+        }else if roomId != nil{
+            getData()
             
         }
     }
     
-    func setRoom(room: Room) {
-        self.room = room
-        self.initialize()
+    func getData() {
+
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)", headers: headers).responseJSON { response in
+            switch response.result {
+            case .success:
+                print("Rooms info retrieved")
+                do {
+                    self.room = try JSONDecoder().decode(Room.self, from: response.data!)
+                    self.setRoomToView()
+                }catch {
+                    print("Parse error")
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
+    func setRoomToView(){
+        if roomImageView.image == nil {
+            roomImageView.downloadedFrom(link: room!.imageLink)
+        }
+        
+        roomNameLabel.text = room!.name
+        
+        if room!.devices != nil{
+            if room!.devices == 1{
+                roomAmountOfDevices.text = "\(room!.devices!) Apparaat"
+            }else{
+                roomAmountOfDevices.text = "\(room!.devices!) Apparaten"
+                
+            }
+        }else{
+            roomAmountOfDevices.text = "-- Apparaten"
+        }
+        
+        if room!.offlineDevices != nil, room!.devices != nil{
+            
+            let online = room!.devices! - room!.offlineDevices!
+            let offline = room!.offlineDevices!
+
+            roomOnlineOfflineDevices.text = "\(online) online / \(offline) offline"
+            
+        }else{
+            roomOnlineOfflineDevices.text = "-- online / -- offline"
+        }
+        
+        if room!.luminance != nil {
+            roomLuminanceLabel.text = "\(room!.luminance!) lux"
+        }else{
+            roomLuminanceLabel.text = "-- lux"
+        }
+        
+        if room!.luminance != nil {
+            roomLuminanceLabel.text = "\(room!.luminance!) lux"
+        }else{
+            roomLuminanceLabel.text = "-- lux"
+        }
+        
+        
+        roomTotalEnergyLabel.text = "\(Helper.getCurrencyOrKWh(room: room!)) \(Helper.getCurrencyOrKWhName())"
+        
+        if room!.temperature != nil {
+            roomTemperatureLabel.text = "\(room!.temperature!) °C"
+        }else{
+            roomTemperatureLabel.text = "-- °C"
+        }
+        
+        if room!.getLastMotionDate() != nil{
+            let beginDate = room!.getLastMotionDate()!
+            let endDate = Date()
+            let showDate = Helper.getFormattedTimeStringBetweenDates(beginDate: beginDate, endDate: endDate)
+            roomLastMovementLabel.text = "\(showDate)"
+
+        }else{
+            roomLastMovementLabel.text = "--"
+        }
+        
+        self.view.alpha = 1
+    }
 }
