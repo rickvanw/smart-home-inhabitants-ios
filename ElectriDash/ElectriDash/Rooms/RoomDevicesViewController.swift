@@ -87,7 +87,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         // Set the image according to the given iconName
         switch device.iconName {
         case "Multi sensor":
-            cell.deviceImage.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
+            cell.deviceImage.image = UIImage(named: "multisensor")?.withRenderingMode(.alwaysTemplate)
             break
         case "Light":
             cell.deviceImage.image = UIImage(named: "lightbulb")?.withRenderingMode(.alwaysTemplate)
@@ -95,12 +95,14 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         case "Socket":
             cell.deviceImage.image = UIImage(named: "powerplug")?.withRenderingMode(.alwaysTemplate)
         case "Door sensor":
+            cell.deviceImage.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
             break
         case "Smart meter":
             cell.deviceImage.image = UIImage(named: "house")?.withRenderingMode(.alwaysTemplate)
             break
         default: break
         }
+        
         //Set the tintcolor of the UIImages
         cell.deviceImage.tintColor = UIColor(hexString: "#5ED0A8")
         
