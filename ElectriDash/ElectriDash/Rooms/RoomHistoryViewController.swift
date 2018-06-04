@@ -43,10 +43,10 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         
         fromDate = calendar.date(byAdding: .day, value: -4, to: today)
         toDate = calendar.date(byAdding: .day, value: -2, to: today)
-
+        
         getData(from: fromDate, to: toDate)
         
-//        initGraph()
+        //        initGraph()
         
     }
     
@@ -66,7 +66,7 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -198,7 +198,9 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
             case .success:
                 print("Rooms history retrieved")
                 do {
-//                    print(response)
+                    //                    print(response)
+                    
+                    let graph = try JSONDecoder().decode(Graph.self, from: response.data!)
                     self.generateDateRange()
                     self.initGraph()
                 }catch {

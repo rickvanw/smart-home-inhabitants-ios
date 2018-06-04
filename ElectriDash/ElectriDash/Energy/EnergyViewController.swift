@@ -8,17 +8,129 @@
 
 import UIKit
 
-class EnergyViewController: UIViewController, CurrencyUnitToggle {
+class EnergyViewController: UIViewController {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var pageView: UIView!
-    @IBOutlet var pageViewHeightConstraint: NSLayoutConstraint!
+    
+    var selectedIndex = 0
+    
+    private lazy var roomOverviewViewController: EnergyOverviewViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyOverviewViewController") as! EnergyOverviewViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var roomDevicesViewController: EnergyDevicesViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyDevicesViewController") as! EnergyDevicesViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var roomHistoryViewController: EnergyHistoryViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyHistoryViewController") as! EnergyHistoryViewController
+        
+        // Add View Controller as Child View Controller
+        self.add(asChildViewController: viewController)
+        
+        return viewController
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupView()
+
+    }
     
+    private func setupView() {
+        setupSegmentedControl()
+        
+        updateView()
+    }
+    
+    private func add(asChildViewController viewController: UIViewController) {
+        
+        // Add Child View Controller
+        addChildViewController(viewController)
+        
+        // Add Child View as Subview
+        pageView.addSubview(viewController.view)
+        
+        // Configure Child View
+        viewController.view.frame = pageView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        // Notify Child View Controller
+        viewController.didMove(toParentViewController: self)
+        
+        self.view.layoutIfNeeded()
+        
+    }
+    
+    private func setupSegmentedControl() {
+        // Configure Segmented Control
+        
+        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
+        
+        // Select First Segment
+        segmentedControl.selectedSegmentIndex = 0
+    }
+    
+    @objc func selectionDidChange(_ sender: UISegmentedControl) {
+        updateView()
+    }
+    
+    private func remove(asChildViewController viewController: UIViewController) {
+        // Notify Child View Controller
+        viewController.willMove(toParentViewController: nil)
+        
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+        
+        // Notify Child View Controller
+        viewController.removeFromParentViewController()
+    }
+    
+    private func updateView() {
+        if selectedIndex == 0 {
+            remove(asChildViewController: roomOverviewViewController)
+        }else if selectedIndex == 1 {
+            remove(asChildViewController: roomDevicesViewController)
+        }else{
+            remove(asChildViewController: roomHistoryViewController)
+        }
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            selectedIndex = 0
+            add(asChildViewController: roomOverviewViewController)
+        } else if segmentedControl.selectedSegmentIndex == 1{
+            selectedIndex = 1
+            add(asChildViewController: roomDevicesViewController)
+        }else{
+            selectedIndex = 2
+            add(asChildViewController: roomHistoryViewController)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,39 +139,48 @@ class EnergyViewController: UIViewController, CurrencyUnitToggle {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.initialize()
-    }
-    
-    // Triggered when currency/unit toggle pressed
-    func currencyUnitTogglePressed() {
         
-        // TODO: Remove this demo
-        self.initialize()
     }
     
+    func setCurrencyUnitToggle(viewController: UIViewController){
+        
+        var imageName = "euro"
+        
+        if Helper.isCurrency {
+            imageName = "unit"
+        }
+        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
+        
+        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed))
+        barButtonItem.tintColor = UIColor.white
+        
+        viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
+    }
+    
+    @objc func currencyUnitTogglePressed(){
+        
+        if Helper.isCurrency {
+            Helper.isCurrency = false
+        }else{
+            Helper.isCurrency = true
+        }
+        
+        self.setCurrencyUnitToggle(viewController: self)
+        
+        self.initialize()
+        
+        let child = self.childViewControllers.first as! RoomPageControllerToPage
+        child.reloadPage()
+    }
+
     func initialize(){
         
         // Set the navbar currency/unit toggle
-        Helper.setCurrencyUnitToggle(viewController: self)
-        
-        // TODO: Remove this demo
+        self.setCurrencyUnitToggle(viewController: self)
+        self.view.layoutIfNeeded()
 
-        let kWh = 4.0
-        let cubicMeter = 3.0
-        
-//        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
-        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
-    }
-
-    @IBAction func segmentPressed(_ sender: UISegmentedControl) {
-        
-
-    }
-    
-    func heightConstraint(constant: CGFloat) {
-        pageViewHeightConstraint.constant = constant
-        
-        pageView.needsUpdateConstraints()
     }
 
 }

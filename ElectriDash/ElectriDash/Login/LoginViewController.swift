@@ -146,23 +146,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             switch(response.result) {
             case .success:
-                
-                if let json = response.result.value, let object = json as? [String:Any], let token = object["token"] as? String {
-                    print("JSON: \(json)") // serialized json response
-                    print("TOKEN: \(token)")
-                    
-                    Helper.setStoredTokenString(token: token)
-                    Helper.setStoredUsername(username: username)
-                    
-                    self.getHouses()
-                    
-                }else{
-//                    self.dismissActivityIndicator()
+                do {
+                    let login = try JSONDecoder().decode(Login.self, from: response.data!)
 
-                    showError = true
-                    errorMessage = "Probeer het opnieuw"
+                    Helper.setStoredTokenString(token: login.token)
+                    Helper.setStoredUsername(username: username)
+
+                    self.houses = login.houses
+
+                    if self.houses != nil {
+
+                        if self.houses!.count == 0{
+                            showError = true
+                            errorMessage = "Geen huizen gevonden"
+
+                        }else if self.houses!.count == 1{
+                            Helper.setStoredHouseId(id: self.houses!.first!.id)
+
+                            self.dismissActivityIndicator(completion: {_ in
+                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            })
+
+//                            self.showHouseOptions()
+
+                        }else{
+                            self.showHouseOptions()
+                        }
+                    }
+
+                }catch {
+                    print("Parse error")
                 }
-                
+
             case .failure(let error):
                 
 //                self.dismissActivityIndicator()
@@ -212,80 +227,74 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func getHouses(){
-        
-        let headers: HTTPHeaders = [
-            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
-            "Accept": "application/json"
-        ]
-        
-        Alamofire.request("\(Constants.Urls.api)/api/houses", headers: headers).responseJSON { response in
-            
-            var showError = false
-            var errorMessage = "Er is een onbekende fout opgetreden"
-            
-            switch response.result {
-            case .success:
-                print("Rooms history retrieved")
-                do {
-                    self.houses = try JSONDecoder().decode([House].self, from: response.data!)
-//                    Helper.setStoredHouseId(id: house.id)
-                    
-                    if self.houses != nil {
-                        
-                        if self.houses!.count == 0{
-                            showError = true
-                            errorMessage = "Geen huizen gevonden"
-                            
-                        }else if self.houses!.count == 1{
-                            Helper.setStoredHouseId(id: self.houses!.first!.id)
-
-                            self.dismissActivityIndicator(completion: {_ in
-                                self.performSegue(withIdentifier: "loginSegue", sender: self)
-                            })
-
+//    func getHouses(){
+//
+//        let headers: HTTPHeaders = [
+//            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+//            "Accept": "application/json"
+//        ]
+//
+//        Alamofire.request("\(Constants.Urls.api)/api/houses", headers: headers).responseJSON { response in
+//
+//            var showError = false
+//            var errorMessage = "Er is een onbekende fout opgetreden"
+//
+//            switch response.result {
+//            case .success:
+//                print("Rooms history retrieved")
+//                do {
+//                    self.houses = try JSONDecoder().decode([House].self, from: response.data!)
+////                    Helper.setStoredHouseId(id: house.id)
+//
+//                    if self.houses != nil {
+//
+//                        if self.houses!.count == 0{
+//                            showError = true
+//                            errorMessage = "Geen huizen gevonden"
+//
+//                        }else if self.houses!.count == 1{
+//                            Helper.setStoredHouseId(id: self.houses!.first!.id)
+//
+//                            self.dismissActivityIndicator(completion: {_ in
+//                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+//                            })
+//
+////                            self.showHouseOptions()
+//
+//                        }else{
 //                            self.showHouseOptions()
-
-                        }else{
-                            self.showHouseOptions()
-                        }
-                    }else{
-                        showError = true
-                        errorMessage = "Geen huizen gevonden"
-                    }
-                    
-                }catch {
-                    print("Parse error")
-                    showError = true
-                }
-                
-            case .failure(let error):
-                print(error)
-                showError = true
-            }
-            
-            if showError {
-                self.dismissActivityIndicator(completion: {_ in
-                    Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
-                })
-            }
-            
-        }
-    }
+//                        }
+//                    }else{
+//                        showError = true
+//                        errorMessage = "Geen huizen gevonden"
+//                    }
+//
+//                }catch {
+//                    print("Parse error")
+//                    showError = true
+//                }
+//
+//            case .failure(let error):
+//                print(error)
+//                showError = true
+//            }
+//
+//            if showError {
+//                self.dismissActivityIndicator(completion: {_ in
+//                    Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
+//                })
+//            }
+//
+//        }
+//    }
     
     func showHouseOptions() {
         let alert = UIAlertController(title: "Selecteer een huis", message: nil, preferredStyle: .actionSheet)
         
         
         for house in houses!{
-            var adress = ""
-            if house.address != nil{
-                adress = " - \(house.address!)"
-            }
-            
-            alert.addAction(UIAlertAction(title: "\(house.name)\(adress)", style: .default , handler:{ (UIAlertAction)in
+            alert.addAction(UIAlertAction(title: "\(house.name)", style: .default , handler:{ (UIAlertAction)in
                 Helper.setStoredHouseId(id: house.id)
-//                self.performSegue(withIdentifier: "loginSegue", sender: self)
                 
                 self.dismissActivityIndicator(completion: {_ in
                     self.performSegue(withIdentifier: "loginSegue", sender: self)

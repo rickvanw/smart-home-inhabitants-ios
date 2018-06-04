@@ -61,19 +61,9 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
 
         self.setupView()
-
-        // TODO: remove dummy room
-//        let today = Date()
-//        let pastDate = Calendar.current.date(byAdding: .hour, value: -10, to: today)!
-//        room = Room(id: 1, name: "Woonkamer", energyUsage: 13, temperature: 22, lastMotion: "Hallo", imageLink: "https://www.woonsquare.nl/wp/wp-content/uploads/2017/06/Scandinavische-woonkamer-inspiratie-1024x640.jpg")
-        
-        // Set the roomname from the selected room
-//        self.title = room?.name
         
     }
-    
-  
-    
+
     private func setupView() {
         setupSegmentedControl()
         
@@ -195,13 +185,7 @@ class RoomViewController: UIViewController {
         // Set the navbar currency/unit toggle
         self.setCurrencyUnitToggle(viewController: self)
         self.view.layoutIfNeeded()
-        // TODO: Remove this demo
 
-//        let kWh = 4.0
-//        let cubicMeter = 3.0
-//        
-////        print("Electrical energy: \(Helper.getCurrencyOrKWhName()) \(Helper.getCurrencyOrKWh(kWh: kWh))")
-//        print("Gas: \(Helper.getCurrencyOrCubicMeterName()) \(Helper.getCurrencyOrCubicMeter(cubicMeter: cubicMeter))")
     }
     
 }

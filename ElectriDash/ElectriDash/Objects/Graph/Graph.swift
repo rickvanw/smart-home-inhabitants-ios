@@ -10,11 +10,11 @@ import UIKit
 
 class Graph: NSObject, Decodable{
     
-    var graphEntries: GraphEntry
+    var graphEntries: [GraphEntry]
     
     // MARK: Initializer
     
-    init?(graphEntries: GraphEntry) {
+    init?(graphEntries: [GraphEntry]) {
         
         self.graphEntries = graphEntries
 

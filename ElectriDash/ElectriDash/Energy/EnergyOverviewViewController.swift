@@ -8,7 +8,11 @@
 
 import UIKit
 
-class EnergyOverviewViewController: UIViewController {
+class EnergyOverviewViewController: UIViewController, EnergyPageControllerToPage {
+    func reloadPage() {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class EnergyHistoryViewController: UIViewController {
+class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage {
+    func reloadPage() {
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -389,7 +389,7 @@
             </objects>
             <point key="canvasLocation" x="538" y="1139"/>
         </scene>
-        <!--Energie-->
+        <!--Energy View Controller-->
         <scene sceneID="1eI-ta-Bsb">
             <objects>
                 <viewController id="Hh7-qk-Wl1" customClass="EnergyViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
@@ -397,67 +397,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gy3-2x-Ukz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="z44-cK-KnL">
-                                        <rect key="frame" x="10" y="10" width="355" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="AII-wp-rb5"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="yJO-O4-Pa5"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="Overzicht"/>
-                                            <segment title="Apparaten"/>
-                                            <segment title="Historie"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.23921568627450979" green="0.79607843137254897" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="segmentPressed:" destination="Hh7-qk-Wl1" eventType="valueChanged" id="eWj-44-gnx"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-Gt-RqS">
-                                        <rect key="frame" x="0.0" y="48" width="375" height="700"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="700" id="hls-SZ-clR"/>
-                                        </constraints>
-                                        <connections>
-                                            <segue destination="mIf-9s-EPn" kind="embed" identifier="PageEmbedSegue" id="5F0-6T-n8o"/>
-                                        </connections>
-                                    </containerView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="width" secondItem="Gy3-2x-Ukz" secondAttribute="width" id="C5F-Su-H3d"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wb2-Gt-RqS" secondAttribute="bottom" id="Lj7-KH-dvk"/>
-                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="leading" secondItem="Gy3-2x-Ukz" secondAttribute="leading" id="aIO-fa-PsS"/>
-                                    <constraint firstItem="Wb2-Gt-RqS" firstAttribute="top" secondItem="z44-cK-KnL" secondAttribute="bottom" constant="10" id="aYb-7k-Ob5"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wb2-Gt-RqS" secondAttribute="trailing" id="cjW-f9-rhM"/>
-                                    <constraint firstItem="z44-cK-KnL" firstAttribute="top" secondItem="Gy3-2x-Ukz" secondAttribute="top" constant="10" id="ekT-Ch-nce"/>
-                                    <constraint firstItem="z44-cK-KnL" firstAttribute="leading" secondItem="Gy3-2x-Ukz" secondAttribute="leading" constant="10" id="oap-07-Wyy"/>
-                                    <constraint firstAttribute="trailing" secondItem="z44-cK-KnL" secondAttribute="trailing" constant="10" id="qDg-Vc-fCN"/>
-                                </constraints>
-                            </scrollView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-Gt-RqS">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <connections>
+                                    <segue destination="mIf-9s-EPn" kind="embed" identifier="PageEmbedSegue" id="5F0-6T-n8o"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Gy3-2x-Ukz" secondAttribute="trailing" id="Aki-fV-Edk"/>
-                            <constraint firstAttribute="bottom" secondItem="Gy3-2x-Ukz" secondAttribute="bottom" id="S1e-3u-nAx"/>
-                            <constraint firstItem="Gy3-2x-Ukz" firstAttribute="top" secondItem="DGN-IL-vc6" secondAttribute="top" id="i2Q-hA-EMS"/>
-                            <constraint firstItem="Gy3-2x-Ukz" firstAttribute="leading" secondItem="DGN-IL-vc6" secondAttribute="leading" id="ike-cq-Hus"/>
+                            <constraint firstItem="Wb2-Gt-RqS" firstAttribute="leading" secondItem="DGN-IL-vc6" secondAttribute="leading" id="F6j-dO-trQ"/>
+                            <constraint firstItem="Wb2-Gt-RqS" firstAttribute="top" secondItem="GHC-IN-j16" secondAttribute="top" id="M0i-2g-l4y"/>
+                            <constraint firstAttribute="trailing" secondItem="Wb2-Gt-RqS" secondAttribute="trailing" id="Xc6-hO-1t0"/>
+                            <constraint firstAttribute="bottom" secondItem="Wb2-Gt-RqS" secondAttribute="bottom" id="fTJ-Df-nYL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GHC-IN-j16"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Energie" id="evQ-Fn-Qsl"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="evQ-Fn-Qsl">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="z44-cK-KnL">
+                            <rect key="frame" x="71" y="7.6666666666666679" width="233" height="29.000000000000004"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Overzicht"/>
+                                <segment title="Apparaten"/>
+                                <segment title="Historie"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="pageView" destination="Wb2-Gt-RqS" id="OYH-wQ-dpp"/>
-                        <outlet property="pageViewHeightConstraint" destination="hls-SZ-clR" id="ll7-b1-Hja"/>
                         <outlet property="segmentedControl" destination="z44-cK-KnL" id="Z2R-7b-0wT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mnU-k5-wHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="1538"/>
+            <point key="canvasLocation" x="2502.5" y="1538"/>
         </scene>
         <!--Energy Overview View Controller-->
         <scene sceneID="YMA-dz-tIR">
@@ -484,7 +460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="osn-wA-BGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="2296"/>
+            <point key="canvasLocation" x="1803" y="2529"/>
         </scene>
         <!--Item-->
         <scene sceneID="fUN-nS-BJF">
@@ -527,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6b-2j-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2502" y="2735"/>
+            <point key="canvasLocation" x="2502" y="3122"/>
         </scene>
         <!--Energy History View Controller-->
         <scene sceneID="nP9-DV-Xrl">
@@ -554,7 +530,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NrD-Ka-7BQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3284" y="2295.8128078817736"/>
+            <point key="canvasLocation" x="3261" y="2529"/>
         </scene>
         <!--Energy-->
         <scene sceneID="zzh-fU-aTD">
@@ -562,8 +538,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-fY-fDg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Energy" image="icons8-combo-chart-filled-100" id="RZR-RK-drT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Bet-bd-mGx">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bet-bd-mGx">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.23921568627450979" green="0.79607843137254897" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -1364,7 +1340,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cct-Kg-mRk">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.1509983838" green="0.77205258610000005" blue="0.6420167685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>

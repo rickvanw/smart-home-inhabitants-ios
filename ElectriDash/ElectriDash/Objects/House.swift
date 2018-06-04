@@ -14,12 +14,12 @@ class House: NSObject, Decodable{
     var id: Int
     var address: String?
     var imageLink: String?
-    var serial: String
-    var online: Bool
-    var devices: Int
-    var offlineDevices: Int
+    var serial: String?
+    var online: Bool?
+    var devices: Int?
+    var offlineDevices: Int?
     
-    init?(name: String, id: Int, address: String?, imageLink: String?, serial: String, online: Bool, devices: Int, offlineDevices: Int) {
+    init?(name: String, id: Int, address: String?, imageLink: String?, serial: String?, online: Bool?, devices: Int?, offlineDevices: Int?) {
         
         self.name = name
         self.id = id
@@ -31,16 +31,4 @@ class House: NSObject, Decodable{
         self.offlineDevices = offlineDevices
         
     }
-    
-    
-//    {
-//    "name": "Saxion",
-//    "id": 1,
-//    "address": null,
-//    "imageLink": null,
-//    "serial": "D660A3C07C954D1E",
-//    "online": true,
-//    "devices": 9,
-//    "offlineDevices": 0
-//    }
 }
