@@ -152,27 +152,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     Helper.setStoredTokenString(token: login.token)
                     Helper.setStoredUsername(username: username)
 
-                    self.houses = login.houses
-
-                    if self.houses != nil {
-
-                        if self.houses!.count == 0{
-                            showError = true
-                            errorMessage = "Geen huizen gevonden"
-
-                        }else if self.houses!.count == 1{
-                            Helper.setStoredHouseId(id: self.houses!.first!.id)
-
-                            self.dismissActivityIndicator(completion: {_ in
-                                self.performSegue(withIdentifier: "loginSegue", sender: self)
-                            })
-
+                    self.dismissActivityIndicator(completion: {_ in
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    })
+                    
+//                    self.houses = login.houses
+//
+//                    if self.houses != nil {
+//
+//                        if self.houses!.count == 0{
+//                            showError = true
+//                            errorMessage = "Geen huizen gevonden"
+//
+//                        }else if self.houses!.count == 1{
+//                            Helper.setStoredHouseId(id: self.houses!.first!.id)
+//
+//                            self.dismissActivityIndicator(completion: {_ in
+//                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+//                            })
+//
+////                            self.showHouseOptions()
+//
+//                        }else{
 //                            self.showHouseOptions()
-
-                        }else{
-                            self.showHouseOptions()
-                        }
-                    }
+//                        }
+//                    }
 
                 }catch {
                     print("Parse error")
@@ -180,7 +184,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
             case .failure(let error):
                 
-//                self.dismissActivityIndicator()
                 
                 showError = true
                 

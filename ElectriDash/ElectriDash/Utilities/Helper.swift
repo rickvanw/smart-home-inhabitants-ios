@@ -156,9 +156,25 @@ class Helper {
     }
     
     // Return in kwh or currency string
-    static func getCurrencyOrKWh(room: Room) -> String{
+    static func getCurrencyOrKWh(energyUsage: EnergyUsage) -> String{
         
-        let energyUsage = room.energyUsage
+        if isCurrency {
+            if energyUsage.euro != nil{
+                return "\(energyUsage.euro!)"
+            }else {
+                return "--"
+            }
+        }else{
+            if energyUsage.usage != nil{
+                return "\(energyUsage.usage!)"
+            }else {
+                return "--"
+            }
+        }
+    }
+    
+    // Return in kwh or currency string
+    static func getCurrencyOrW(energyUsage: EnergyUsage) -> String{
         
         if isCurrency {
             if energyUsage.euro != nil{

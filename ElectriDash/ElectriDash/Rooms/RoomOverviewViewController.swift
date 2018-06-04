@@ -135,7 +135,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         }
         
         
-        roomTotalEnergyLabel.text = "\(Helper.getCurrencyOrKWh(room: room!)) \(Helper.getCurrencyOrKWhName())"
+        roomTotalEnergyLabel.text = "\(Helper.getCurrencyOrKWh(energyUsage: room!.energyUsage)) \(Helper.getCurrencyOrKWhName())"
         
         if room!.temperature != nil {
             roomTemperatureLabel.text = "\(room!.temperature!) °C"

@@ -27,7 +27,7 @@ class EnergyDevicesViewController: UIViewController, EnergyPageControllerToPage 
         categories.append(devCats.socket)
         categories.append(devCats.multiSensor)
         
-        showCategories()
+//        showCategories()
         
         // Do any additional setup after loading the view.
     }

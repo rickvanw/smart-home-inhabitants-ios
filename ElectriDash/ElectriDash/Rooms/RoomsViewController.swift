@@ -116,7 +116,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         // Set cell content
         cell.locationImage.downloadedFrom(link: self.rooms[indexPath.row].imageLink)
         cell.roomName.text = rooms[indexPath.row].name
-        cell.roomKwh.text = "\(Helper.getCurrencyOrKWh(room: rooms[indexPath.row])) \(Helper.getCurrencyOrKWhName())"
+        cell.roomKwh.text = "\(Helper.getCurrencyOrKWh(energyUsage: rooms[indexPath.row].energyUsage)) \(Helper.getCurrencyOrKWhName())"
         if rooms[indexPath.row].temperature != nil {
             cell.roomTemp.text = "\(rooms[indexPath.row].temperature!) ℃"
         }else{
