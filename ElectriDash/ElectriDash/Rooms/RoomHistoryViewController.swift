@@ -193,7 +193,7 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         let fromDateString = dateFormatter.string(from: from)
         let toDateString = dateFormatter.string(from: to)
         
-        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/1/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
             switch response.result {
             case .success:
                 print("Rooms history retrieved")

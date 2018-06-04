@@ -42,7 +42,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/devices", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)/house/1/room/\(roomId!)/devices", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     print("Device info retrieved")

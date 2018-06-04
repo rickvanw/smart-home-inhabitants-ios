@@ -172,8 +172,7 @@ class Helper {
             }
         }
     }
-    
-    // Return in kwh or currency string
+    // TODO Return in kwh or currency string
     static func getCurrencyOrW(energyUsage: EnergyUsage) -> String{
         
         if isCurrency {
