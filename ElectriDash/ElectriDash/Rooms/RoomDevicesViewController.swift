@@ -94,6 +94,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
             break
         case "Socket":
             cell.deviceImage.image = UIImage(named: "powerplug")?.withRenderingMode(.alwaysTemplate)
+            break
         case "Door sensor":
             cell.deviceImage.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
             break
@@ -103,9 +104,13 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         default: break
         }
         
-        //Set the tintcolor of the UIImages
-        cell.deviceImage.tintColor = UIColor(hexString: "#5ED0A8")
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         
+        //Set the icon tintcolor
+        cell.deviceImage.tintColor = UIColor(hexString: "#5ED0A8")
+
         return cell
     }
 }
