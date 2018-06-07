@@ -59,7 +59,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
             }
         }
         else {
-            Helper.showAlertOneButton(viewController: self, title: "No internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
+            Helper.showAlertOneButton(viewController: self, title: "Geen netwerkverbinding", message: "Controleer of uw apparaat verbonden is met het internet", buttonTitle: "OK")
         }
     }
     
@@ -84,20 +84,17 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         
         // Set the image according to the given iconName
         switch device.iconName {
-        case "Multi sensor":
+        case Constants.deviceCategories.multiSensor:
             cell.deviceImage.image = UIImage(named: "multisensor")?.withRenderingMode(.alwaysTemplate)
             break
-        case "Light":
+        case Constants.deviceCategories.light:
             cell.deviceImage.image = UIImage(named: "lightbulb")?.withRenderingMode(.alwaysTemplate)
             break
-        case "Socket":
+        case Constants.deviceCategories.socket:
             cell.deviceImage.image = UIImage(named: "powerplug")?.withRenderingMode(.alwaysTemplate)
             break
-        case "Door sensor":
+        case Constants.deviceCategories.doorSensor:
             cell.deviceImage.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
-            break
-        case "Smart meter":
-            cell.deviceImage.image = UIImage(named: "house")?.withRenderingMode(.alwaysTemplate)
             break
         default: break
         }

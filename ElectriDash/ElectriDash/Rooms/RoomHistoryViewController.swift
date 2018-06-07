@@ -23,12 +23,12 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     
     var roomId: Int?
     
-    var yAxis: [Double] = [2.9, 1.5, 2.3, 5.5, 1.0, 2.9, 2.9, 1.5, 2.3, 3.0, 1.0, 2.9, 2.9, 1.5, 2.3, 5.5, 1.0, 2.9, 2.9, 1.5, 2.3, 3.0, 1.0, 2.9, 2.9]
+    var yAxis = [Double]()
     var linePlotLabel = [String]()
     
     var xAxis = [Date]()
     
-    var numberOfDataItems = 25
+    var numberOfDataItems = Int()
     
     func reloadPage() {
         graphView.reload()
@@ -41,11 +41,16 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
         
-        fromDate = calendar.date(byAdding: .day, value: -4, to: today)
-        toDate = calendar.date(byAdding: .day, value: -2, to: today)
+        fromDate = today
+        
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        toDate = Calendar.current.date(byAdding: components, to: fromDate!)
+
         
         getData(from: fromDate, to: toDate)
-        
+
         //        initGraph()
         
     }
@@ -129,7 +134,9 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         
         referenceLines.dataPointLabelColor = UIColor.darkGray.withAlphaComponent(1)
         
-        referenceLines.dataPointLabelsSparsity = 3
+//        referenceLines.dataPointLabelsSparsity = 3
+        
+        
         
         graphView.rangeMax = yAxis.max()!.rounded(.up)
         graphView.rangeMin = yAxis.min()!.rounded(.down)
@@ -138,8 +145,8 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = false
         graphView.shouldAnimateOnAdapt = false
-        graphView.leftmostPointPadding = 20
-        graphView.rightmostPointPadding = 5
+//        graphView.leftmostPointPadding = 20
+//        graphView.rightmostPointPadding = 5
         
         graphView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -200,9 +207,27 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
                 do {
                     //                    print(response)
                     
-                    let graph = try JSONDecoder().decode(Graph.self, from: response.data!)
-                    self.generateDateRange()
-                    self.initGraph()
+                    let roomHistory = try JSONDecoder().decode(RoomHistory.self, from: response.data!)
+                    
+                    let graphEntries = roomHistory.graph.graphEntries
+                    
+                    self.numberOfDataItems = graphEntries.count
+                    
+                    self.yAxis = [Double]()
+                    self.xAxis = [Date]()
+
+                    for graphEntry in graphEntries{
+                        self.yAxis.append(graphEntry.yAxis)
+                        self.xAxis.append(graphEntry.getxAxisDate()!)
+                    }
+                    if !self.yAxis.isEmpty, !self.xAxis.isEmpty{
+                        
+                        self.generateDateRange()
+                        
+                        self.initGraph()
+                    }
+
+                    
                 }catch {
                     print("Parse error")
                 }
@@ -238,6 +263,8 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         }else if day == 0{
             dateFormatter.dateFormat = "HH:mm"
             
+        }else if month == 0 {
+            dateFormatter.dateFormat = "dd/MM"
         }
         //        }
         
@@ -247,15 +274,43 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     func generateDateRange(){
         let calendar = Calendar.current
         
-        var date = calendar.startOfDay(for: fromDate)
+        let begin = calendar.startOfDay(for: fromDate!)
+        var end = calendar.startOfDay(for: toDate!)
         
-        for _ in yAxis{
-            
-            date = calendar.date(byAdding: .hour, value: 1, to: date)!
-            
-            xAxis.append(date)
-        }
+        var componentsEnd = DateComponents()
+        componentsEnd.day = 1
+        componentsEnd.second = -1
+        end = Calendar.current.date(byAdding: componentsEnd, to: end)!
         
+        
+        let components = calendar.dateComponents([.day, .month, .year], from: begin, to: end)
+        let day = components.day!
+        let month = components.month!
+        let year = components.year!
+        
+        print("year: \(year)")
+        print("month: \(month)")
+        print("day: \(day)")
+
+//
+//        let dateFormatter = DateFormatter()
+//
+//        if year < 0 {
+//
+//        }else if month < 0{
+//
+//        }else if day == 0{
+//
+//        }else if month == 0 {
+//        }
+//
+//        for _ in yAxis{
+//
+//            date = calendar.date(byAdding: .hour, value: 1, to: date)!
+//
+//            xAxis.append(date)
+//        }
+
     }
     
     //MARK: Actions
