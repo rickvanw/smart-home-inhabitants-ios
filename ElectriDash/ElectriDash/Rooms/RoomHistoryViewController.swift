@@ -14,21 +14,17 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     
     @IBOutlet var totalEnergy: UILabel!
     @IBOutlet var graphViewContainer: UIView!
+    @IBOutlet var xAxisLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     var graphView: ScrollableGraphView!
     var fromDate: Date!
     var toDate: Date!
     
-    var room: Room?
-    
     var roomId: Int?
     
     var yAxis = [Double]()
-    var linePlotLabel = [String]()
-    
     var xAxis = [Date]()
-    
-    var numberOfDataItems = Int()
     
     func reloadPage() {
         graphView.reload()
@@ -37,6 +33,7 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        xAxisLabel.text = "Vandaag"
         
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
@@ -47,31 +44,22 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         components.day = 1
         components.second = -1
         toDate = Calendar.current.date(byAdding: components, to: fromDate!)
-
         
         getData(from: fromDate, to: toDate)
-
-        //        initGraph()
         
     }
     
     func initGraph(){
-        for x in xAxis {
-            
-            linePlotLabel.append(getDateFormatted(date: x))
-        }
         
         graphView = createMultiPlotGraphOne(graphViewContainer.frame)
         
         self.graphViewContainer.addSubview(graphView)
         
-        graphView.dataPointSpacing = (self.view.frame.width - (graphView.leftmostPointPadding + graphView.rightmostPointPadding)) / CGFloat(numberOfDataItems)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         
+        graphView.rightmostPointPadding = 25
+        graphView.leftmostPointPadding = 30
         
+        graphView.dataPointSpacing = ((graphView.frame.width - (graphView.leftmostPointPadding + graphView.rightmostPointPadding)) / CGFloat(xAxis.count - 1))
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,11 +81,11 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
     
     func label(atIndex pointIndex: Int) -> String {
         
-        return "\(linePlotLabel[pointIndex])"
+        return "\(getDateFormatted(date: xAxis[pointIndex]))"
     }
     
     func numberOfPoints() -> Int {
-        return numberOfDataItems
+        return xAxis.count
     }
     
     fileprivate func createMultiPlotGraphOne(_ frame: CGRect) -> ScrollableGraphView {
@@ -115,15 +103,6 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         linePlot.fillGradientType = ScrollableGraphViewGradientType.linear
         linePlot.lineCap = kCALineCapSquare
         
-        
-        // dots on the line
-        //        let dotPlot = DotPlot(identifier: "dot") // Add dots as well.
-        //        dotPlot.dataPointSize = 4
-        //        dotPlot.dataPointFillColor = Constants.AppColors.loginGreen
-        //        dotPlot.dataPointType = .circle
-        //        dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.easeOut
-        //        dotPlot.animationDuration = 0.1
-        
         // Setup the reference lines.
         let referenceLines = ReferenceLines()
         
@@ -134,10 +113,13 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         
         referenceLines.dataPointLabelColor = UIColor.darkGray.withAlphaComponent(1)
         
-//        referenceLines.dataPointLabelsSparsity = 3
+        var sparsity = 1
         
+        if xAxis.count > 6 {
+            sparsity = xAxis.count / 6
+        }
         
-        
+        referenceLines.dataPointLabelsSparsity = sparsity
         graphView.rangeMax = yAxis.max()!.rounded(.up)
         graphView.rangeMin = yAxis.min()!.rounded(.down)
         
@@ -145,8 +127,6 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = false
         graphView.shouldAnimateOnAdapt = false
-//        graphView.leftmostPointPadding = 20
-//        graphView.rightmostPointPadding = 5
         
         graphView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
@@ -177,8 +157,6 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         self.fromDate = from
         self.toDate = to
         
-        print("fromDate: \(fromDate) - toDate: \(toDate)")
-        
         graphView.removeFromSuperview()
         getData(from: fromDate, to: toDate)
     }
@@ -200,33 +178,35 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         let fromDateString = dateFormatter.string(from: from)
         let toDateString = dateFormatter.string(from: to)
         
+        self.hideGraph()
+        
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+            
+            self.showGraph()
+            
             switch response.result {
             case .success:
                 print("Rooms history retrieved")
                 do {
-                    //                    print(response)
                     
                     let roomHistory = try JSONDecoder().decode(RoomHistory.self, from: response.data!)
                     
                     let graphEntries = roomHistory.graph.graphEntries
                     
-                    self.numberOfDataItems = graphEntries.count
-                    
                     self.yAxis = [Double]()
                     self.xAxis = [Date]()
-
+                    
                     for graphEntry in graphEntries{
                         self.yAxis.append(graphEntry.yAxis)
                         self.xAxis.append(graphEntry.getxAxisDate()!)
                     }
                     if !self.yAxis.isEmpty, !self.xAxis.isEmpty{
                         
-                        self.generateDateRange()
-                        
                         self.initGraph()
-                    }
+                        self.totalEnergy.text = "\(self.yAxis.max()!.rounded(.up)) Watt max"
 
+                    }
+                    
                     
                 }catch {
                     print("Parse error")
@@ -244,76 +224,64 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         
         let begin = calendar.startOfDay(for: fromDate!)
         let end = calendar.startOfDay(for: toDate!)
-        let components = calendar.dateComponents([.day, .month, .year], from: end, to: begin)
+        let components = calendar.dateComponents([.day, .month, .year], from: begin, to: end)
         let day = components.day!
         let month = components.month!
         let year = components.year!
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/yyyy"
+        xAxisLabel.text = "Maanden"
         
-        //        if fromDate != nil, toDate != nil, year <= 0, month <= 0, day <= 0{
-        
-        if year < 0 {
-            dateFormatter.dateFormat = "MM/yyyy"
+        if year > 0 {
+            // More then year apart
             
-        }else if month < 0{
+            dateFormatter.dateFormat = "MM/yyyy"
+            xAxisLabel.text = "Maanden"
+            
+        }else if month > 0{
+            // More then month apart
+            
             dateFormatter.dateFormat = "dd/MM"
+            xAxisLabel.text = "Dagen"
             
         }else if day == 0{
+            // Same day
+            
             dateFormatter.dateFormat = "HH:mm"
+            xAxisLabel.text = "Uren"
+            
+            if calendar.isDateInToday(fromDate), calendar.isDateInToday(toDate){
+                // Today
+                
+                xAxisLabel.text = "Vandaag"
+            }
             
         }else if month == 0 {
+            // Same month
+            
+            xAxisLabel.text = "Dagen"
+            
             dateFormatter.dateFormat = "dd/MM"
+            
         }
-        //        }
         
         return dateFormatter.string(from:date)
     }
     
-    func generateDateRange(){
-        let calendar = Calendar.current
-        
-        let begin = calendar.startOfDay(for: fromDate!)
-        var end = calendar.startOfDay(for: toDate!)
-        
-        var componentsEnd = DateComponents()
-        componentsEnd.day = 1
-        componentsEnd.second = -1
-        end = Calendar.current.date(byAdding: componentsEnd, to: end)!
-        
-        
-        let components = calendar.dateComponents([.day, .month, .year], from: begin, to: end)
-        let day = components.day!
-        let month = components.month!
-        let year = components.year!
-        
-        print("year: \(year)")
-        print("month: \(month)")
-        print("day: \(day)")
-
-//
-//        let dateFormatter = DateFormatter()
-//
-//        if year < 0 {
-//
-//        }else if month < 0{
-//
-//        }else if day == 0{
-//
-//        }else if month == 0 {
-//        }
-//
-//        for _ in yAxis{
-//
-//            date = calendar.date(byAdding: .hour, value: 1, to: date)!
-//
-//            xAxis.append(date)
-//        }
-
+    func hideGraph(){
+        graphViewContainer.alpha = 0
+        activityIndicator.alpha = 1
+        activityIndicator.startAnimating()
     }
     
-    //MARK: Actions
+    func showGraph(){
+        graphViewContainer.alpha = 1
+        activityIndicator.alpha = 0
+        activityIndicator.stopAnimating()
+    }
+    
+    // MARK: Actions
     @IBAction func periodButtonPressed(_ sender: Any) {
         periodSettingScreen()
     }

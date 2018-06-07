@@ -12,8 +12,9 @@ import Alamofire
 class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     
     var roomId: Int?
-
     var room: Room?
+    
+    var activityView = UIActivityIndicatorView()
     
     @IBOutlet var roomImageView: UIImageView!
     @IBOutlet var roomNameLabel: UILabel!
@@ -24,24 +25,21 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     @IBOutlet var roomAmountOfDevices: UILabel!
     @IBOutlet var roomOnlineOfflineDevices: UILabel!
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     @IBOutlet var luminanceImageVIew: UIImageView!
     @IBOutlet var movementImageView: UIImageView!
     @IBOutlet var temperatureImageView: UIImageView!
     @IBOutlet var totalEnergyImageView: UIImageView!
     
-    var activityIndicator: UIActivityIndicatorView?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.alpha = 0
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+//        scrollView.alpha = 0
+        
         self.initialize()
 
+        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,6 +75,7 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         ]
         
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)", headers: headers).responseJSON { response in
+                        
             switch response.result {
             case .success:
                 print("Rooms info retrieved")
@@ -153,6 +152,8 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             roomLastMovementLabel.text = "--"
         }
         
-        self.view.alpha = 1
+//        scrollView.alpha = 1
+
+        
     }
 }

@@ -39,6 +39,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         else {
            Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +67,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             ]
         
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/rooms", headers: headers).responseJSON { response in
+                        
             switch response.result {
             case .success:
                 print("Rooms info retrieved")
