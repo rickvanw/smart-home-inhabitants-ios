@@ -286,4 +286,16 @@ class Helper {
     static func isConnectedToInternet() -> Bool {
         return NetworkReachabilityManager()!.isReachable
     }
+    
+    static func setCenterActivityIndicator(view: UIView) -> UIActivityIndicatorView{
+        let activityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        activityView.center = view.center
+        activityView.startAnimating()
+        activityView.hidesWhenStopped = true
+        activityView.color = Constants.AppColors.loginGreen
+        
+        view.addSubview(activityView)
+        
+        return activityView
+    }
 }

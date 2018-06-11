@@ -59,7 +59,6 @@ struct Constants {
         static let light = "Light"
         static let doorSensor = "Door Sensor"
         static let socket = "Socket"
-        static let smartMeter = "Smart meter"
         static let multiSensor = "Multi sensor"
     }
 }

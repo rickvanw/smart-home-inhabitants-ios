@@ -30,6 +30,8 @@ class PeriodSettingViewController: UIViewController {
             datePicker.setDate(Date(), animated: false)
         }
         
+        datePicker.maximumDate = Date()
+        
         if toDate == nil {
             toDate = Date()
         }
@@ -73,15 +75,9 @@ class PeriodSettingViewController: UIViewController {
         let end = calendar.startOfDay(for: toDate!)
         let components = calendar.dateComponents([.day, .month, .year], from: end, to: begin)
         let day = components.day!
-//        let weekOfYear = components.weekOfYear!
         let month = components.month!
         let year = components.year!
 
-//        print("Days: \(day)")
-////        print("weekOfMonth: \(weekOfMonth)")
-//        print("month: \(month)")
-//        print("year: \(year)")
-//
         if fromDate != nil, toDate != nil, year <= 0, month <= 0, day <= 0{
             
             if year < 0 {
@@ -127,16 +123,4 @@ class PeriodSettingViewController: UIViewController {
         self.delegate!.newPeriod(from: fromDate!, to: toDate!)
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

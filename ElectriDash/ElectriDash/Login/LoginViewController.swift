@@ -12,7 +12,7 @@ import KeychainAccess
 import LocalAuthentication
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     //MARK: Properties
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var gradientView: UIView!
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     private var extraButtonHeight:CGFloat!
     private var extraInputHeight:CGFloat!
-
+    
     private var extraSmallScreenMode: Bool!
     
     private var viewPassword = false
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
+        
         
         if self.traitCollection.horizontalSizeClass == .regular{
             let value = UIInterfaceOrientation.landscapeLeft.rawValue
@@ -68,14 +68,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         usernameTextField.delegate = self
         passwordTextField.delegate = self
-
+        
         usernameTextField.tag = 0
         passwordTextField.tag = 1
         
         // Storyboard values are not respected
         viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(0.50)
         adjustViewForDevice()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         if let username = Helper.getStoredUsername(){
@@ -83,7 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -110,14 +110,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return false
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-
+        
         if let touch = touches.first, touch.view == self.viewPasswordImageView{
             
         }else{
@@ -148,47 +148,43 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             case .success:
                 do {
                     let login = try JSONDecoder().decode(Login.self, from: response.data!)
-
+                    
                     Helper.setStoredTokenString(token: login.token)
                     Helper.setStoredUsername(username: username)
-
-                    self.dismissActivityIndicator(completion: {_ in
-                        self.performSegue(withIdentifier: "loginSegue", sender: self)
-                    })
                     
-//                    self.houses = login.houses
-//
-//                    if self.houses != nil {
-//
-//                        if self.houses!.count == 0{
-//                            showError = true
-//                            errorMessage = "Geen huizen gevonden"
-//
-//                        }else if self.houses!.count == 1{
-//                            Helper.setStoredHouseId(id: self.houses!.first!.id)
-//
-//                            self.dismissActivityIndicator(completion: {_ in
-//                                self.performSegue(withIdentifier: "loginSegue", sender: self)
-//                            })
-//
-////                            self.showHouseOptions()
-//
-//                        }else{
-//                            self.showHouseOptions()
-//                        }
-//                    }
-
+                    self.houses = login.houses
+                    
+                    if self.houses != nil {
+                        
+                        if self.houses!.count == 0{
+                            showError = true
+                            errorMessage = "Geen huizen gevonden"
+                            
+                        }else if self.houses!.count == 1{
+                            Helper.setStoredHouseId(id: self.houses!.first!.id)
+                            
+                            self.dismissActivityIndicator(completion: {_ in
+                                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                            })
+                            
+                        }else{
+                            self.showHouseOptions()
+                        }
+                    }
+                    
                 }catch {
                     print("Parse error")
+                    
+                    showError = true
                 }
-
+                
             case .failure(let error):
                 
                 
                 showError = true
                 
                 print("FAILURE: \(error.localizedDescription)")
-
+                
                 
                 if let httpStatusCode = response.response?.statusCode {
                     switch(httpStatusCode) {
@@ -229,68 +225,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             completion(true)
         })
     }
-    
-//    func getHouses(){
-//
-//        let headers: HTTPHeaders = [
-//            "Authorization": "Bearer " + Helper.getStoredTokenString()!,
-//            "Accept": "application/json"
-//        ]
-//
-//        Alamofire.request("\(Constants.Urls.api)/api/houses", headers: headers).responseJSON { response in
-//
-//            var showError = false
-//            var errorMessage = "Er is een onbekende fout opgetreden"
-//
-//            switch response.result {
-//            case .success:
-//                print("Rooms history retrieved")
-//                do {
-//                    self.houses = try JSONDecoder().decode([House].self, from: response.data!)
-////                    Helper.setStoredHouseId(id: house.id)
-//
-//                    if self.houses != nil {
-//
-//                        if self.houses!.count == 0{
-//                            showError = true
-//                            errorMessage = "Geen huizen gevonden"
-//
-//                        }else if self.houses!.count == 1{
-//                            Helper.setStoredHouseId(id: self.houses!.first!.id)
-//
-//                            self.dismissActivityIndicator(completion: {_ in
-//                                self.performSegue(withIdentifier: "loginSegue", sender: self)
-//                            })
-//
-////                            self.showHouseOptions()
-//
-//                        }else{
-//                            self.showHouseOptions()
-//                        }
-//                    }else{
-//                        showError = true
-//                        errorMessage = "Geen huizen gevonden"
-//                    }
-//
-//                }catch {
-//                    print("Parse error")
-//                    showError = true
-//                }
-//
-//            case .failure(let error):
-//                print(error)
-//                showError = true
-//            }
-//
-//            if showError {
-//                self.dismissActivityIndicator(completion: {_ in
-//                    Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: errorMessage, buttonTitle: "OK")
-//                })
-//            }
-//
-//        }
-//    }
-    
+
     func showHouseOptions() {
         let alert = UIAlertController(title: "Selecteer een huis", message: nil, preferredStyle: .actionSheet)
         
@@ -299,10 +234,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "\(house.name)", style: .default , handler:{ (UIAlertAction)in
                 Helper.setStoredHouseId(id: house.id)
                 
-                self.dismissActivityIndicator(completion: {_ in
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
-                })
-
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
+                
+                
             }))
             
         }
@@ -310,7 +244,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
         alert.addAction(cancelAction)
         
-        self.present(alert, animated: true, completion: nil)
+        self.dismissActivityIndicator(completion: {_ in
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     func adjustViewForDevice(){
@@ -370,7 +306,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         titleBottomDistance = titleBottomConstraint.constant
         logoHeightDistance = logoHeightConstraint.constant
     }
-        
+    
     // MARK: Actions
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
@@ -379,7 +315,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if usernameTextField.text != "" && passwordTextField.text != ""{
             requestToken(username: usernameTextField.text!, password: passwordTextField.text!)
-
+            
         }else{
             Helper.showAlertOneButton(viewController: self, title: "Fout tijdens login", message: "Controleer of alle velden zijn ingevuld", buttonTitle: "OK")
         }
@@ -392,7 +328,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(1.0)
             passwordTextField.isSecureTextEntry = false
             viewPassword = true
-
+            
         } else {
             viewPasswordImageView.tintColor = UIColor.white.withAlphaComponent(0.50)
             passwordTextField.isSecureTextEntry = true
@@ -418,8 +354,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 keyboardHeightLayoutConstraint.constant = keyboardHeightLayoutDistance
                 loginButtonToPasswordConstraint.constant = loginButtonToPasswordDistance
-
-
+                
+                
             } else {
                 
                 if self.traitCollection.horizontalSizeClass == .regular{
@@ -455,7 +391,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do not add a line break
         return false
     }
-
-
+    
+    
 }
 

@@ -25,5 +25,20 @@ class GraphEntry: NSObject, Decodable{
             self.yAxis = 0.0
         }
     }
+    
+    func getxAxisDate() -> Date?{
+        
+        var date: Date?
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        guard let newDate = dateFormatter.date(from: xAxis) else {
+            fatalError("ERROR: Date conversion failed due to mismatched format.")
+        }
+        date = newDate
+        
+        return date
+        
+    }
 
 }
