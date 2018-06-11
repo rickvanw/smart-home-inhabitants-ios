@@ -56,10 +56,10 @@ struct Constants {
     
     struct deviceCategories
     {
-        static let light = "Light"
-        static let doorSensor = "Door Sensor"
-        static let socket = "Socket"
-        static let multiSensor = "Multi sensor"
+        static let light = "light"
+        static let doorSensor = "door_sensor"
+        static let socket = "socket"
+        static let multiSensor = "multi_sensor"
     }
 }
 
