@@ -50,7 +50,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         toDate = Calendar.current.date(byAdding: components, to: fromDate!)
         
         getData(from: fromDate, to: toDate)
-        getData()
         
     }
     
