@@ -123,6 +123,11 @@ class RoomHistoryViewController: UIViewController, RoomPageControllerToPage, Scr
         graphView.rangeMax = yAxis.max()!.rounded(.up)
         graphView.rangeMin = yAxis.min()!.rounded(.down)
         
+        if graphView.rangeMin == graphView.rangeMax {
+            graphView.rangeMin -= 1
+            graphView.rangeMax += 1
+        } 
+        
         graphView.shouldRangeAlwaysStartAtZero = true
         graphView.shouldAnimateOnStartup = false
         graphView.shouldAdaptRange = false
