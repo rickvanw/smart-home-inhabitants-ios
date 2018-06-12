@@ -10,16 +10,16 @@ import UIKit
 
 class Device: NSObject, Decodable {
     
-    var iconName: String
+    var categoryName: String
     var name: String
     var id: Int
     var energyUsage: EnergyUsage
     
     // MARK: Initializer
     
-    init?(iconName: String, name: String, id: Int, energyUsage: EnergyUsage) {
+    init?(categoryName: String, name: String, id: Int, energyUsage: EnergyUsage) {
         
-        self.iconName = iconName
+        self.categoryName = categoryName
         self.name = name
         self.id = id
         self.energyUsage = energyUsage

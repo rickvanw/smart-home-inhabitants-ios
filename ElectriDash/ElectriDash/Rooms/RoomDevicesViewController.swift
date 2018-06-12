@@ -48,10 +48,11 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                     print("Device info retrieved")
                     do {
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
-                        self.devices.sort(by: { $0.iconName > $1.iconName })
+                        self.devices.sort(by: { $0.categoryName > $1.categoryName })
                         self.deviceTableView.reloadData()
                     }catch {
                         print("Parse error")
+                        
                     }
                 case .failure(let error):
                     print(error)
@@ -83,7 +84,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         }
         
         // Set the image according to the given iconName
-        switch device.iconName {
+        switch device.categoryName {
         case Constants.deviceCategories.multiSensor:
             cell.deviceImage.image = UIImage(named: "multisensor")?.withRenderingMode(.alwaysTemplate)
             break
