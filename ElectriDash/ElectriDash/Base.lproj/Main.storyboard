@@ -479,28 +479,82 @@
             <objects>
                 <viewController storyboardIdentifier="EnergyDevicesViewController" id="pMm-uT-Zo6" customClass="EnergyDevicesViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="prj-Bk-er4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="2000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-7j-2ND">
-                                <rect key="frame" x="119" y="976" width="137" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-P6-RzG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="energyDeviceCell" rowHeight="60" id="VEy-ZF-PSk" customClass="DevicesTableViewCell" customModule="ElectriDash" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VEy-ZF-PSk" id="U1d-B5-JDH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-Zq-hFw">
+                                                    <rect key="frame" x="53" y="22" width="238" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="mdI-oC-ILV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh3-DH-nkr">
+                                                    <rect key="frame" x="299" y="19" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bUe-s7-pqf">
+                                                    <rect key="frame" x="15" y="20" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="XzK-NI-VgD"/>
+                                                        <constraint firstAttribute="height" constant="20" id="zHO-hW-QuW"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xh3-DH-nkr" firstAttribute="centerY" secondItem="U1d-B5-JDH" secondAttribute="centerY" id="5Fb-9a-dwb"/>
+                                                <constraint firstItem="bUe-s7-pqf" firstAttribute="leading" secondItem="U1d-B5-JDH" secondAttribute="leadingMargin" id="7un-pL-U1r"/>
+                                                <constraint firstItem="9tF-Zq-hFw" firstAttribute="centerY" secondItem="U1d-B5-JDH" secondAttribute="centerY" id="BCg-My-a9l"/>
+                                                <constraint firstItem="xh3-DH-nkr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9tF-Zq-hFw" secondAttribute="trailing" constant="8" symbolic="YES" id="C8g-8o-NF7"/>
+                                                <constraint firstItem="bUe-s7-pqf" firstAttribute="centerY" secondItem="U1d-B5-JDH" secondAttribute="centerY" id="KSu-3X-YBD"/>
+                                                <constraint firstAttribute="trailing" secondItem="xh3-DH-nkr" secondAttribute="trailing" constant="15" id="Or8-pq-Aad"/>
+                                                <constraint firstItem="9tF-Zq-hFw" firstAttribute="leading" secondItem="bUe-s7-pqf" secondAttribute="trailing" constant="18" id="zO7-yj-dQG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="deviceImage" destination="bUe-s7-pqf" id="deL-xg-HrG"/>
+                                            <outlet property="deviceName" destination="9tF-Zq-hFw" id="wZD-76-S72"/>
+                                            <outlet property="deviceUsage" destination="xh3-DH-nkr" id="dJo-Gz-kkb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pMm-uT-Zo6" id="QYG-Zr-kxl"/>
+                                    <outlet property="delegate" destination="pMm-uT-Zo6" id="HZP-bM-zv4"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IYc-7j-2ND" firstAttribute="centerY" secondItem="prj-Bk-er4" secondAttribute="centerY" id="8YQ-kz-vDZ"/>
-                            <constraint firstItem="IYc-7j-2ND" firstAttribute="centerX" secondItem="prj-Bk-er4" secondAttribute="centerX" id="wVs-ca-G1P"/>
+                            <constraint firstItem="Xc9-P6-RzG" firstAttribute="top" secondItem="prj-Bk-er4" secondAttribute="top" id="9aJ-q2-iBd"/>
+                            <constraint firstItem="Xc9-P6-RzG" firstAttribute="trailing" secondItem="V8z-Ev-WXq" secondAttribute="trailing" id="J8q-1h-pDj"/>
+                            <constraint firstItem="Xc9-P6-RzG" firstAttribute="bottom" secondItem="V8z-Ev-WXq" secondAttribute="bottom" id="aAD-SI-GFz"/>
+                            <constraint firstItem="Xc9-P6-RzG" firstAttribute="leading" secondItem="V8z-Ev-WXq" secondAttribute="leading" id="r1G-a8-IAh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V8z-Ev-WXq"/>
                     </view>
-                    <size key="freeformSize" width="375" height="2000"/>
+                    <connections>
+                        <outlet property="energyDevicesTableview" destination="Xc9-P6-RzG" id="hOE-x0-hxJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6b-2j-ktk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="2967"/>
+            <point key="canvasLocation" x="2501.5999999999999" y="2528.5714285714289"/>
         </scene>
         <!--Energy History View Controller-->
         <scene sceneID="nP9-DV-Xrl">
