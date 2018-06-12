@@ -32,6 +32,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     func reloadPage() {
         graphView.reload()
         historyDeviceTableview.reloadData()
+
     }
     
     override func viewDidLoad() {
@@ -51,7 +52,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         
         getGraphData(from: fromDate, to: toDate)
         getDevicesData()
-
     }
     
     func initGraph(){
@@ -297,8 +297,8 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     //Tableview
-    
     func getDevicesData() {
+
         
         if Helper.isConnectedToInternet() {
             let headers: HTTPHeaders = [

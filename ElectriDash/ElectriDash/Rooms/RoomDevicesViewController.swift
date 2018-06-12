@@ -63,6 +63,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
                         self.devices.sort(by: { $0.categoryName > $1.categoryName })
                         self.allDevices = self.devices
+
                         self.deviceTableView.reloadData()
                     }catch {
                         print("Parse error")
