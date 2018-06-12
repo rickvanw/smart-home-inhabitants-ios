@@ -462,11 +462,11 @@
             </objects>
             <point key="canvasLocation" x="1803" y="2529"/>
         </scene>
-        <!--Rooms-->
+        <!--Ruimtes-->
         <scene sceneID="fUN-nS-BJF">
             <objects>
                 <splitViewController id="mo2-pl-tVj" customClass="RoomSplitViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Rooms" image="icons8-room-filled-100" id="GhI-2F-frF"/>
+                    <tabBarItem key="tabBarItem" title="Ruimtes" image="icons8-room-filled-100" id="GhI-2F-frF"/>
                     <navigationItem key="navigationItem" id="TAw-Y8-tFm"/>
                     <connections>
                         <segue destination="hhl-cn-qJd" kind="relationship" relationship="masterViewController" id="vyU-TO-5E3"/>
@@ -532,11 +532,11 @@
             </objects>
             <point key="canvasLocation" x="3261" y="2529"/>
         </scene>
-        <!--Energy-->
+        <!--Energie-->
         <scene sceneID="zzh-fU-aTD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HGx-fY-fDg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Energy" image="icons8-combo-chart-filled-100" id="RZR-RK-drT"/>
+                    <tabBarItem key="tabBarItem" title="Energie" image="icons8-combo-chart-filled-100" id="RZR-RK-drT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bet-bd-mGx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -1522,11 +1522,11 @@
             </objects>
             <point key="canvasLocation" x="8293.6000000000004" y="343.5960591133005"/>
         </scene>
-        <!--Overview-->
+        <!--Overzicht-->
         <scene sceneID="zIZ-6I-Df8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VPi-za-wVt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overview" image="house" id="qj0-op-KZm"/>
+                    <tabBarItem key="tabBarItem" title="Overzicht" image="house" id="qj0-op-KZm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Cct-Kg-mRk">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>

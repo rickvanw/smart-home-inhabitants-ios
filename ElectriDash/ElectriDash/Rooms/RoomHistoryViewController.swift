@@ -31,7 +31,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     
     func reloadPage() {
         graphView.reload()
-        getDevicesData()
+        historyDeviceTableview.reloadData()
     }
     
     override func viewDidLoad() {
