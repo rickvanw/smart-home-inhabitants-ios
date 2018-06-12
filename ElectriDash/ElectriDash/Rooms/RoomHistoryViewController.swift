@@ -31,7 +31,8 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     
     func reloadPage() {
         graphView.reload()
-        getData()
+        historyDeviceTableview.reloadData()
+
     }
     
     override func viewDidLoad() {
@@ -49,9 +50,8 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         components.second = -1
         toDate = Calendar.current.date(byAdding: components, to: fromDate!)
         
-        getData(from: fromDate, to: toDate)
-        getData()
-        
+        getGraphData(from: fromDate, to: toDate)
+        getDevicesData()
     }
     
     func initGraph(){
@@ -168,7 +168,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         self.toDate = to
         
         graphView.removeFromSuperview()
-        getData(from: fromDate, to: toDate)
+        getGraphData(from: fromDate, to: toDate)
     }
     
     func canceledModal() {
@@ -176,7 +176,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         Helper.removeBlur()
     }
     
-    func getData(from: Date, to: Date){
+    func getGraphData(from: Date, to: Date){
         let headers: HTTPHeaders = [
             "Authorization": "Bearer " + Helper.getStoredTokenString()!,
             "Accept": "application/json"
@@ -297,8 +297,8 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     }
     
     //Tableview
-    
-    func getData() {
+    func getDevicesData() {
+
         
         if Helper.isConnectedToInternet() {
             let headers: HTTPHeaders = [

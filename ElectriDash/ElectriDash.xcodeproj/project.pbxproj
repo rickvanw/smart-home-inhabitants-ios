@@ -10,6 +10,8 @@
 		1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */; };
 		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
+		1D480FBD20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D480FBC20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift */; };
+		1D480FBF20CEF6C000DCD513 /* TableViewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D480FBE20CEF6C000DCD513 /* TableViewCategory.swift */; };
 		1D4F27B520AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4F27B420AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift */; };
 		1D5AE70E20C52BCC00B2CD66 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AE70D20C52BCC00B2CD66 /* Login.swift */; };
 		1D5AE71220C5624E00B2CD66 /* RoomHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5AE71120C5624E00B2CD66 /* RoomHistory.swift */; };
@@ -69,6 +71,8 @@
 		1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyUsage.swift; sourceTree = "<group>"; };
 		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
+		1D480FBC20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonTableViewCell.swift; sourceTree = "<group>"; };
+		1D480FBE20CEF6C000DCD513 /* TableViewCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCategory.swift; sourceTree = "<group>"; };
 		1D4F27B420AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + resizeScrollViewContentSize.swift"; sourceTree = "<group>"; };
 		1D5AE70D20C52BCC00B2CD66 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		1D5AE71120C5624E00B2CD66 /* RoomHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomHistory.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				1D913E6A20AB71B300F5C119 /* RoomSplitViewController.swift */,
 				1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */,
 				D0AA988720B5615000FDF12F /* DevicesTableViewCell.swift */,
+				1D480FBC20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */,
 				1D82D13D20BFFEE2008513EB /* EnergyPageControllerToPage.swift */,
 				1DEBAAAC20BBFC1900BAD634 /* PeriodSettingDelegate.swift */,
+				1D480FBE20CEF6C000DCD513 /* TableViewCategory.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
 				1D82D13E20BFFEE2008513EB /* EnergyPageControllerToPage.swift in Sources */,
 				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
+				1D480FBD20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift in Sources */,
 				1DB264F02085F1BE00933465 /* GradientView.swift in Sources */,
 				1D913E6320AB6ADA00F5C119 /* RoomsViewController.swift in Sources */,
 				1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */,
@@ -539,6 +546,7 @@
 				1D5AE71220C5624E00B2CD66 /* RoomHistory.swift in Sources */,
 				1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */,
 				1D913E6820AB6B5400F5C119 /* UIImageView + downloadedFrom.swift in Sources */,
+				1D480FBF20CEF6C000DCD513 /* TableViewCategory.swift in Sources */,
 				1DACFA8620750D0800D7222B /* Constants.swift in Sources */,
 				1D1142D7207D43CE00AA99AB /* Token.swift in Sources */,
 			);
@@ -709,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
+				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.EnergyDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -729,7 +737,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.ElectriDash;
+				PRODUCT_BUNDLE_IDENTIFIER = xom.smarthome.EnergyDash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

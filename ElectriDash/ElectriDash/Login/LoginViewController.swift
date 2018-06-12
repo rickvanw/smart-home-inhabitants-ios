@@ -229,6 +229,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func showHouseOptions() {
         let alert = UIAlertController(title: "Selecteer een huis", message: nil, preferredStyle: .actionSheet)
         
+        alert.view.tintColor = Constants.AppColors.loginGreen
         
         for house in houses!{
             alert.addAction(UIAlertAction(title: "\(house.name)", style: .default , handler:{ (UIAlertAction)in
@@ -241,9 +242,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Annuleer", style: .cancel) { action -> Void in }
         alert.addAction(cancelAction)
         
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
         self.dismissActivityIndicator(completion: {_ in
             self.present(alert, animated: true, completion: nil)
         })

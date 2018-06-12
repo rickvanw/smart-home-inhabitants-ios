@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, RoomPageControllerToPage {
+class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, RoomPageControllerToPage, TableViewCategory {
     
     var roomId: Int?
     
@@ -17,6 +17,12 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
     @IBOutlet weak var deviceTableView: UITableView!
     
     var devices = [Device]()
+    var allDevices = [Device]()
+    
+    var categories = [String:String]()
+    var currentCategory: String?
+    
+    let devCats = Constants.deviceCategories.self
     
     func reloadPage() {
         
@@ -24,6 +30,13 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categories["all"] = "Alle apparaten"
+        categories[devCats.light] = "Lampen"
+        categories[devCats.doorSensor] = "Deursensoren"
+        categories[devCats.socket] = "Stopcontacten"
+        categories[devCats.multiSensor] = "Multi-sensoren"
+        
         deviceTableView.tableFooterView = UIView()
         getData()
 
@@ -49,6 +62,8 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                     do {
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
                         self.devices.sort(by: { $0.categoryName > $1.categoryName })
+                        self.allDevices = self.devices
+
                         self.deviceTableView.reloadData()
                     }catch {
                         print("Parse error")
@@ -64,17 +79,75 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         }
     }
     
+    // MARK: TableViewCategory
+    func setCategory() {
+        
+        showCategories()
+    }
+
+
+    func showCategories() {
+        let alert = UIAlertController(title: "Selecteer een categorie", message: nil, preferredStyle: .actionSheet)
+        
+        alert.view.tintColor = Constants.AppColors.loginGreen
+
+        
+        let sortedCategories = categories.sorted {$0.value < $1.value}
+        
+        for category in sortedCategories{
+            
+            alert.addAction(UIAlertAction(title: "\(category.value)", style: .default , handler:{ (UIAlertAction)in
+                self.currentCategory = category.key
+                
+                if self.currentCategory == "all"{
+                    self.devices = self.allDevices
+                }else{
+                self.devices = self.allDevices.filter { $0.categoryName == self.currentCategory }
+                }
+                
+                self.deviceTableView.reloadData()
+                
+                if let cell = self.deviceTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
+                    cell.categoryButton.setTitle(category.value, for: .normal)
+                }
+                
+            }))
+            
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Annuleer", style: .cancel) { action -> Void in }
+        alert.addAction(cancelAction)
+        
+        if let popoverController = alert.popoverPresentationController, let cell = self.deviceTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
+            let button = cell.categoryButton!
+            popoverController.sourceView = button
+            popoverController.sourceRect = CGRect(x: button.bounds.midX, y: self.view.bounds.maxX, width: 0, height: 0)
+//            popoverController.permittedArrowDirections = []
+        }
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return devices.count
+        return devices.count + 1
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        if indexPath.row == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "categoryButtonCell", for: indexPath) as! CategoryButtonTableViewCell
+            
+            cell.parentView = self
+            
+            return cell
+            
+        }else{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "deviceCell", for: indexPath) as! DevicesTableViewCell
         
         // Get the device
         let device: Device
-        device = devices[indexPath.row]
+        device = devices[indexPath.row - 1]
         
         // Set the values
         cell.deviceName.text = device.name
@@ -108,5 +181,6 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         cell.deviceImage.tintColor = UIColor(hexString: "#5ED0A8")
 
         return cell
+        }
     }
 }
