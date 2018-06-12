@@ -47,6 +47,7 @@ struct Constants {
         static let euro = "€"
         static let kWh = "kWh"
         static let cubicMeter = "m³"
+        static let watt = "W"
     }
     
     struct Urls
