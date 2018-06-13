@@ -15,6 +15,8 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     // MARK: outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var roomIdToLoad: Int?
+    
     var rooms = [Room]()
     let refresher = UIRefreshControl()
     
@@ -66,7 +68,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 "Accept": "application/json"
             ]
         
-        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/rooms", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/rooms", headers: headers).responseJSON { response in
                         
             switch response.result {
             case .success:
@@ -75,7 +77,20 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                     self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
                     self.collectionView.reloadData()
                     if UIDevice.current.screenType == .unknown {
-                        let room = self.rooms.first
+                        
+                        var room:Room?
+                        
+//                        if self.roomIdToLoad != nil, let newRoom = self.rooms.first(where: { $0.id < self.roomIdToLoad!}){
+//                            room = newRoom
+//
+//                            let indexPath = IndexPath(item: self.rooms.index(of: newRoom)!, section: 0)
+//
+//                            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.bottom, animated: true)
+//
+//                            self.roomIdToLoad = nil
+//                        }else{
+                            room = self.rooms.first
+//                        }
                         self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
                     }
                 }catch {
@@ -153,6 +168,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 
         let room = rooms[indexPath.row]
+        Helper.addRecentRoom(room: room)
         performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
     }
     

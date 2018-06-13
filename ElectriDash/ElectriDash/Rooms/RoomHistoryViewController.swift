@@ -190,7 +190,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         
         self.hideGraph()
         
-        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
             
             self.showGraph()
             
@@ -306,7 +306,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/devices", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/devices", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     print("Device info retrieved")

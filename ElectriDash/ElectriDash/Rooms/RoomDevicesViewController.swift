@@ -55,10 +55,10 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)/devices", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/devices", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
-                    print("Device info retrieved")
+                    print("Device info retrieved for roomId: \(self.roomId!)")
                     do {
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
                         self.devices.sort(by: { $0.categoryName > $1.categoryName })

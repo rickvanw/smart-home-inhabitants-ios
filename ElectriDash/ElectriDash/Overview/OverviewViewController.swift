@@ -10,52 +10,44 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class OverviewViewController: UIViewController, CurrencyUnitToggle {
-
-    // Outlets
-    @IBOutlet weak var labelKwh: UILabel!
-    @IBOutlet weak var labelCelsius: UILabel!
-    @IBOutlet weak var labelM3: UILabel!
+class OverviewViewController: UIViewController {
+    
+    @IBOutlet var overviewCollectionView: UICollectionView!
+    @IBOutlet var welcomeLabel: UILabel!
+    
+    var recentRooms: [RecentRoom]?
     
     override func viewDidLoad() {
         super.viewDidLoad()        
-//        observable.subscribe { event in
-//            print("TEST")
-//            print(event)
-//        }
-                // go on about my business
-        // Do any additional setup after loading the view.
+
+        if let token = Helper.getToken() {
+            welcomeLabel.text = "Welkom terug, \(token.name)"
+            welcomeLabel.adjustsFontSizeToFitWidth = true
+            welcomeLabel.minimumScaleFactor = 0.2
+        }
         
-        // Set the navbar currency/unit toggle
-        Helper.setCurrencyUnitToggle(viewController: self)
+        
+        overviewCollectionView.delegate = self
+        overviewCollectionView.dataSource = self
+
     }
     
-    // Get date
-    func getData() {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        print("APPEARED")
+
+        if let recentRooms = Helper.getRecentRooms(){
+            print(recentRooms)
+            
+            self.recentRooms = recentRooms.recentRooms.reversed()
+            overviewCollectionView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // Triggered when currency/unit toggle pressed
-    func currencyUnitTogglePressed() {
-        
-    }
-    
-    // Setter
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

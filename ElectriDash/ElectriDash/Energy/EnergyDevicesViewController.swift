@@ -68,7 +68,7 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
                 "Accept": "application/json"
             ]
             
-            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/devices", headers: headers).responseJSON { response in
+            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/devices", headers: headers).responseJSON { response in
                 switch response.result {
                 case .success:
                     print("Device info retrieved")

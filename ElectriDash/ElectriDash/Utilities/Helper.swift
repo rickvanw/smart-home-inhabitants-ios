@@ -13,6 +13,11 @@ import Alamofire
 
 class Helper {
     
+    // Return true if key exists in userdefaults
+    static func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
     static func showAlertOneButton(viewController:UIViewController, title:String, message:String, buttonTitle:String){
         // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -47,10 +52,13 @@ class Helper {
         print("Stored house id: \(id)")
     }
     
-    static func getStoredHouseId() -> Int {
-        let id = UserDefaults.standard.value(forKey: Constants.Keys.houseId) as! Int
-        print("Obtained house id: \(id)")
-        return id
+    static func getStoredHouseId() -> Int? {
+        if let id = UserDefaults.standard.value(forKey: Constants.Keys.houseId) as? Int{
+            print("Obtained house id: \(id)")
+            return id
+        }else{
+            return nil
+        }
         
     }
     
@@ -107,6 +115,101 @@ class Helper {
     static func setStoredUsername(username: String){
         UserDefaults.standard.setValue(username, forKey: Constants.Keys.username)
         UserDefaults.standard.synchronize()
+    }
+    
+    static func getStoredRecentRoomsArray() -> [RecentRooms]? {
+//        if let recentRoomsArray = UserDefaults.standard.object(forKey: Constants.Keys.recentRoomsArray) as? [RecentRooms] {
+//            return recentRoomsArray
+//        } else {
+//            return nil
+//        }
+        
+        if !isKeyPresentInUserDefaults(key: Constants.Keys.recentRoomsArray){
+            return nil
+        }
+        
+        // Get the profile from the userdefaults
+        let defaults = UserDefaults.standard
+        let data = defaults.object(forKey: Constants.Keys.recentRoomsArray) as! Data
+        let recentRoomsArray = NSKeyedUnarchiver.unarchiveObject(with: data) as! [RecentRooms]
+        
+        return recentRoomsArray
+    }
+    
+    static func setRecentRoomsArray(recentRoomsArray: [RecentRooms]){
+//        UserDefaults.standard.set(recentRoomsArray, forKey: Constants.Keys.recentRoomsArray)
+//        UserDefaults.standard.synchronize()
+        
+        let defaults = UserDefaults.standard
+        let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: recentRoomsArray)
+        defaults.set(encodedData, forKey: Constants.Keys.recentRoomsArray)
+        defaults.synchronize()
+    }
+    
+    static func addRecentRoom(room: Room){
+        
+        if let username = Helper.getToken()?.username, let houseId = Helper.getStoredHouseId(), let recentRoom = RecentRoom(id: room.id, name: room.name, imageLink: room.imageLink){
+            
+            let tempRecentRooms = RecentRooms(username: username, houseId: houseId, recentRooms: [recentRoom])!
+            
+            if var recentRoomsArray = getStoredRecentRoomsArray(){
+                
+                var userHouseExists = false
+                
+                var roomIndex:Int?
+                
+                for recentRooms in recentRoomsArray{
+                    
+                    if recentRooms == tempRecentRooms{
+                        // The user/house combination already exists
+                        print("User/House exists")
+                        userHouseExists = true
+                        
+                        roomIndex = recentRooms.recentRooms.index(of: recentRoom)
+                        if recentRooms.recentRooms.contains(recentRoom){
+                            // The recentroom already exists, so the old one needs to be removed
+                            print("Recentroom exists")
+                            recentRooms.recentRooms.remove(at: roomIndex!)
+                        }
+                        
+                        recentRooms.recentRooms.append(recentRoom)
+                        
+                        setRecentRoomsArray(recentRoomsArray: recentRoomsArray)
+                    }
+                }
+                
+                if !userHouseExists{
+                    // Add user/house combo and room
+                    print("User/House does not exists")
+                    
+                    recentRoomsArray.append(tempRecentRooms)
+                    
+                    setRecentRoomsArray(recentRoomsArray: recentRoomsArray)
+                    
+                }
+                
+            }else{
+                // Create array, add user/house combo and add room
+                print("No existing array, add new one with the room")
+                
+                setRecentRoomsArray(recentRoomsArray: [tempRecentRooms])
+            }
+            
+        }
+        
+    }
+    
+    static func getRecentRooms() -> RecentRooms? {
+        
+        if let username = Helper.getToken()?.username, let houseId = Helper.getStoredHouseId(), let tempRecentRooms = RecentRooms(username: username, houseId: houseId, recentRooms: [RecentRoom]()), let recentRoomsArray = getStoredRecentRoomsArray(), recentRoomsArray.contains(tempRecentRooms){
+            
+            let index = recentRoomsArray.index(of: tempRecentRooms)
+            
+            return recentRoomsArray[index!]
+        } else {
+            return nil
+        }
+        
     }
     
     static func setCurrencyUnitToggle(viewController: UIViewController){
