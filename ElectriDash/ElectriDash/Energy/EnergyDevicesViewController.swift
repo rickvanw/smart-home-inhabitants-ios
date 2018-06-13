@@ -13,6 +13,7 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
     
     
     func reloadPage() {
+        energyDevicesTableview.reloadData()
     }
     
     @IBOutlet weak var energyDevicesTableview: UITableView!
