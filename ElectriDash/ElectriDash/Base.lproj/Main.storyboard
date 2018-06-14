@@ -698,7 +698,7 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="O48-nI-E9s">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="UPZ-YS-Yz0">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="UPZ-YS-Yz0">
                             <rect key="frame" x="71" y="7.6666666666666679" width="233" height="29.000000000000004"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
