@@ -19,6 +19,17 @@ class Room: NSObject, Decodable {
     var devices: Int?
     var offlineDevices: Int?
     
+    // MARK: Overrides
+    
+    // Class will be compaired by id
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? Room{
+            return id == object.id
+        } else {
+            return false
+        }
+    }
+    
     // MARK: Initializer
     
     init?(id: Int, name: String, energyUsage: EnergyUsage, temperature: Double?, lastMotion: String?, luminance: Double?, imageLink: String, devices: Int?, offlineDevices: Int?) {

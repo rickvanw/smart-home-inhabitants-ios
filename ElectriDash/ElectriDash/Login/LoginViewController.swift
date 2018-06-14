@@ -234,9 +234,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         for house in houses!{
             alert.addAction(UIAlertAction(title: "\(house.name)", style: .default , handler:{ (UIAlertAction)in
                 Helper.setStoredHouseId(id: house.id)
-                
+                print(house)
+
                 self.performSegue(withIdentifier: "loginSegue", sender: self)
-                
                 
             }))
             

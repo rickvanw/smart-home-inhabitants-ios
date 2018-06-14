@@ -21,6 +21,8 @@ struct Constants {
         static let username = "username"
         static let currencyUnit = "currencyUnit"
         static let houseId = "houseId"
+        static let houseSerial = "houseSerial"
+        static let recentRoomsArray = "recentRoomsArray"
     }
     
     struct Names {

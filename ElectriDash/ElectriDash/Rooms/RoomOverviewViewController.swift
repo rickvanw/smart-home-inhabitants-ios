@@ -35,8 +35,6 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        scrollView.alpha = 0
-        
         self.initialize()
 
         // Do any additional setup after loading the view.
@@ -74,11 +72,11 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
             "Accept": "application/json"
         ]
         
-        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId())/room/\(roomId!)", headers: headers).responseJSON { response in
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)", headers: headers).responseJSON { response in
                         
             switch response.result {
             case .success:
-                print("Rooms info retrieved")
+                print("Rooms info retrieved for \(self.roomId!)")
                 do {
                     self.room = try JSONDecoder().decode(Room.self, from: response.data!)
                     self.setRoomToView()
@@ -151,9 +149,5 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         }else{
             roomLastMovementLabel.text = "--"
         }
-        
-//        scrollView.alpha = 1
-
-        
     }
 }
