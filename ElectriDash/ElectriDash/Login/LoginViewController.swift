@@ -255,9 +255,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(cancelAction)
         
         if let popoverController = alert.popoverPresentationController {
-            popoverController.sourceView = self.view
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-            popoverController.permittedArrowDirections = []
+            popoverController.sourceView = self.loginButton
+            popoverController.sourceRect = CGRect(x: self.loginButton.bounds.midX, y: 0, width: 0, height: 0)
+            popoverController.permittedArrowDirections = .down
         }
         self.dismissActivityIndicator(completion: {_ in
             self.present(alert, animated: true, completion: nil)

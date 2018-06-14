@@ -118,7 +118,9 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         if let popoverController = alert.popoverPresentationController, let cell = self.deviceTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
             let button = cell.categoryButton!
             popoverController.sourceView = button
-            popoverController.sourceRect = CGRect(x: button.bounds.midX, y: self.view.bounds.maxX, width: 0, height: 0)
+            popoverController.sourceRect = CGRect(x: button.bounds.midX, y: button.bounds.maxY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = .up
+
         }
         
         self.present(alert, animated: true, completion: nil)
