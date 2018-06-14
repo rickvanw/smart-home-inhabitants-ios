@@ -34,14 +34,48 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
-        if Helper.isConnectedToInternet() == true {
-            getData()
-        }
-        else {
-           Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
-        }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("RoomsViewController did appear")
+        
+        var room:Room?
+        var segue = false
+        var animated = false
+        
+        if Helper.isConnectedToInternet() == true{
+            
+            if self.roomIdToLoad != nil, let newRoom = self.rooms.first(where: { $0.id == self.roomIdToLoad!}){
+                segue = true
+                room = newRoom
+                self.roomIdToLoad = nil
+            }
+            
+            if UIDevice.current.screenType == .unknown{
+                animated = true
+            }
+            
+            if segue {
+                
+                if room != nil{
+                    let indexPath = IndexPath(item: self.rooms.index(of: room!)!, section: 0)
+                    self.collectionView.selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionViewScrollPosition.centeredVertically)
+                    
+                }else{
+                    room = self.rooms.first
+                    
+                }
+                self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
+            }else{
+                getData()
+            }
+
+        }else {
+            Helper.showAlertOneButton(viewController: self, title: "No Internet Connection", message: "Make sure your device is connected to the internet.", buttonTitle: "Ok")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,25 +108,42 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
             case .success:
                 print("Rooms info retrieved")
                 do {
-                    self.rooms = try JSONDecoder().decode([Room].self, from: response.data!)
-                    self.collectionView.reloadData()
-                    if UIDevice.current.screenType == .unknown {
+                    let tempRooms = try JSONDecoder().decode([Room].self, from: response.data!)
+                    
+                    var room:Room?
+                    var animated = false
+                    var segue = false
+                    
+                    if tempRooms != self.rooms{
+                        self.rooms = tempRooms
+                        self.collectionView.reloadData()
                         
-                        var room:Room?
+                        if self.roomIdToLoad != nil, let newRoom = self.rooms.first(where: { $0.id == self.roomIdToLoad!}){
+                            segue = true
+                            room = newRoom
+                            self.roomIdToLoad = nil
+                        }
                         
-//                        if self.roomIdToLoad != nil, let newRoom = self.rooms.first(where: { $0.id < self.roomIdToLoad!}){
-//                            room = newRoom
-//
-//                            let indexPath = IndexPath(item: self.rooms.index(of: newRoom)!, section: 0)
-//
-//                            self.collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.bottom, animated: true)
-//
-//                            self.roomIdToLoad = nil
-//                        }else{
-                            room = self.rooms.first
-//                        }
-                        self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
+                        if UIDevice.current.screenType == .unknown{
+                            animated = true
+                        }
+                        
+                        if segue {
+                            
+                            if room != nil{
+                                let indexPath = IndexPath(item: self.rooms.index(of: room!)!, section: 0)
+                                self.collectionView.selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionViewScrollPosition.centeredVertically)
+                                self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
+
+                            }
+                            
+                        }else if UIDevice.current.screenType == .unknown{
+                            let room = self.rooms.first
+                            self.performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
+                        }
+
                     }
+  
                 }catch {
                     print("Parse error")
                 }
@@ -107,19 +158,21 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "RoomsToRoomDetail" {
-//            let destVC = segue.destination as! RoomViewController
-//            destVC.room = sender as? Room
-            
+
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController as! RoomViewController
-            
-            let room = sender as? Room
-            targetController.roomId = room?.id
-            targetController.title = room?.name
-            targetController.initialize()
+
+            if let room = sender as? Room{
+                
+                // Add room to recents
+                Helper.addRecentRoom(room: room)
+                
+                targetController.roomId = room.id
+                targetController.title = room.name
+                targetController.initialize()
+            }
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.rooms.count
@@ -168,7 +221,6 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
                 
         let room = rooms[indexPath.row]
-        Helper.addRecentRoom(room: room)
         performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
     }
     

@@ -35,8 +35,6 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        scrollView.alpha = 0
-        
         self.initialize()
 
         // Do any additional setup after loading the view.
@@ -151,9 +149,5 @@ class RoomOverviewViewController: UIViewController, RoomPageControllerToPage {
         }else{
             roomLastMovementLabel.text = "--"
         }
-        
-//        scrollView.alpha = 1
-
-        
     }
 }

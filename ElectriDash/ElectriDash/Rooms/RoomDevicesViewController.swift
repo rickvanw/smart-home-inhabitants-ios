@@ -91,7 +91,6 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         
         alert.view.tintColor = Constants.AppColors.loginGreen
 
-        
         let sortedCategories = categories.sorted {$0.value < $1.value}
         
         for category in sortedCategories{
@@ -110,9 +109,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
                 if let cell = self.deviceTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
                     cell.categoryButton.setTitle(category.value, for: .normal)
                 }
-                
             }))
-            
         }
         
         let cancelAction: UIAlertAction = UIAlertAction(title: "Annuleer", style: .cancel) { action -> Void in }
@@ -122,7 +119,6 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
             let button = cell.categoryButton!
             popoverController.sourceView = button
             popoverController.sourceRect = CGRect(x: button.bounds.midX, y: self.view.bounds.maxX, width: 0, height: 0)
-//            popoverController.permittedArrowDirections = []
         }
         
         self.present(alert, animated: true, completion: nil)

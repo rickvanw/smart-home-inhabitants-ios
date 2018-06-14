@@ -15,7 +15,6 @@ class RoomViewController: UIViewController {
     @IBOutlet var pageView: UIView!
     
     var roomId: Int?
-    
     var selectedIndex = 0
     
     private lazy var roomOverviewViewController: RoomOverviewViewController = {
@@ -66,7 +65,6 @@ class RoomViewController: UIViewController {
 
     private func setupView() {
         setupSegmentedControl()
-        
         updateView()
     }
     
@@ -145,8 +143,20 @@ class RoomViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.initialize()
+        
+        if UIDevice.current.screenType != .unknown {
+            self.setTabBarHidden(true)
+        }
 
+        self.initialize()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if UIDevice.current.screenType != .unknown {
+            self.setTabBarHidden(false)
+        }
     }
     
     func setCurrencyUnitToggle(viewController: UIViewController){

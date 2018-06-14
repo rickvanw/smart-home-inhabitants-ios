@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */; };
 		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
+		1D1CDA9620D28980008D8AB3 /* UIViewController + setTabBarHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CDA9520D28980008D8AB3 /* UIViewController + setTabBarHidden.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1D3F47B920D109CB00292EBE /* RecentRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F47B820D109CB00292EBE /* RecentRooms.swift */; };
 		1D3F47BB20D10B7600292EBE /* RecentRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F47BA20D10B7600292EBE /* RecentRoom.swift */; };
@@ -36,7 +37,7 @@
 		1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DACFA8820750D7100D7222B /* UIView + addShadow.swift */; };
 		1DB264EF2085F1BE00933465 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264ED2085F1BE00933465 /* OverviewViewController.swift */; };
 		1DB264F02085F1BE00933465 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB264EE2085F1BE00933465 /* GradientView.swift */; };
-		1DCDD67020D00077009E17AA /* OverviewViewController + CollectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD66F20D00077009E17AA /* OverviewViewController + CollectionCollectionViewController.swift */; };
+		1DCDD67020D00077009E17AA /* OverviewViewController + Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD66F20D00077009E17AA /* OverviewViewController + Collection.swift */; };
 		1DCDD67220D000C7009E17AA /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCDD67120D000C7009E17AA /* OverviewCollectionViewCell.swift */; };
 		1DEBAAA920BBF46F00BAD634 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBAAA820BBF46F00BAD634 /* CustomButton.swift */; };
 		1DEBAAAB20BBFA6100BAD634 /* PeriodSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyUsage.swift; sourceTree = "<group>"; };
 		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		1D1CDA9520D28980008D8AB3 /* UIViewController + setTabBarHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + setTabBarHidden.swift"; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1D3F47B820D109CB00292EBE /* RecentRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRooms.swift; sourceTree = "<group>"; };
 		1D3F47BA20D10B7600292EBE /* RecentRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRoom.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		1DACFA8820750D7100D7222B /* UIView + addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + addShadow.swift"; sourceTree = "<group>"; };
 		1DB264ED2085F1BE00933465 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		1DB264EE2085F1BE00933465 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		1DCDD66F20D00077009E17AA /* OverviewViewController + CollectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OverviewViewController + CollectionCollectionViewController.swift"; sourceTree = "<group>"; };
+		1DCDD66F20D00077009E17AA /* OverviewViewController + Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OverviewViewController + Collection.swift"; sourceTree = "<group>"; };
 		1DCDD67120D000C7009E17AA /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		1DEBAAA820BBF46F00BAD634 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		1DEBAAAA20BBFA6100BAD634 /* PeriodSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSettingViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				1D913E6720AB6B5400F5C119 /* UIImageView + downloadedFrom.swift */,
 				1D75C359207CE0A000CF947D /* UIColor + hexString.swift */,
 				1D4F27B420AD818C005E99E9 /* UIScrollView + resizeScrollViewContentSize.swift */,
+				1D1CDA9520D28980008D8AB3 /* UIViewController + setTabBarHidden.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -299,7 +302,7 @@
 			children = (
 				1DB264ED2085F1BE00933465 /* OverviewViewController.swift */,
 				1DB264EE2085F1BE00933465 /* GradientView.swift */,
-				1DCDD66F20D00077009E17AA /* OverviewViewController + CollectionCollectionViewController.swift */,
+				1DCDD66F20D00077009E17AA /* OverviewViewController + Collection.swift */,
 				1DCDD67120D000C7009E17AA /* OverviewCollectionViewCell.swift */,
 			);
 			path = Overview;
@@ -535,7 +538,7 @@
 				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
 				1D82D13E20BFFEE2008513EB /* EnergyPageControllerToPage.swift in Sources */,
 				1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */,
-				1DCDD67020D00077009E17AA /* OverviewViewController + CollectionCollectionViewController.swift in Sources */,
+				1DCDD67020D00077009E17AA /* OverviewViewController + Collection.swift in Sources */,
 				1D480FBD20CEF06C00DCD513 /* CategoryButtonTableViewCell.swift in Sources */,
 				1DB264F02085F1BE00933465 /* GradientView.swift in Sources */,
 				1D913E6320AB6ADA00F5C119 /* RoomsViewController.swift in Sources */,
@@ -555,6 +558,7 @@
 				1DF16B3720BEAA900050BBB8 /* Graph.swift in Sources */,
 				1DEBAAAD20BBFC1900BAD634 /* PeriodSettingDelegate.swift in Sources */,
 				1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */,
+				1D1CDA9620D28980008D8AB3 /* UIViewController + setTabBarHidden.swift in Sources */,
 				1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */,
 				1D3F47BB20D10B7600292EBE /* RecentRoom.swift in Sources */,
 				1D5AE70E20C52BCC00B2CD66 /* Login.swift in Sources */,

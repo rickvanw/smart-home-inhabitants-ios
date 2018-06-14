@@ -14,6 +14,7 @@ class OverviewViewController: UIViewController {
     
     @IBOutlet var overviewCollectionView: UICollectionView!
     @IBOutlet var welcomeLabel: UILabel!
+    @IBOutlet var recentsLabel: UILabel!
     
     var recentRooms: [RecentRoom]?
     
@@ -36,12 +37,20 @@ class OverviewViewController: UIViewController {
         super.viewDidAppear(animated)
         
         print("APPEARED")
-
+        
         if let recentRooms = Helper.getRecentRooms(){
-            print(recentRooms)
             
-            self.recentRooms = recentRooms.recentRooms.reversed()
-            overviewCollectionView.reloadData()
+            if self.recentRooms != recentRooms.recentRooms.reversed(){
+                
+                print(recentRooms)
+                
+                self.recentRooms = recentRooms.recentRooms.reversed()
+                overviewCollectionView.reloadData()
+            }
+            
+            recentsLabel.text = "Onlangs bekeken ruimtes:"
+        }else{
+            recentsLabel.text = "Nog geen onlangs bekeken ruimtes"
         }
     }
 

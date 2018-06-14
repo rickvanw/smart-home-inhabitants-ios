@@ -272,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qhu-YU-ukj">
-                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="672"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTo-kd-69c">
                                         <rect key="frame" x="12" y="58" width="351" height="1"/>
@@ -290,7 +290,7 @@
                                         <color key="textColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onlangs bekeken ruimtes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-LG-tjA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqA-LG-tjA">
                                         <rect key="frame" x="18" y="67" width="341" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="lRf-UQ-3cm"/>
@@ -299,9 +299,8 @@
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="amT-gc-qEV">
-                                        <rect key="frame" x="0.0" y="95" width="375" height="494"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="amT-gc-qEV">
+                                        <rect key="frame" x="0.0" y="95" width="375" height="577"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="5JP-a3-a2s">
                                             <size key="itemSize" width="176" height="99"/>
@@ -379,14 +378,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="amT-gc-qEV" firstAttribute="leading" secondItem="Qhu-YU-ukj" secondAttribute="leading" id="9NA-Nz-u75"/>
                                     <constraint firstAttribute="trailing" secondItem="VTo-kd-69c" secondAttribute="trailing" constant="12" id="A4s-ZU-sMT"/>
                                     <constraint firstAttribute="trailing" secondItem="uqA-LG-tjA" secondAttribute="trailing" constant="16" id="GnX-Ro-1LQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="amT-gc-qEV" secondAttribute="trailing" id="XRn-lH-eNf"/>
                                     <constraint firstItem="Q3I-um-48G" firstAttribute="top" secondItem="Qhu-YU-ukj" secondAttribute="top" constant="15" id="Xtq-pk-hfy"/>
                                     <constraint firstItem="uqA-LG-tjA" firstAttribute="top" secondItem="VTo-kd-69c" secondAttribute="bottom" constant="8" id="c5l-Q6-180"/>
+                                    <constraint firstItem="amT-gc-qEV" firstAttribute="top" secondItem="uqA-LG-tjA" secondAttribute="bottom" constant="8" id="edG-zZ-TYc"/>
                                     <constraint firstItem="Q3I-um-48G" firstAttribute="leading" secondItem="Qhu-YU-ukj" secondAttribute="leading" constant="16" id="ipe-iM-vFz"/>
                                     <constraint firstItem="VTo-kd-69c" firstAttribute="leading" secondItem="Qhu-YU-ukj" secondAttribute="leading" constant="12" id="lcX-6d-BDg"/>
                                     <constraint firstAttribute="trailing" secondItem="Q3I-um-48G" secondAttribute="trailing" constant="16" id="ljQ-aU-5az"/>
                                     <constraint firstItem="VTo-kd-69c" firstAttribute="top" secondItem="Q3I-um-48G" secondAttribute="bottom" constant="8" id="ljR-2R-UIc"/>
+                                    <constraint firstAttribute="bottom" secondItem="amT-gc-qEV" secondAttribute="bottom" id="qH9-R3-mH9"/>
                                     <constraint firstItem="uqA-LG-tjA" firstAttribute="leading" secondItem="Qhu-YU-ukj" secondAttribute="leading" constant="18" id="xDx-XM-9wG"/>
                                 </constraints>
                             </view>
@@ -395,7 +398,7 @@
                         <constraints>
                             <constraint firstItem="Qhu-YU-ukj" firstAttribute="leading" secondItem="EgU-IP-erc" secondAttribute="leading" id="3Fd-cG-Gk6"/>
                             <constraint firstItem="Qhu-YU-ukj" firstAttribute="trailing" secondItem="EgU-IP-erc" secondAttribute="trailing" id="jg5-4V-xQw"/>
-                            <constraint firstItem="Qhu-YU-ukj" firstAttribute="bottom" secondItem="EgU-IP-erc" secondAttribute="bottom" id="o8I-90-RrG"/>
+                            <constraint firstItem="Qhu-YU-ukj" firstAttribute="bottom" secondItem="87U-RY-CUP" secondAttribute="bottom" id="o8I-90-RrG"/>
                             <constraint firstItem="Qhu-YU-ukj" firstAttribute="top" secondItem="EgU-IP-erc" secondAttribute="top" id="pFb-fR-It9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EgU-IP-erc"/>
@@ -403,6 +406,7 @@
                     <navigationItem key="navigationItem" title="Overzicht" id="NJc-jy-ra5"/>
                     <connections>
                         <outlet property="overviewCollectionView" destination="amT-gc-qEV" id="dnS-C5-BjP"/>
+                        <outlet property="recentsLabel" destination="uqA-LG-tjA" id="sMK-17-Axz"/>
                         <outlet property="welcomeLabel" destination="Q3I-um-48G" id="CGy-UL-wgl"/>
                         <segue destination="mo2-pl-tVj" kind="show" identifier="OverviewToRoomDetail" id="aPt-S1-Pcz"/>
                     </connections>
@@ -666,7 +670,7 @@
         <!--Room View Controller-->
         <scene sceneID="8qk-Vb-fdM">
             <objects>
-                <viewController id="8lh-qz-5Ng" customClass="RoomViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="8lh-qz-5Ng" customClass="RoomViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uvu-mb-H9n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -712,7 +716,7 @@
         <!--Room Overview View Controller-->
         <scene sceneID="gLX-cd-4zW">
             <objects>
-                <viewController storyboardIdentifier="RoomOverviewViewController" id="3QD-mF-hEQ" customClass="RoomOverviewViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomOverviewViewController" hidesBottomBarWhenPushed="YES" id="3QD-mF-hEQ" customClass="RoomOverviewViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="XSR-PC-b8l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -990,7 +994,7 @@
         <!--Room Devices View Controller-->
         <scene sceneID="yOC-i2-eC1">
             <objects>
-                <viewController storyboardIdentifier="RoomDevicesViewController" id="Dft-VA-Cp4" customClass="RoomDevicesViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomDevicesViewController" hidesBottomBarWhenPushed="YES" id="Dft-VA-Cp4" customClass="RoomDevicesViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="ntz-LF-44c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1113,7 +1117,7 @@
         <!--Room History View Controller-->
         <scene sceneID="Va3-wn-FBT">
             <objects>
-                <viewController storyboardIdentifier="RoomHistoryViewController" id="SGj-tJ-aCe" customClass="RoomHistoryViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomHistoryViewController" hidesBottomBarWhenPushed="YES" id="SGj-tJ-aCe" customClass="RoomHistoryViewController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="2" contentMode="scaleToFill" id="GU1-G8-3tX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1464,7 +1468,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2LO-43-u3J">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2ii-0A-4CO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="2ii-0A-4CO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="LN3-fj-I6v">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
@@ -1496,7 +1500,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HZ5-Gb-PbO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="T7D-Ny-Mdk">
                                     <size key="itemSize" width="349" height="200"/>
@@ -1602,7 +1606,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="bottom" secondItem="GUH-h5-M7l" secondAttribute="bottom" id="5cb-wc-Qf6"/>
+                            <constraint firstItem="HZ5-Gb-PbO" firstAttribute="bottom" secondItem="BSG-YP-abd" secondAttribute="bottom" id="5cb-wc-Qf6"/>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="top" secondItem="BSG-YP-abd" secondAttribute="top" id="DbZ-S1-hDx"/>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="leading" secondItem="GUH-h5-M7l" secondAttribute="leading" id="M9W-Zf-4W1"/>
                             <constraint firstItem="HZ5-Gb-PbO" firstAttribute="trailing" secondItem="GUH-h5-M7l" secondAttribute="trailing" id="Oaa-bk-YLw"/>
@@ -1612,7 +1616,7 @@
                     <navigationItem key="navigationItem" title="Ruimtes" id="h11-QR-AeV"/>
                     <connections>
                         <outlet property="collectionView" destination="HZ5-Gb-PbO" id="6IO-83-VBR"/>
-                        <segue destination="2ii-0A-4CO" kind="showDetail" identifier="RoomsToRoomDetail" id="pxc-Wu-RCI"/>
+                        <segue destination="2ii-0A-4CO" kind="show" identifier="RoomsToRoomDetail" id="pxc-Wu-RCI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Za-iP-Ud0" userLabel="First Responder" sceneMemberID="firstResponder"/>
