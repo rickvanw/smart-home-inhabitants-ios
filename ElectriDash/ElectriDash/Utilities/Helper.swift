@@ -210,6 +210,15 @@ class Helper {
         }
     }
     
+    // Return W or currency label name
+    static func getCurrencyOrWattName() -> String{
+        if isCurrency {
+            return Constants.Units.euro + " / uur"
+        }else{
+            return Constants.Units.watt
+        }
+    }
+    
     // Return cubicMeter or currency label name
     static func getCurrencyOrCubicMeterName() -> String{
         if isCurrency {

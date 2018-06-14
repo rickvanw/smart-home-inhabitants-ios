@@ -13,7 +13,7 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
     
     
     func reloadPage() {
-        self.energyDevicesTableview.reloadData()
+        energyDevicesTableview.reloadData()
     }
     
     @IBOutlet weak var energyDevicesTableview: UITableView!
@@ -31,6 +31,7 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
         categories.append(devCats.socket)
         categories.append(devCats.multiSensor)
         
+        energyDevicesTableview.tableFooterView = UIView()
         getData()
 //        showCategories()
         
@@ -60,7 +61,6 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     //Tableview
-    
     func getData() {
         if Helper.isConnectedToInternet() {
             let headers: HTTPHeaders = [
@@ -106,7 +106,7 @@ class EnergyDevicesViewController: UIViewController,UITableViewDataSource, UITab
         cell.deviceName.text = device.name
         
         if device.energyUsage.usage != nil {
-            cell.deviceUsage.text = String(device.energyUsage.usage!) + " W"
+            cell.deviceUsage.text = String(Helper.getCurrencyOrW(energyUsage: device.energyUsage) + " " + Helper.getCurrencyOrWattName())
         }
         
         // Set the image according to the given iconName
