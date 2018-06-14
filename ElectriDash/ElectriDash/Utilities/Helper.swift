@@ -18,6 +18,33 @@ class Helper {
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
+    static func logout(clearLoginPassword: Bool){
+        let standard = UserDefaults.standard
+        
+        let token = Constants.Keys.token
+        let houseId = Constants.Keys.houseId
+        let currencyUnit = Constants.Keys.currencyUnit
+        let username = Constants.Keys.username
+
+        if isKeyPresentInUserDefaults(key: token){
+            standard.removeObject(forKey: token)
+        }
+        
+        if isKeyPresentInUserDefaults(key: houseId){
+            standard.removeObject(forKey: houseId)
+        }
+        
+        if isKeyPresentInUserDefaults(key: currencyUnit){
+            standard.removeObject(forKey: currencyUnit)
+        }
+        
+        if clearLoginPassword, isKeyPresentInUserDefaults(key: username){
+            standard.removeObject(forKey: username)
+        }
+        
+        standard.synchronize()
+    }
+    
     static func showAlertOneButton(viewController:UIViewController, title:String, message:String, buttonTitle:String){
         // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
