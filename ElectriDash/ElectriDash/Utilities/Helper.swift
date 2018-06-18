@@ -19,6 +19,20 @@ class Helper {
     }
     
     static func logout(clearLoginPassword: Bool){
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer " + getStoredTokenString()!,
+            "Accept": "application/json"
+        ]
+        
+        Alamofire.request("\(Constants.Urls.api)/api/user/logout", headers: headers).response{ response in
+            if response.response?.statusCode == 200{
+                print("Logout call successfull")
+            }else{
+                print(response.error.debugDescription)
+            }
+        }
+        
         let standard = UserDefaults.standard
         
         let token = Constants.Keys.token
@@ -43,6 +57,7 @@ class Helper {
         }
         
         standard.synchronize()
+        
     }
     
     static func showAlertOneButton(viewController:UIViewController, title:String, message:String, buttonTitle:String){
