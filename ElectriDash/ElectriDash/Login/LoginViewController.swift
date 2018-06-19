@@ -83,8 +83,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         if let username = Helper.getStoredUsername(){
             usernameTextField.text = username
-            if keychain[username] != nil {
-            passwordTextField.text = keychain[username]
+            if rememberPassword {
+                if keychain[username] != nil {
+                    passwordTextField.text = keychain[username]
+                }
             }
         }
         
