@@ -199,9 +199,9 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
                 print("Device history retrieved")
                 do {
                     
-                    let deviceHistory = try JSONDecoder().decode(DeviceHistory.self, from: response.data!)
+                    let graph = try JSONDecoder().decode(Graph.self, from: response.data!)
                     
-                    let graphEntries = deviceHistory.graph.graphEntries
+                    let graphEntries = graph.graphEntries
                     
                     self.yAxis = [Double]()
                     self.xAxis = [Date]()

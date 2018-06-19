@@ -199,9 +199,9 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
                 print("Rooms history retrieved")
                 do {
                     
-                    let roomHistory = try JSONDecoder().decode(RoomHistory.self, from: response.data!)
+                    let graph = try JSONDecoder().decode(Graph.self, from: response.data!)
                     
-                    let graphEntries = roomHistory.graph.graphEntries
+                    let graphEntries = graph.graphEntries
                     
                     self.yAxis = [Double]()
                     self.xAxis = [Date]()
