@@ -19,13 +19,14 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     var rooms = [Room]()
     let refresher = UIRefreshControl()
+    var refresh = false
     
     override func viewDidLoad() {
         
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         refresher.tintColor = .white
-        refresher.addTarget(self, action: #selector(getData), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
         if #available(iOS 10.0, *) {
             collectionView.refreshControl = refresher
@@ -96,6 +97,11 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     }
     
+    @objc func refreshData(){
+        refresh = true
+        getData()
+    }
+    
     @objc func getData() {
             let headers: HTTPHeaders = [
                 "Authorization": "Bearer " + Helper.getStoredTokenString()!,
@@ -114,7 +120,9 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                     var animated = false
                     var segue = false
                     
-                    if tempRooms != self.rooms{
+                    if tempRooms != self.rooms || self.refresh{
+                        self.refresh = false
+
                         self.rooms = tempRooms
                         self.collectionView.reloadData()
                         
@@ -169,6 +177,8 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 
                 targetController.roomId = room.id
                 targetController.title = room.name
+                targetController.segmentedControl.isEnabled = true
+
                 targetController.initialize()
             }
         }

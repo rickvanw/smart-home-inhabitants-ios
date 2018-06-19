@@ -58,5 +58,14 @@ class OverviewViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: Actions
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        
+        Helper.logout(clearLoginPassword: true)
+        
+        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
+        
+    }
 
 }
