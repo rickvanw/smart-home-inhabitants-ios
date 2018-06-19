@@ -59,7 +59,7 @@ class Helper {
         standard.synchronize()
         
     }
-    
+
     static func showAlertOneButton(viewController:UIViewController, title:String, message:String, buttonTitle:String){
         // create the alert
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
@@ -352,6 +352,15 @@ class Helper {
             return Constants.Units.euro
         }else{
             return Constants.Units.kWh
+        }
+    }
+    
+    // Return W or currency label name
+    static func getCurrencyOrWattName() -> String{
+        if isCurrency {
+            return Constants.Units.euro + " / uur"
+        }else{
+            return Constants.Units.watt
         }
     }
     

@@ -25,7 +25,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
     let devCats = Constants.deviceCategories.self
     
     func reloadPage() {
-        
+        deviceTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -151,7 +151,7 @@ class RoomDevicesViewController: UIViewController,UITableViewDataSource, UITable
         cell.deviceName.text = device.name
         
         if device.energyUsage.usage != nil {
-            cell.deviceUsage.text = String(device.energyUsage.usage!) + " W"
+            cell.deviceUsage.text = String(Helper.getCurrencyOrW(energyUsage: device.energyUsage) + " " + Helper.getCurrencyOrWattName())
         }
         
         // Set the image according to the given iconName

@@ -122,6 +122,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                     
                     if tempRooms != self.rooms || self.refresh{
                         self.refresh = false
+
                         self.rooms = tempRooms
                         self.collectionView.reloadData()
                         
@@ -177,6 +178,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 targetController.roomId = room.id
                 targetController.title = room.name
                 targetController.segmentedControl.isEnabled = true
+
                 targetController.initialize()
             }
         }

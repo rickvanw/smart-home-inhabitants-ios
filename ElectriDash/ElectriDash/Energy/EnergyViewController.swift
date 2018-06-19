@@ -15,7 +15,7 @@ class EnergyViewController: UIViewController {
     
     var selectedIndex = 0
     
-    private lazy var roomOverviewViewController: EnergyOverviewViewController = {
+    private lazy var energyOverviewViewController: EnergyOverviewViewController = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -28,7 +28,7 @@ class EnergyViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var roomDevicesViewController: EnergyDevicesViewController = {
+    private lazy var energyDevicesViewController: EnergyDevicesViewController = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -41,7 +41,7 @@ class EnergyViewController: UIViewController {
         return viewController
     }()
     
-    private lazy var roomHistoryViewController: EnergyHistoryViewController = {
+    private lazy var energyHistoryViewController: EnergyHistoryViewController = {
         // Load Storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
@@ -57,7 +57,6 @@ class EnergyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         self.setupView()
 
     }
@@ -70,6 +69,9 @@ class EnergyViewController: UIViewController {
     
     private func add(asChildViewController viewController: UIViewController) {
         
+        //ADDED***********************************
+        var child = viewController as! EnergyPageControllerToPage
+
         // Add Child View Controller
         addChildViewController(viewController)
         
@@ -113,22 +115,22 @@ class EnergyViewController: UIViewController {
     
     private func updateView() {
         if selectedIndex == 0 {
-            remove(asChildViewController: roomOverviewViewController)
+            remove(asChildViewController: energyOverviewViewController)
         }else if selectedIndex == 1 {
-            remove(asChildViewController: roomDevicesViewController)
+            remove(asChildViewController: energyDevicesViewController)
         }else{
-            remove(asChildViewController: roomHistoryViewController)
+            remove(asChildViewController: energyHistoryViewController)
         }
         
         if segmentedControl.selectedSegmentIndex == 0 {
             selectedIndex = 0
-            add(asChildViewController: roomOverviewViewController)
+            add(asChildViewController: energyOverviewViewController)
         } else if segmentedControl.selectedSegmentIndex == 1{
             selectedIndex = 1
-            add(asChildViewController: roomDevicesViewController)
+            add(asChildViewController: energyDevicesViewController)
         }else{
             selectedIndex = 2
-            add(asChildViewController: roomHistoryViewController)
+            add(asChildViewController: energyHistoryViewController)
         }
         
     }
@@ -171,7 +173,7 @@ class EnergyViewController: UIViewController {
         
         self.initialize()
         
-        let child = self.childViewControllers.first as! RoomPageControllerToPage
+        let child = self.childViewControllers.first as! EnergyPageControllerToPage
         child.reloadPage()
     }
 

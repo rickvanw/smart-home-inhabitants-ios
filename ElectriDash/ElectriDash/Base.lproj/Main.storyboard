@@ -410,12 +410,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+
                     <connections>
                         <outlet property="overviewCollectionView" destination="amT-gc-qEV" id="dnS-C5-BjP"/>
                         <outlet property="recentsLabel" destination="uqA-LG-tjA" id="sMK-17-Axz"/>
                         <outlet property="welcomeLabel" destination="Q3I-um-48G" id="CGy-UL-wgl"/>
                         <segue destination="mo2-pl-tVj" kind="show" identifier="OverviewToRoomDetail" id="aPt-S1-Pcz"/>
                         <segue destination="ZO3-wy-UMs" kind="unwind" identifier="unwindToLogin" unwindAction="prepareForUnwindWithSegue:" id="7Nn-z8-IV1"/>
+
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwW-0b-Jzq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -454,9 +456,6 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wb2-Gt-RqS">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
-                                <connections>
-                                    <segue destination="mIf-9s-EPn" kind="embed" identifier="PageEmbedSegue" id="5F0-6T-n8o"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -666,14 +665,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nu-bR-plQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1625" y="1564"/>
-        </scene>
-        <!--Energy Page Controller-->
-        <scene sceneID="ths-Gd-pR8">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="mIf-9s-EPn" customClass="EnergyPageController" customModule="ElectriDash" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xru-Ch-20u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3372" y="1538"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="8qk-Vb-fdM">
@@ -1019,7 +1010,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqU-sS-Aw5" customClass="CustomButton" customModule="ElectriDash" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="10" width="343" height="39"/>
+                                                    <rect key="frame" x="16" y="10" width="343" height="39.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <state key="normal" title="Alle apparaten">
                                                         <color key="titleColor" red="0.23921568630000001" green="0.79607843140000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
