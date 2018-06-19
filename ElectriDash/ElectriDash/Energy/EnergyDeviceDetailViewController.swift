@@ -1,5 +1,5 @@
 //
-//  EnergyHistoryViewController.swift
+//  EnergyDeviceDetailViewController.swift
 //  ElectriDash
 //
 //  Created by Rick van Weersel on 23/04/2018.
@@ -10,7 +10,7 @@ import UIKit
 import ScrollableGraphView
 import Alamofire
 
-class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage, ScrollableGraphViewDataSource, PeriodSettingDelegate{
+class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerToPage, ScrollableGraphViewDataSource, PeriodSettingDelegate{
 
     @IBOutlet var totalEnergy: UILabel!
     @IBOutlet var graphViewContainer: UIView!
@@ -21,7 +21,7 @@ class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage,
     var fromDate: Date!
     var toDate: Date!
     
-    var roomId: Int?
+    var deviceId: Int?
     
     var yAxis = [Double]()
     var xAxis = [Date]()
@@ -163,7 +163,9 @@ class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage,
         self.fromDate = from
         self.toDate = to
         
-        graphView.removeFromSuperview()
+        if graphView != nil{
+            graphView.removeFromSuperview()
+        }
         getGraphData(from: fromDate, to: toDate)
     }
     
@@ -185,21 +187,21 @@ class EnergyHistoryViewController: UIViewController, EnergyPageControllerToPage,
         let toDateString = dateFormatter.string(from: to)
         
         self.hideGraph()
-        
-//        print("\(Constants.Urls.api)/house/2/room/3/history/\(fromDateString)/\(toDateString)")
-        
-        Alamofire.request("\(Constants.Urls.api)/house/2/room/3/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+                
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/device/\(deviceId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+
+            print(response.debugDescription)
             
             self.showGraph()
             
             switch response.result {
             case .success:
-                print("Rooms history retrieved")
+                print("Device history retrieved")
                 do {
                     
-                    let roomHistory = try JSONDecoder().decode(RoomHistory.self, from: response.data!)
+                    let deviceHistory = try JSONDecoder().decode(DeviceHistory.self, from: response.data!)
                     
-                    let graphEntries = roomHistory.graph.graphEntries
+                    let graphEntries = deviceHistory.graph.graphEntries
                     
                     self.yAxis = [Double]()
                     self.xAxis = [Date]()

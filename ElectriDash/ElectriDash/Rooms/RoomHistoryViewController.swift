@@ -217,7 +217,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
 
                     }
                     
-                    
                 }catch {
                     print("Parse error")
                 }
