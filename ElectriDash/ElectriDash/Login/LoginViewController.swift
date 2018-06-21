@@ -325,7 +325,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("iPad")
             keyboardHeightLayoutConstraint.constant = 180
             extraInputHeight = 20
-            extraButtonHeight = 20
+            extraButtonHeight = 40
         }
         
         
