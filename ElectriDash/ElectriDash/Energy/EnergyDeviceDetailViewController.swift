@@ -209,8 +209,13 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
                     for graphEntry in graphEntries{
                         self.yAxis.append(graphEntry.yAxis)
                         self.xAxis.append(graphEntry.getxAxisDate()!)
+                        
                     }
-                    if !self.yAxis.isEmpty, !self.xAxis.isEmpty{
+                    
+                    print(self.yAxis)
+                    print(self.xAxis)
+                    
+                    if !self.yAxis.isEmpty, !self.xAxis.isEmpty, (self.yAxis.count > 1), (self.yAxis.count > 1){
                         
                         self.initGraph()
                         self.totalEnergy.text = "\(self.yAxis.max()!.rounded(.up)) Watt max"
