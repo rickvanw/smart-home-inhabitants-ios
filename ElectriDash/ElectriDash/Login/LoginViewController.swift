@@ -81,6 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
+        // Get the password for the given username
         if let username = Helper.getStoredUsername(){
             usernameTextField.text = username
             if rememberPassword {
