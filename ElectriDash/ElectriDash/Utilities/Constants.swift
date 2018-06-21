@@ -56,7 +56,7 @@ struct Constants {
     {
         static let api = "https://api.energydash.nl"
     }
-    
+     
     struct deviceCategories
     {
         static let light = "light"
