@@ -7,132 +7,34 @@
 //
 
 import UIKit
+import Alamofire
 
 class EnergyViewController: UIViewController {
-
-    @IBOutlet var segmentedControl: UISegmentedControl!
-    @IBOutlet var pageView: UIView!
     
-    var selectedIndex = 0
-    
-    private lazy var energyOverviewViewController: EnergyOverviewViewController = {
-        // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyOverviewViewController") as! EnergyOverviewViewController
-        
-        // Add View Controller as Child View Controller
-        self.add(asChildViewController: viewController)
-        
-        return viewController
-    }()
-    
-    private lazy var energyDevicesViewController: EnergyDevicesViewController = {
-        // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyDevicesViewController") as! EnergyDevicesViewController
-        
-        // Add View Controller as Child View Controller
-        self.add(asChildViewController: viewController)
-        
-        return viewController
-    }()
-    
-    private lazy var energyHistoryViewController: EnergyHistoryViewController = {
-        // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        // Instantiate View Controller
-        var viewController = storyboard.instantiateViewController(withIdentifier: "EnergyHistoryViewController") as! EnergyHistoryViewController
-        
-        // Add View Controller as Child View Controller
-        self.add(asChildViewController: viewController)
-        
-        return viewController
-    }()
+    @IBOutlet weak var energyDevicesTableview: UITableView!
+    var devices = [Device]()
+    var categories = [String]()
+    var currentCategory: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupView()
-
-    }
-    
-    private func setupView() {
-        setupSegmentedControl()
         
-        updateView()
-    }
-    
-    private func add(asChildViewController viewController: UIViewController) {
+        energyDevicesTableview.delegate = self
+        energyDevicesTableview.dataSource = self
         
-        //ADDED***********************************
-        var child = viewController as! EnergyPageControllerToPage
-
-        // Add Child View Controller
-        addChildViewController(viewController)
+        let devCats = Constants.deviceCategories.self
         
-        // Add Child View as Subview
-        pageView.addSubview(viewController.view)
+        categories.append(devCats.light)
+        categories.append(devCats.doorSensor)
+        categories.append(devCats.socket)
+        categories.append(devCats.multiSensor)
         
-        // Configure Child View
-        viewController.view.frame = pageView.bounds
-        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        energyDevicesTableview.tableFooterView = UIView()
+        getData()
+        //        showCategories()
         
-        // Notify Child View Controller
-        viewController.didMove(toParentViewController: self)
-        
-        self.view.layoutIfNeeded()
-        
-    }
-    
-    private func setupSegmentedControl() {
-        // Configure Segmented Control
-        
-        segmentedControl.addTarget(self, action: #selector(selectionDidChange(_:)), for: .valueChanged)
-        
-        // Select First Segment
-        segmentedControl.selectedSegmentIndex = 0
-    }
-    
-    @objc func selectionDidChange(_ sender: UISegmentedControl) {
-        updateView()
-    }
-    
-    private func remove(asChildViewController viewController: UIViewController) {
-        // Notify Child View Controller
-        viewController.willMove(toParentViewController: nil)
-        
-        // Remove Child View From Superview
-        viewController.view.removeFromSuperview()
-        
-        // Notify Child View Controller
-        viewController.removeFromParentViewController()
-    }
-    
-    private func updateView() {
-        if selectedIndex == 0 {
-            remove(asChildViewController: energyOverviewViewController)
-        }else if selectedIndex == 1 {
-            remove(asChildViewController: energyDevicesViewController)
-        }else{
-            remove(asChildViewController: energyHistoryViewController)
-        }
-        
-        if segmentedControl.selectedSegmentIndex == 0 {
-            selectedIndex = 0
-            add(asChildViewController: energyOverviewViewController)
-        } else if segmentedControl.selectedSegmentIndex == 1{
-            selectedIndex = 1
-            add(asChildViewController: energyDevicesViewController)
-        }else{
-            selectedIndex = 2
-            add(asChildViewController: energyHistoryViewController)
-        }
-        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -173,8 +75,7 @@ class EnergyViewController: UIViewController {
         
         self.initialize()
         
-        let child = self.childViewControllers.first as! EnergyPageControllerToPage
-        child.reloadPage()
+        self.reloadPage()
     }
 
     func initialize(){
@@ -183,6 +84,72 @@ class EnergyViewController: UIViewController {
         self.setCurrencyUnitToggle(viewController: self)
         self.view.layoutIfNeeded()
 
+    }
+    
+    
+    func reloadPage() {
+        energyDevicesTableview.reloadData()
+    }
+    
+    func showCategories() {
+        let alert = UIAlertController(title: "Selecteer een categorie", message: nil, preferredStyle: .actionSheet)
+        
+        for category in categories{
+            
+            alert.addAction(UIAlertAction(title: "\(category)", style: .default , handler:{ (UIAlertAction)in
+                self.currentCategory = category
+            }))
+            
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //Tableview
+    func getData() {
+        if Helper.isConnectedToInternet() {
+            let headers: HTTPHeaders = [
+                "Authorization": "Bearer " + Helper.getStoredTokenString()!,
+                "Accept": "application/json"
+            ]
+            
+            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/devices", headers: headers).responseJSON { response in
+                switch response.result {
+                case .success:
+                    print("Device info retrieved")
+                    do {
+                        self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
+                        self.devices.sort(by: { $0.categoryName > $1.categoryName })
+                        self.energyDevicesTableview.reloadData()
+                    }catch {
+                        print("Parse error")
+                        
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        else {
+            Helper.showAlertOneButton(viewController: self, title: "Geen netwerkverbinding", message: "Controleer of uw apparaat verbonden is met het internet", buttonTitle: "OK")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DeviceTableToDetail" {
+            
+            let targetController = segue.destination as! EnergyDeviceDetailViewController
+            
+            if let device = sender as? Device{
+                
+                targetController.deviceId = device.id
+                targetController.title = device.name
+            }
+        }
     }
 
 }

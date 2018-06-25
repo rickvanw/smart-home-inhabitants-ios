@@ -10,6 +10,8 @@
 		1D019C4020AC42F700D50EDB /* EnergyUsage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */; };
 		1D1142D7207D43CE00AA99AB /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1142D6207D43CE00AA99AB /* Token.swift */; };
 		1D1CDA9620D28980008D8AB3 /* UIViewController + setTabBarHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CDA9520D28980008D8AB3 /* UIViewController + setTabBarHidden.swift */; };
+		1D35728120D8FD0F0012C342 /* EnergyViewController + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35728020D8FD0F0012C342 /* EnergyViewController + TableView.swift */; };
+		1D35728320D907F30012C342 /* DeviceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D35728220D907F30012C342 /* DeviceHistory.swift */; };
 		1D380C452076B6140050CB2E /* UIDevice + ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */; };
 		1D3F47B920D109CB00292EBE /* RecentRooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F47B820D109CB00292EBE /* RecentRooms.swift */; };
 		1D3F47BB20D10B7600292EBE /* RecentRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F47BA20D10B7600292EBE /* RecentRoom.swift */; };
@@ -45,9 +47,7 @@
 		1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C520A079DB006E50AE /* RoomViewController.swift */; };
 		1DED93CB20A079DC006E50AE /* RoomDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */; };
 		1DED93CD20A079DC006E50AE /* RoomHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */; };
-		1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */; };
-		1DED93D620A079F7006E50AE /* EnergyDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */; };
-		1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */; };
+		1DED93D520A079F7006E50AE /* EnergyDeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D020A079F6006E50AE /* EnergyDeviceDetailViewController.swift */; };
 		1DED93D820A079F7006E50AE /* EnergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93D320A079F6006E50AE /* EnergyViewController.swift */; };
 		1DED93DB20A07A1A006E50AE /* UIApplication + topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */; };
 		1DED93DE20A07A33006E50AE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DD20A07A32006E50AE /* CustomView.swift */; };
@@ -76,6 +76,8 @@
 		1D019C3F20AC42F700D50EDB /* EnergyUsage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyUsage.swift; sourceTree = "<group>"; };
 		1D1142D6207D43CE00AA99AB /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		1D1CDA9520D28980008D8AB3 /* UIViewController + setTabBarHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + setTabBarHidden.swift"; sourceTree = "<group>"; };
+		1D35728020D8FD0F0012C342 /* EnergyViewController + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnergyViewController + TableView.swift"; sourceTree = "<group>"; };
+		1D35728220D907F30012C342 /* DeviceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHistory.swift; sourceTree = "<group>"; };
 		1D380C442076B6140050CB2E /* UIDevice + ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + ScreenType.swift"; sourceTree = "<group>"; };
 		1D3F47B820D109CB00292EBE /* RecentRooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRooms.swift; sourceTree = "<group>"; };
 		1D3F47BA20D10B7600292EBE /* RecentRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRoom.swift; sourceTree = "<group>"; };
@@ -114,9 +116,7 @@
 		1DED93C520A079DB006E50AE /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		1DED93C620A079DB006E50AE /* RoomDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDevicesViewController.swift; sourceTree = "<group>"; };
 		1DED93C820A079DC006E50AE /* RoomHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomHistoryViewController.swift; sourceTree = "<group>"; };
-		1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyHistoryViewController.swift; sourceTree = "<group>"; };
-		1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDevicesViewController.swift; sourceTree = "<group>"; };
-		1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyOverviewViewController.swift; sourceTree = "<group>"; };
+		1DED93D020A079F6006E50AE /* EnergyDeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyDeviceDetailViewController.swift; sourceTree = "<group>"; };
 		1DED93D320A079F6006E50AE /* EnergyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnergyViewController.swift; sourceTree = "<group>"; };
 		1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication + topViewController.swift"; sourceTree = "<group>"; };
 		1DED93DD20A07A32006E50AE /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -312,9 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				1DED93D320A079F6006E50AE /* EnergyViewController.swift */,
-				1DED93D020A079F6006E50AE /* EnergyHistoryViewController.swift */,
-				1DED93D120A079F6006E50AE /* EnergyDevicesViewController.swift */,
-				1DED93D220A079F6006E50AE /* EnergyOverviewViewController.swift */,
+				1DED93D020A079F6006E50AE /* EnergyDeviceDetailViewController.swift */,
+				1D35728020D8FD0F0012C342 /* EnergyViewController + TableView.swift */,
 			);
 			path = Energy;
 			sourceTree = "<group>";
@@ -346,6 +345,7 @@
 				1DF16B3620BEAA900050BBB8 /* Graph.swift */,
 				1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */,
 				1D5AE71120C5624E00B2CD66 /* RoomHistory.swift */,
+				1D35728220D907F30012C342 /* DeviceHistory.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -533,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D913E6B20AB71B300F5C119 /* RoomSplitViewController.swift in Sources */,
+				1D35728320D907F30012C342 /* DeviceHistory.swift in Sources */,
 				D0AA988820B5615000FDF12F /* DevicesTableViewCell.swift in Sources */,
 				1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */,
 				1DED93D820A079F7006E50AE /* EnergyViewController.swift in Sources */,
@@ -552,16 +553,15 @@
 				1DEBAAAB20BBFA6100BAD634 /* PeriodSettingViewController.swift in Sources */,
 				1DACFA8920750D7100D7222B /* UIView + addShadow.swift in Sources */,
 				1D3F47B920D109CB00292EBE /* RecentRooms.swift in Sources */,
-				1DED93D520A079F7006E50AE /* EnergyHistoryViewController.swift in Sources */,
+				1DED93D520A079F7006E50AE /* EnergyDeviceDetailViewController.swift in Sources */,
 				1DACFA632074FDF900D7222B /* LoginViewController.swift in Sources */,
 				1DEBAAA920BBF46F00BAD634 /* CustomButton.swift in Sources */,
-				1DED93D620A079F7006E50AE /* EnergyDevicesViewController.swift in Sources */,
+				1D35728120D8FD0F0012C342 /* EnergyViewController + TableView.swift in Sources */,
 				1DED93DB20A07A1A006E50AE /* UIApplication + topViewController.swift in Sources */,
 				1DF16B3720BEAA900050BBB8 /* Graph.swift in Sources */,
 				1DEBAAAD20BBFC1900BAD634 /* PeriodSettingDelegate.swift in Sources */,
 				1DED93CA20A079DC006E50AE /* RoomViewController.swift in Sources */,
 				1D1CDA9620D28980008D8AB3 /* UIViewController + setTabBarHidden.swift in Sources */,
-				1DED93D720A079F7006E50AE /* EnergyOverviewViewController.swift in Sources */,
 				1D3F47BB20D10B7600292EBE /* RecentRoom.swift in Sources */,
 				1D5AE70E20C52BCC00B2CD66 /* Login.swift in Sources */,
 				1DED93E020A07A6A006E50AE /* Room.swift in Sources */,
