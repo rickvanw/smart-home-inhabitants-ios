@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.7.1)
   - JWTDecode (2.1.1)
   - KeychainAccess (3.1.0)
+  - M13Checkbox (3.2.2)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.7)
   - JWTDecode (~> 2.1)
   - KeychainAccess
+  - M13Checkbox
   - RxCocoa
   - RxSwift
   - ScrollableGraphView
@@ -20,6 +22,7 @@ SPEC REPOS:
     - Alamofire
     - JWTDecode
     - KeychainAccess
+    - M13Checkbox
     - RxCocoa
     - RxSwift
     - ScrollableGraphView
@@ -28,10 +31,11 @@ SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
+  M13Checkbox: a8c2491cfbbca10797925fd0b9154a782bf40d89
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   ScrollableGraphView: 072ea302f4ca27779692656a49d51fe537b2b1e7
 
-PODFILE CHECKSUM: 239e4e3e349510f0e6c6d5686317038116e170d5
+PODFILE CHECKSUM: 0fee4c45c66e1e5fd64fa9204b440600456c735c
 
 COCOAPODS: 1.5.0

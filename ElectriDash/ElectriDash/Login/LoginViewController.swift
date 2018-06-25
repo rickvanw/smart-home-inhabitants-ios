@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import KeychainAccess
 import LocalAuthentication
+import M13Checkbox
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -49,15 +50,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     private var extraSmallScreenMode: Bool!
     
     private var viewPassword = false
+    private var rememberPassword = false
     
     private var passwordFromKeychain: String?
     
     var houses: [House]?
+    let keychain = Keychain()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         
         if self.traitCollection.horizontalSizeClass == .regular{
             let value = UIInterfaceOrientation.landscapeLeft.rawValue
@@ -77,11 +80,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         adjustViewForDevice()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardNotification(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+ 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        print("Did appear")
+        
+        // Get the password for the given username
         if let username = Helper.getStoredUsername(){
             usernameTextField.text = username
+            if rememberPassword {
+                if keychain[username] != nil {
+                    passwordTextField.text = keychain[username]
+                }
+            }
         }
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,6 +162,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             switch(response.result) {
             case .success:
                 do {
+                    // If "remember me", save user credentials to keychain
+                    if (self.rememberPassword) {
+                        print("Saving to keychain")
+                        self.keychain[username] = password
+                    }
+                    
                     let login = try JSONDecoder().decode(Login.self, from: response.data!)
                     
                     Helper.setStoredTokenString(token: login.token)
@@ -207,6 +228,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Change state of checbox
+    @IBAction func rememberMePressed(_ sender: Any) {
+        if !rememberPassword {
+            rememberPassword = true
+        }else {
+            rememberPassword = false
+        }
+    }
+    
     func showActivityIndicator(message: String){
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
@@ -246,9 +276,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(cancelAction)
         
         if let popoverController = alert.popoverPresentationController {
-            popoverController.sourceView = self.view
-            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
-            popoverController.permittedArrowDirections = []
+            popoverController.sourceView = self.loginButton
+            popoverController.sourceRect = CGRect(x: self.loginButton.bounds.midX, y: 0, width: 0, height: 0)
+            popoverController.permittedArrowDirections = .down
         }
         self.dismissActivityIndicator(completion: {_ in
             self.present(alert, animated: true, completion: nil)
@@ -301,7 +331,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             print("iPad")
             keyboardHeightLayoutConstraint.constant = 180
             extraInputHeight = 20
-            extraButtonHeight = 20
+            extraButtonHeight = 40
         }
         
         
@@ -318,7 +348,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         view.endEditing(true)
-        
+
         if usernameTextField.text != "" && passwordTextField.text != ""{
             requestToken(username: usernameTextField.text!, password: passwordTextField.text!)
             
@@ -396,6 +426,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         // Do not add a line break
         return false
+    }
+    
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
     }
     
     

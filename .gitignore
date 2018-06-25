@@ -69,3 +69,5 @@ fastlane/test_output
 ElectriDash/Pods/
 
 ElectriDash/\.DS_Store
+
+ElectriDash/ElectriDash\.xcodeproj/project\.pbxproj
