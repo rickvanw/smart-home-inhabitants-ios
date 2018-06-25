@@ -1,8 +1,8 @@
 //
-//  RoomHistoryViewController.swift
+//  EnergyDeviceDetailViewController.swift
 //  ElectriDash
 //
-//  Created by Rick van Weersel on 25/04/2018.
+//  Created by Rick van Weersel on 23/04/2018.
 //  Copyright © 2018 Rick van Weersel. All rights reserved.
 //
 
@@ -10,20 +10,19 @@ import UIKit
 import ScrollableGraphView
 import Alamofire
 
-class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, RoomPageControllerToPage, ScrollableGraphViewDataSource, PeriodSettingDelegate{
-    
+class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerToPage, ScrollableGraphViewDataSource, PeriodSettingDelegate{
+
     @IBOutlet var totalEnergy: UILabel!
     @IBOutlet var graphViewContainer: UIView!
     @IBOutlet var xAxisLabel: UILabel!
-    @IBOutlet var noticeLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var historyDeviceTableview: UITableView!
+    @IBOutlet var noticeLabel: UILabel!
     
     var graphView: ScrollableGraphView!
     var fromDate: Date!
     var toDate: Date!
     
-    var roomId: Int?
+    var deviceId: Int?
     
     var yAxis = [Double]()
     var xAxis = [Date]()
@@ -32,8 +31,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     
     func reloadPage() {
         graphView.reload()
-        historyDeviceTableview.reloadData()
-
+        
     }
     
     override func viewDidLoad() {
@@ -52,7 +50,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         toDate = Calendar.current.date(byAdding: components, to: fromDate!)
         
         getGraphData(from: fromDate, to: toDate)
-        getDevicesData()
     }
     
     func initGraph(){
@@ -60,7 +57,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         graphView = createMultiPlotGraphOne(graphViewContainer.frame)
         
         self.graphViewContainer.addSubview(graphView)
-        
         
         graphView.rightmostPointPadding = 25
         graphView.leftmostPointPadding = 30
@@ -132,7 +128,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         if graphView.rangeMin == graphView.rangeMax {
             graphView.rangeMin -= 1
             graphView.rangeMax += 1
-        } 
+        }
         
         graphView.shouldRangeAlwaysStartAtZero = true
         graphView.shouldAnimateOnStartup = false
@@ -193,14 +189,16 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         
         self.noticeLabel.isHidden = true
         self.hideGraph()
-        
-        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+                
+        Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/device/\(deviceId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
+
+            print(response.debugDescription)
             
             self.showGraph()
-
+            
             switch response.result {
             case .success:
-                print("Rooms history retrieved")
+                print("Device history retrieved")
                 do {
                     
                     let graph = try JSONDecoder().decode(Graph.self, from: response.data!)
@@ -215,11 +213,14 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
                         self.xAxis.append(graphEntry.getxAxisDate()!)
                     }
                     
+                    print(self.yAxis)
+                    print(self.xAxis)
+                    
                     if !self.yAxis.isEmpty, !self.xAxis.isEmpty, (self.yAxis.count > 1), (self.yAxis.count > 1){
-
+                        
                         self.initGraph()
                         self.totalEnergy.text = "\(self.yAxis.max()!.rounded(.up)) Watt max"
-
+                        
                     }else{
                         self.noticeLabel.isHidden = false
                     }
@@ -281,7 +282,6 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
             xAxisLabel.text = "Dagen"
             
             dateFormatter.dateFormat = "dd/MM"
-            
         }
         
         return dateFormatter.string(from:date)
@@ -304,81 +304,5 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         periodSettingScreen()
     }
     
-    //Tableview
-    func getDevicesData() {
-
-        
-        if Helper.isConnectedToInternet() {
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer " + Helper.getStoredTokenString()!,
-                "Accept": "application/json"
-            ]
-            
-            Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/devices", headers: headers).responseJSON { response in
-                switch response.result {
-                case .success:
-                    print("Device info retrieved")
-                    do {
-                        self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
-                        self.devices.sort(by: { $0.categoryName > $1.categoryName })
-                        self.historyDeviceTableview.reloadData()
-                    }catch {
-                        print("Parse error")
-                        
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
-        else {
-            Helper.showAlertOneButton(viewController: self, title: "Geen netwerkverbinding", message: "Controleer of uw apparaat verbonden is met het internet", buttonTitle: "OK")
-        }
-    }
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return devices.count
-    }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyDeviceCell", for: indexPath) as! DevicesTableViewCell
-        
-        // Get the device
-        let device: Device
-        device = devices[indexPath.row]
-        
-        // Set the values
-        cell.deviceName.text = device.name
-        
-        if device.energyUsage.usage != nil {
-            cell.deviceUsage.text = String(device.energyUsage.usage!) + " W"
-        }
-        
-        // Set the image according to the given iconName
-        switch device.categoryName {
-        case Constants.deviceCategories.multiSensor:
-            cell.deviceImage.image = UIImage(named: "multisensor")?.withRenderingMode(.alwaysTemplate)
-            break
-        case Constants.deviceCategories.light:
-            cell.deviceImage.image = UIImage(named: "lightbulb")?.withRenderingMode(.alwaysTemplate)
-            break
-        case Constants.deviceCategories.socket:
-            cell.deviceImage.image = UIImage(named: "powerplug")?.withRenderingMode(.alwaysTemplate)
-            break
-        case Constants.deviceCategories.doorSensor:
-            cell.deviceImage.image = UIImage(named: "movement")?.withRenderingMode(.alwaysTemplate)
-            break
-        default: break
-        }
-        
-        cell.preservesSuperviewLayoutMargins = false
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
-        
-        //Set the icon tintcolor
-        cell.deviceImage.tintColor = UIColor(hexString: "#5ED0A8")
-        
-        return cell
-    }
 }
+
