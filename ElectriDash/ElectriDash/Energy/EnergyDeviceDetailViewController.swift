@@ -16,6 +16,7 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
     @IBOutlet var graphViewContainer: UIView!
     @IBOutlet var xAxisLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var noticeLabel: UILabel!
     
     var graphView: ScrollableGraphView!
     var fromDate: Date!
@@ -186,6 +187,7 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
         let fromDateString = dateFormatter.string(from: from)
         let toDateString = dateFormatter.string(from: to)
         
+        self.noticeLabel.isHidden = true
         self.hideGraph()
                 
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/device/\(deviceId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
@@ -209,7 +211,6 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
                     for graphEntry in graphEntries{
                         self.yAxis.append(graphEntry.yAxis)
                         self.xAxis.append(graphEntry.getxAxisDate()!)
-                        
                     }
                     
                     print(self.yAxis)
@@ -220,14 +221,18 @@ class EnergyDeviceDetailViewController: UIViewController, EnergyPageControllerTo
                         self.initGraph()
                         self.totalEnergy.text = "\(self.yAxis.max()!.rounded(.up)) Watt max"
                         
+                    }else{
+                        self.noticeLabel.isHidden = false
                     }
                     
                 }catch {
                     print("Parse error")
+                    self.noticeLabel.isHidden = false
                 }
                 
             case .failure(let error):
                 print(error)
+                self.noticeLabel.isHidden = false
             }
         }
     }

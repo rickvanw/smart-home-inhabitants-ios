@@ -15,6 +15,7 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
     @IBOutlet var totalEnergy: UILabel!
     @IBOutlet var graphViewContainer: UIView!
     @IBOutlet var xAxisLabel: UILabel!
+    @IBOutlet var noticeLabel: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var historyDeviceTableview: UITableView!
     
@@ -167,7 +168,9 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         self.fromDate = from
         self.toDate = to
         
-        graphView.removeFromSuperview()
+        if graphView != nil{
+            graphView.removeFromSuperview()
+        }
         getGraphData(from: fromDate, to: toDate)
     }
     
@@ -188,12 +191,13 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
         let fromDateString = dateFormatter.string(from: from)
         let toDateString = dateFormatter.string(from: to)
         
+        self.noticeLabel.isHidden = true
         self.hideGraph()
         
         Alamofire.request("\(Constants.Urls.api)/house/\(Helper.getStoredHouseId()!)/room/\(roomId!)/history/\(fromDateString)/\(toDateString)", headers: headers).responseJSON { response in
             
             self.showGraph()
-            
+
             switch response.result {
             case .success:
                 print("Rooms history retrieved")
@@ -210,19 +214,24 @@ class RoomHistoryViewController: UIViewController,UITableViewDataSource, UITable
                         self.yAxis.append(graphEntry.yAxis)
                         self.xAxis.append(graphEntry.getxAxisDate()!)
                     }
-                    if !self.yAxis.isEmpty, !self.xAxis.isEmpty{
-                        
+                    
+                    if !self.yAxis.isEmpty, !self.xAxis.isEmpty, (self.yAxis.count > 1), (self.yAxis.count > 1){
+
                         self.initGraph()
                         self.totalEnergy.text = "\(self.yAxis.max()!.rounded(.up)) Watt max"
 
+                    }else{
+                        self.noticeLabel.isHidden = false
                     }
                     
                 }catch {
                     print("Parse error")
+                    self.noticeLabel.isHidden = false
                 }
                 
             case .failure(let error):
                 print(error)
+                self.noticeLabel.isHidden = false
             }
         }
     }
