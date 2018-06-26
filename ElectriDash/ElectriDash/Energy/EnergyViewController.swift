@@ -9,30 +9,31 @@
 import UIKit
 import Alamofire
 
-class EnergyViewController: UIViewController {
+class EnergyViewController: UIViewController, TableViewCategory {
     
     @IBOutlet weak var energyDevicesTableview: UITableView!
     var devices = [Device]()
-    var categories = [String]()
+    var allDevices = [Device]()
+
+    var categories = [String:String]()
     var currentCategory: String?
     
+    let devCats = Constants.deviceCategories.self
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        categories["all"] = "Alle apparaten"
+        categories[devCats.light] = "Lampen"
+        categories[devCats.doorSensor] = "Deursensoren"
+        categories[devCats.socket] = "Stopcontacten"
+        categories[devCats.multiSensor] = "Multi-sensoren"
         
         energyDevicesTableview.delegate = self
         energyDevicesTableview.dataSource = self
         
-        let devCats = Constants.deviceCategories.self
-        
-        categories.append(devCats.light)
-        categories.append(devCats.doorSensor)
-        categories.append(devCats.socket)
-        categories.append(devCats.multiSensor)
-        
         energyDevicesTableview.tableFooterView = UIView()
         getData()
-        //        showCategories()
         
         // Do any additional setup after loading the view.
     }
@@ -91,19 +92,44 @@ class EnergyViewController: UIViewController {
         energyDevicesTableview.reloadData()
     }
     
-    func showCategories() {
+    // MARK: TableViewCategory
+    func setCategory() {
+
         let alert = UIAlertController(title: "Selecteer een categorie", message: nil, preferredStyle: .actionSheet)
         
-        for category in categories{
+        alert.view.tintColor = Constants.AppColors.loginGreen
+        
+        let sortedCategories = categories.sorted {$0.value < $1.value}
+        
+        for category in sortedCategories{
             
-            alert.addAction(UIAlertAction(title: "\(category)", style: .default , handler:{ (UIAlertAction)in
-                self.currentCategory = category
+            alert.addAction(UIAlertAction(title: "\(category.value)", style: .default , handler:{ (UIAlertAction)in
+                self.currentCategory = category.key
+                
+                if self.currentCategory == "all"{
+                    self.devices = self.allDevices
+                }else{
+                    self.devices = self.allDevices.filter { $0.categoryName == self.currentCategory }
+                }
+                
+                self.energyDevicesTableview.reloadData()
+                
+                if let cell = self.energyDevicesTableview.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
+                    cell.categoryButton.setTitle(category.value, for: .normal)
+                }
             }))
-            
         }
         
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Annuleer", style: .cancel) { action -> Void in }
         alert.addAction(cancelAction)
+        
+        if let popoverController = alert.popoverPresentationController, let cell = self.energyDevicesTableview.cellForRow(at: IndexPath(row: 0, section: 0)) as? CategoryButtonTableViewCell{
+            let button = cell.categoryButton!
+            popoverController.sourceView = button
+            popoverController.sourceRect = CGRect(x: button.bounds.midX, y: button.bounds.maxY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = .up
+            
+        }
         
         self.present(alert, animated: true, completion: nil)
     }
@@ -123,6 +149,7 @@ class EnergyViewController: UIViewController {
                     do {
                         self.devices = try JSONDecoder().decode([Device].self, from: response.data!)
                         self.devices.sort(by: { $0.categoryName > $1.categoryName })
+                        self.allDevices = self.devices
                         self.energyDevicesTableview.reloadData()
                     }catch {
                         print("Parse error")
@@ -151,7 +178,6 @@ class EnergyViewController: UIViewController {
             }
         }
     }
-
 }
 
 
