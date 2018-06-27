@@ -253,37 +253,6 @@ class Helper {
         }
         
     }
-    
-    static func setCurrencyUnitToggle(viewController: UIViewController){
-        
-        var imageName = "euro"
-        
-        if isCurrency {
-            imageName = "unit"
-        }
-        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
-        
-        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed))
-        barButtonItem.tintColor = UIColor.white
-        
-        viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
-    }
-    
-    @objc static func currencyUnitTogglePressed(){
-        
-        if isCurrency {
-            isCurrency = false
-        }else{
-            isCurrency = true
-        }
-        
-        if let topController = UIApplication.topViewController(), let controller = topController as? CurrencyUnitToggle {
-
-            self.setCurrencyUnitToggle(viewController: controller as! UIViewController)
-
-            controller.currencyUnitTogglePressed()
-        }
-    }
 
     // Boolean is set when user has set to see currency instead of unit, the setting is saved in userdefaults
     static var isCurrency: Bool {
