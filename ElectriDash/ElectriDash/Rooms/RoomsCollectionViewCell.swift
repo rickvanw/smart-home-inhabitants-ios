@@ -17,5 +17,4 @@ class RoomsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var roomTemp: UILabel!
     @IBOutlet weak var roomLastMotion: UILabel!
     
-    
 }

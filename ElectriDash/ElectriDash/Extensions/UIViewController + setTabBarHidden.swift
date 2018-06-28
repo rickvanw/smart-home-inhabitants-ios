@@ -23,5 +23,4 @@ extension UIViewController {
         }
         self.tabBarController?.tabBar.isHidden = hidden
     }
-    
 }

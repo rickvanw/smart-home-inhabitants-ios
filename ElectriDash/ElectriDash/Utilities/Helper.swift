@@ -160,11 +160,6 @@ class Helper {
     }
     
     static func getStoredRecentRoomsArray() -> [RecentRooms]? {
-//        if let recentRoomsArray = UserDefaults.standard.object(forKey: Constants.Keys.recentRoomsArray) as? [RecentRooms] {
-//            return recentRoomsArray
-//        } else {
-//            return nil
-//        }
         
         if !isKeyPresentInUserDefaults(key: Constants.Keys.recentRoomsArray){
             return nil
@@ -179,9 +174,6 @@ class Helper {
     }
     
     static func setRecentRoomsArray(recentRoomsArray: [RecentRooms]){
-//        UserDefaults.standard.set(recentRoomsArray, forKey: Constants.Keys.recentRoomsArray)
-//        UserDefaults.standard.synchronize()
-        
         let defaults = UserDefaults.standard
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: recentRoomsArray)
         defaults.set(encodedData, forKey: Constants.Keys.recentRoomsArray)

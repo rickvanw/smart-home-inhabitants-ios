@@ -232,11 +232,7 @@ class RoomsViewController: UIViewController, UICollectionViewDelegate, UICollect
                 
         let room = rooms[indexPath.row]
         performSegue(withIdentifier: "RoomsToRoomDetail", sender: room)
-    }
-    
-    
-    
-    
+    } 
 }
 
 

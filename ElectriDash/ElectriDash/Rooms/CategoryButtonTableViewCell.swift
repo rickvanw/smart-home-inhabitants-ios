@@ -27,6 +27,4 @@ class CategoryButtonTableViewCell: UITableViewCell {
     @IBAction func categoryButtonPressed(_ sender: CustomButton) {
         (parentView as! TableViewCategory).setCategory()
     }
-    
-
 }
