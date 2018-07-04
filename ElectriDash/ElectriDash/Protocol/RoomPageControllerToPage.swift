@@ -1,5 +1,5 @@
 //
-//  pageControllerToPage.swift
+//  RoomPageControllerToPage.swift
 //  ElectriDash
 //
 //  Created by Rick van Weersel on 25/04/2018.

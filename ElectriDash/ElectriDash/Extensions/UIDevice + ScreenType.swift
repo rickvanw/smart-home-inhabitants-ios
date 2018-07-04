@@ -1,5 +1,5 @@
 //
-//  CollectionViewController.swift
+//  UIDevice + ScreenType.swift
 //  ElectriDash
 //
 //  Created by Rick van Weersel on 05/04/2018.

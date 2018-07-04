@@ -1,5 +1,5 @@
 //
-//  CustomView.swift
+//  UIView + addShadow.swift
 //  ElectriDash
 //
 //  Created by Rick van Weersel on 04/04/2018.

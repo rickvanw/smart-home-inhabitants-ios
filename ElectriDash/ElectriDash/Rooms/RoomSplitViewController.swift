@@ -22,5 +22,4 @@ class RoomSplitViewController: UISplitViewController, UISplitViewControllerDeleg
         // Return true to prevent UIKit from applying its default behavior
         return true
     }
-    
 }

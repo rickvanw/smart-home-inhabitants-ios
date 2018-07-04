@@ -59,16 +59,7 @@ class Room: NSObject, Decodable {
         if offlineDevices != nil {
             self.offlineDevices = offlineDevices
         }
-        //        public int Id { get; set; }
-        //        public string Name { get; set; }
-        //        public EnergyUsageEuroDto EnergyUsage { get; set; }
-        //        public decimal? Temperature { get; set; }
-        //        public DateTime? LastMotion { get; set; }
-        //        public decimal? Luminance { get; set; }
-        //        public string ImageLink { get; set; }
-        //        public int? Devices { get; set; }
     }
-    
     
     func getLastMotionDate() -> Date?{
         

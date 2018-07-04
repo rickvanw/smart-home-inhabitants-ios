@@ -11,8 +11,7 @@ import UIKit
 private let reuseIdentifier = "OverviewCollectionViewCell"
 
 extension OverviewViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
+        
     // MARK: UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

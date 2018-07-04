@@ -38,7 +38,6 @@ class Helper {
         let token = Constants.Keys.token
         let houseId = Constants.Keys.houseId
         let currencyUnit = Constants.Keys.currencyUnit
-        let username = Constants.Keys.username
 
         if isKeyPresentInUserDefaults(key: token){
             standard.removeObject(forKey: token)
@@ -50,10 +49,6 @@ class Helper {
         
         if isKeyPresentInUserDefaults(key: currencyUnit){
             standard.removeObject(forKey: currencyUnit)
-        }
-        
-        if clearLoginPassword, isKeyPresentInUserDefaults(key: username){
-            standard.removeObject(forKey: username)
         }
         
         standard.synchronize()
@@ -160,11 +155,6 @@ class Helper {
     }
     
     static func getStoredRecentRoomsArray() -> [RecentRooms]? {
-//        if let recentRoomsArray = UserDefaults.standard.object(forKey: Constants.Keys.recentRoomsArray) as? [RecentRooms] {
-//            return recentRoomsArray
-//        } else {
-//            return nil
-//        }
         
         if !isKeyPresentInUserDefaults(key: Constants.Keys.recentRoomsArray){
             return nil
@@ -179,9 +169,6 @@ class Helper {
     }
     
     static func setRecentRoomsArray(recentRoomsArray: [RecentRooms]){
-//        UserDefaults.standard.set(recentRoomsArray, forKey: Constants.Keys.recentRoomsArray)
-//        UserDefaults.standard.synchronize()
-        
         let defaults = UserDefaults.standard
         let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: recentRoomsArray)
         defaults.set(encodedData, forKey: Constants.Keys.recentRoomsArray)
@@ -252,37 +239,6 @@ class Helper {
             return nil
         }
         
-    }
-    
-    static func setCurrencyUnitToggle(viewController: UIViewController){
-        
-        var imageName = "euro"
-        
-        if isCurrency {
-            imageName = "unit"
-        }
-        let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
-        
-        let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(currencyUnitTogglePressed))
-        barButtonItem.tintColor = UIColor.white
-        
-        viewController.navigationItem.setRightBarButton(barButtonItem, animated: true)
-    }
-    
-    @objc static func currencyUnitTogglePressed(){
-        
-        if isCurrency {
-            isCurrency = false
-        }else{
-            isCurrency = true
-        }
-        
-        if let topController = UIApplication.topViewController(), let controller = topController as? CurrencyUnitToggle {
-
-            self.setCurrencyUnitToggle(viewController: controller as! UIViewController)
-
-            controller.currencyUnitTogglePressed()
-        }
     }
 
     // Boolean is set when user has set to see currency instead of unit, the setting is saved in userdefaults

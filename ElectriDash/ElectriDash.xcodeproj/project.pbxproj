@@ -52,7 +52,6 @@
 		1DED93DB20A07A1A006E50AE /* UIApplication + topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */; };
 		1DED93DE20A07A33006E50AE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DD20A07A32006E50AE /* CustomView.swift */; };
 		1DED93E020A07A6A006E50AE /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93DF20A07A69006E50AE /* Room.swift */; };
-		1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */; };
 		1DED93EB20A07A7A006E50AE /* RoomPageControllerToPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */; };
 		1DF16B3720BEAA900050BBB8 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16B3620BEAA900050BBB8 /* Graph.swift */; };
 		1DF16B3920BEAAAD0050BBB8 /* GraphEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */; };
@@ -121,7 +120,6 @@
 		1DED93DA20A07A19006E50AE /* UIApplication + topViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication + topViewController.swift"; sourceTree = "<group>"; };
 		1DED93DD20A07A32006E50AE /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		1DED93DF20A07A69006E50AE /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
-		1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyUnitToggle.swift; sourceTree = "<group>"; };
 		1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomPageControllerToPage.swift; sourceTree = "<group>"; };
 		1DF16B3620BEAA900050BBB8 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		1DF16B3820BEAAAD0050BBB8 /* GraphEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEntry.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 		1DED93E120A07A79006E50AE /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				1DED93E220A07A79006E50AE /* CurrencyUnitToggle.swift */,
 				1DED93E620A07A79006E50AE /* RoomPageControllerToPage.swift */,
 				1D82D13D20BFFEE2008513EB /* EnergyPageControllerToPage.swift */,
 				1DEBAAAC20BBFC1900BAD634 /* PeriodSettingDelegate.swift */,
@@ -488,8 +485,6 @@
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -498,8 +493,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ScrollableGraphView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,7 +528,6 @@
 				1D913E6B20AB71B300F5C119 /* RoomSplitViewController.swift in Sources */,
 				1D35728320D907F30012C342 /* DeviceHistory.swift in Sources */,
 				D0AA988820B5615000FDF12F /* DevicesTableViewCell.swift in Sources */,
-				1DED93E720A07A7A006E50AE /* CurrencyUnitToggle.swift in Sources */,
 				1DED93D820A079F7006E50AE /* EnergyViewController.swift in Sources */,
 				D0298DBD20B44043007630BD /* Device.swift in Sources */,
 				1D75C35A207CE0A000CF947D /* UIColor + hexString.swift in Sources */,
