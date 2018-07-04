@@ -95,6 +95,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if keychain[username] != nil {
                     passwordTextField.text = keychain[username]
                 }
+            }else{
+                passwordTextField.text = ""
             }
         }
     }

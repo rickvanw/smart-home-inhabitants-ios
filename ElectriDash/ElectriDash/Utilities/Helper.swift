@@ -38,7 +38,6 @@ class Helper {
         let token = Constants.Keys.token
         let houseId = Constants.Keys.houseId
         let currencyUnit = Constants.Keys.currencyUnit
-        let username = Constants.Keys.username
 
         if isKeyPresentInUserDefaults(key: token){
             standard.removeObject(forKey: token)
@@ -50,10 +49,6 @@ class Helper {
         
         if isKeyPresentInUserDefaults(key: currencyUnit){
             standard.removeObject(forKey: currencyUnit)
-        }
-        
-        if clearLoginPassword, isKeyPresentInUserDefaults(key: username){
-            standard.removeObject(forKey: username)
         }
         
         standard.synchronize()
