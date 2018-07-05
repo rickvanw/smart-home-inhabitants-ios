@@ -12,7 +12,8 @@ extension EnergyViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if devices.count > 0{
+        if devices.count > 0 || categoryButtonShown{
+            categoryButtonShown = true
             return devices.count + 1
         }else{
             return 0
@@ -73,7 +74,8 @@ extension EnergyViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "DeviceTableToDetail", sender: devices[indexPath.row - 1])
-
+        if indexPath.row != 0{
+            self.performSegue(withIdentifier: "DeviceTableToDetail", sender: devices[indexPath.row - 1])
+        }
     }
 }

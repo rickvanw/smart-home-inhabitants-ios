@@ -24,6 +24,8 @@ class RoomDevicesViewController: UIViewController, UITableViewDataSource, UITabl
     
     let devCats = Constants.deviceCategories.self
     
+    var categoryButtonShown = false
+    
     func reloadPage() {
         deviceTableView.reloadData()
     }
@@ -122,7 +124,8 @@ class RoomDevicesViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        if devices.count > 0{
+        if devices.count > 0 || categoryButtonShown{
+            categoryButtonShown = true
             return devices.count + 1
         }else{
             return 0

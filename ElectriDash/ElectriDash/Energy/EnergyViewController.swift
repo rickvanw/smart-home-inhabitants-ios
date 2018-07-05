@@ -20,6 +20,8 @@ class EnergyViewController: UIViewController, TableViewCategory {
     
     let devCats = Constants.deviceCategories.self
 
+    var categoryButtonShown = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
